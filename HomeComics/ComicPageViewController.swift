@@ -28,12 +28,12 @@ class ComicPageViewController: UIPageViewController {
                                completion: nil)
         }
         let firstImage = orderedViewControllers[0].view.viewWithTag(11) as! UIImageView
-        let firstData = NSData(contentsOf: pagesIndex[0]) as! Data
+        let firstData = NSData(contentsOf: pagesIndex[0])! as Data
         firstImage.image = UIImage(data: firstData)
         // is this check relevant? should be tested with a book of only 1 page 
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
-            let nextData = NSData(contentsOf: pagesIndex[1]) as! Data
+            let nextData = NSData(contentsOf: pagesIndex[1])! as Data
             nextImage.image = UIImage(data: nextData)
         }
     }
@@ -132,12 +132,12 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             
             if (currentPage > 0) {
                 let prevImage = getPrevController(index: currentController).view.viewWithTag(11) as! UIImageView
-                let prevData = NSData(contentsOf: pagesIndex[currentPage - 1]) as! Data
+                let prevData = NSData(contentsOf: pagesIndex[currentPage - 1])! as Data
                 prevImage.image = UIImage(data: prevData)
             }
             if (currentPage < pagesIndex.count - 1) {
                 let nextImage = getNextController(index: currentController).view.viewWithTag(11) as! UIImageView
-                let nextData = NSData(contentsOf: pagesIndex[currentPage + 1]) as! Data
+                let nextData = NSData(contentsOf: pagesIndex[currentPage + 1])! as Data
                 nextImage.image = UIImage(data: nextData)
             }
         }

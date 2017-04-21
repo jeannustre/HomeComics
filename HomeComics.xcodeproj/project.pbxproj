@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
 		ABD19EB21E78BE44009725F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD19EB01E78BE44009725F3 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */,
 				ABF4464A1E7986F000233721 /* FileBrowser.framework in Frameworks */,
 				ABF4464B1E7986F000233721 /* Zip.framework in Frameworks */,
 				ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */,
@@ -80,6 +83,7 @@
 		ABF446451E79854000233721 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */,
 				ABF4464F1E7998B700233721 /* Alamofire.framework */,
 				ABF446461E79854100233721 /* FileBrowser.framework */,
 				ABF446471E79854100233721 /* Zip.framework */,
@@ -166,6 +170,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FileBrowser.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);

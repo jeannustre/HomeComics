@@ -10,6 +10,7 @@ import UIKit
 import FileBrowser
 import Zip
 import Alamofire
+import SwiftyJSON
 
 class MainViewController: UIViewController {
 
