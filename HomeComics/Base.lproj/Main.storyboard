@@ -56,8 +56,8 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAV-D3-qjq">
-                                        <rect key="frame" x="148.5" y="323.5" width="46" height="323.5"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="154" y="323.5" width="35" height="323.5"/>
+                                        <state key="normal" title="Read"/>
                                         <connections>
                                             <action selector="openReader:" destination="UaP-T2-KOP" eventType="touchUpInside" id="9tR-s4-rZJ"/>
                                         </connections>

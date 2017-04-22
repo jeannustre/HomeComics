@@ -29,7 +29,10 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             //Alamofire.download(urlString, to: destination).response { response in
         Alamofire.download("http://127.0.0.1:8080/books.json", to: destination).response { response in
             print(response)
-            self.readJSON()
+            if (response.error == nil) {
+                self.readJSON()
+            }
+            
         }
        // }
     }
@@ -51,13 +54,11 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://127.0.0.1:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
         for page in stringArray! {
             print("url as string : \(page)")
-            
-            
             if let url = URL(string: page.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!) {
                 pagesIndex.append(url)
             }
-            //            print(url.absoluteString)
         }
+        readButton.isEnabled = true
     }
     
     @IBAction func openReader(_ sender: Any) {
@@ -76,6 +77,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         self.jsonTextField.delegate = self
+        readButton.isEnabled = false
     }
     
     override func didReceiveMemoryWarning() {

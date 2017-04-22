@@ -100,6 +100,7 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
             return nil
         }
         currentOffset = -1
+
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
         }
@@ -141,6 +142,7 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
                 currentController = 2
             }
             print("currentPage: \(currentPage)")
+            print("currentController: \(currentController)")
             if (currentPage > 0) {
                 let prevImage = getPrevController(index: currentController).view.viewWithTag(11) as! UIImageView
                 prevImage.af_setImage(withURL: pagesIndex[currentPage - 1])
