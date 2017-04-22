@@ -44,13 +44,13 @@ class ComicPageViewController: UIPageViewController {
     }
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newPagedViewController(name: "First"),
-                self.newPagedViewController(name: "Second"),
-                self.newPagedViewController(name: "Third")]
+        return [self.newPageViewController(),
+                self.newPageViewController(),
+                self.newPageViewController()]
     }()
     
-    private func newPagedViewController(name: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(name)PageViewController")
+    private func newPageViewController() -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePageViewController")
     }
     
 }

@@ -25,12 +25,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             fileURL.appendPathComponent("books.json")
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
-        if let urlString = jsonTextField.text {
-            Alamofire.download(urlString, to: destination).response { response in
-                print(response)
-                self.readJSON()
-            }
+        //if let urlString = jsonTextField.text {
+            //Alamofire.download(urlString, to: destination).response { response in
+        Alamofire.download("http://127.0.0.1:8080/books.json", to: destination).response { response in
+            print(response)
+            self.readJSON()
         }
+       // }
     }
     
     func readJSON() {
@@ -47,7 +48,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             return
         }
         // TODO: replace hardcoded url with user setting
-        let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://192.168.0.100:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
+        let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://127.0.0.1:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
         for page in stringArray! {
             print("url as string : \(page)")
             

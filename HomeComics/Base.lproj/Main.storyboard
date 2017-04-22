@@ -16,7 +16,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="sL4-G8-MuV" customClass="ComicPageViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEr-Ap-zGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="18"/>
+            <point key="canvasLocation" x="694" y="-199"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="2vR-jO-cAk">
@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="-55" y="-199"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Page View Controller-->
         <scene sceneID="HFo-yo-WTK">
             <objects>
-                <viewController storyboardIdentifier="FirstPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="50T-Qz-Cpi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SinglePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="50T-Qz-Cpi" customClass="SinglePageViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gjy-nU-Lfp"/>
                         <viewControllerLayoutGuide type="bottom" id="KHQ-6n-SNc"/>
@@ -124,94 +124,14 @@
                             <constraint firstAttribute="trailing" secondItem="6dA-XP-ocF" secondAttribute="trailing" id="vV3-qR-Op0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="0WM-iX-EWg" id="dGe-RH-jth"/>
+                        <outlet property="scrollView" destination="6dA-XP-ocF" id="cKV-3i-5lH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWw-3D-ETH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="797"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="0yK-CR-t2V">
-            <objects>
-                <viewController storyboardIdentifier="SecondPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ko-VC-H33" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ij3-ww-Pwo"/>
-                        <viewControllerLayoutGuide type="bottom" id="JhY-FI-D0y"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ija-KD-6hz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7I9-9t-bSx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QWQ-hp-s53">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="646"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="QWQ-hp-s53" firstAttribute="centerX" secondItem="7I9-9t-bSx" secondAttribute="centerX" id="L7l-BJ-gsQ"/>
-                                    <constraint firstItem="QWQ-hp-s53" firstAttribute="centerY" secondItem="7I9-9t-bSx" secondAttribute="centerY" id="Raz-zI-CMv"/>
-                                    <constraint firstAttribute="bottom" secondItem="QWQ-hp-s53" secondAttribute="bottom" id="YrU-9M-gL1"/>
-                                    <constraint firstAttribute="trailing" secondItem="QWQ-hp-s53" secondAttribute="trailing" id="ijL-9q-nAG"/>
-                                    <constraint firstItem="QWQ-hp-s53" firstAttribute="top" secondItem="7I9-9t-bSx" secondAttribute="top" id="nJO-tY-590"/>
-                                    <constraint firstItem="QWQ-hp-s53" firstAttribute="leading" secondItem="7I9-9t-bSx" secondAttribute="leading" id="o94-OG-N4H"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="7I9-9t-bSx" firstAttribute="top" secondItem="ij3-ww-Pwo" secondAttribute="bottom" id="abf-UG-pI6"/>
-                            <constraint firstAttribute="trailing" secondItem="7I9-9t-bSx" secondAttribute="trailing" id="bvO-c8-o5U"/>
-                            <constraint firstItem="JhY-FI-D0y" firstAttribute="top" secondItem="7I9-9t-bSx" secondAttribute="bottom" id="g6x-iC-i8R"/>
-                            <constraint firstItem="7I9-9t-bSx" firstAttribute="leading" secondItem="Ija-KD-6hz" secondAttribute="leading" id="mPQ-xy-mKI"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bBl-Gj-AGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="638" y="797"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gks-Ti-xQF">
-            <objects>
-                <viewController storyboardIdentifier="ThirdPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R5X-Vn-8cS" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ktg-Be-q47"/>
-                        <viewControllerLayoutGuide type="bottom" id="jQ3-hd-ghg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N8r-ry-KPI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1m-57-FTx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bkl-WM-09p">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="646"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="bkl-WM-09p" firstAttribute="centerY" secondItem="f1m-57-FTx" secondAttribute="centerY" id="Ra9-wa-bPV"/>
-                                    <constraint firstItem="bkl-WM-09p" firstAttribute="leading" secondItem="f1m-57-FTx" secondAttribute="leading" id="SBv-rF-dNi"/>
-                                    <constraint firstItem="bkl-WM-09p" firstAttribute="top" secondItem="f1m-57-FTx" secondAttribute="top" id="ToX-yh-ltM"/>
-                                    <constraint firstAttribute="bottom" secondItem="bkl-WM-09p" secondAttribute="bottom" id="XyK-Dg-cd8"/>
-                                    <constraint firstAttribute="trailing" secondItem="bkl-WM-09p" secondAttribute="trailing" id="ayO-Fb-9Fg"/>
-                                    <constraint firstItem="bkl-WM-09p" firstAttribute="centerX" secondItem="f1m-57-FTx" secondAttribute="centerX" id="b36-zr-3CN"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="jQ3-hd-ghg" firstAttribute="top" secondItem="f1m-57-FTx" secondAttribute="bottom" id="abc-68-WpG"/>
-                            <constraint firstAttribute="trailing" secondItem="f1m-57-FTx" secondAttribute="trailing" id="gxv-QI-nhl"/>
-                            <constraint firstItem="f1m-57-FTx" firstAttribute="leading" secondItem="N8r-ry-KPI" secondAttribute="leading" id="hfS-cb-XZU"/>
-                            <constraint firstItem="f1m-57-FTx" firstAttribute="top" secondItem="Ktg-Be-q47" secondAttribute="bottom" id="yXB-Jo-3lC"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FCP-Nq-w88" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1310" y="797"/>
+            <point key="canvasLocation" x="1601" y="-199"/>
         </scene>
     </scenes>
 </document>
