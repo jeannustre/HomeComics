@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-XP-ocF">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-XP-ocF" customClass="HCScrollView" customModule="HomeComics" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-iX-EWg">
@@ -126,7 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="0WM-iX-EWg" id="dGe-RH-jth"/>
-                        <outlet property="scrollView" destination="6dA-XP-ocF" id="cKV-3i-5lH"/>
+                        <outlet property="scrollView" destination="6dA-XP-ocF" id="sfo-BX-U1I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWw-3D-ETH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,18 +8,27 @@
 
 import UIKit
 
-class SinglePageViewController: UIViewController, UIScrollViewDelegate {
+class SinglePageViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: -
-    @IBOutlet var scrollView: UIScrollView!
+   
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var scrollView: HCScrollView!
+    
+    var parentPanGestureRecognizer: UIPanGestureRecognizer!
+    
+    convenience init() {
+        self.init()
+    }
     
     // MARK: - View lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         scrollView.delegate = self
+        //scrollView.panGestureRecognizer.delegate = self
         self.setZoomScale()
+        self.setupGestureRecognizer()
     }
     
     override func viewWillLayoutSubviews() {
@@ -42,7 +51,9 @@ class SinglePageViewController: UIViewController, UIScrollViewDelegate {
         let widthScale = scrollViewSize.width / imageViewSize.width
         let heightScale = scrollViewSize.height / imageViewSize.height
         scrollView.minimumZoomScale = min(widthScale, heightScale)
-        scrollView.maximumZoomScale = 2.0
+        scrollView.maximumZoomScale = 1.5
+        scrollView.zoomScale = scrollView.minimumZoomScale
+        updateGestureRecognition()
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
@@ -53,6 +64,36 @@ class SinglePageViewController: UIViewController, UIScrollViewDelegate {
         let horizontalPadding = imageViewSize.width < scrollViewSize.width ? (scrollViewSize.width - imageViewSize.width) / 2 : 0
         
         scrollView.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
+        updateGestureRecognition()
+    }
+    
+    // MARK: - Gesture recognition
+    func setupGestureRecognizer() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(recognizer:)))
+        doubleTap.numberOfTapsRequired = 2
+        scrollView.addGestureRecognizer(doubleTap)
+    }
+    
+    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
+        if (scrollView.zoomScale > scrollView.minimumZoomScale) {
+            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+        } else {
+            scrollView.setZoomScale(scrollView.maximumZoomScale, animated: true)
+        }
+    }
+    
+    func updateGestureRecognition() {
+        if scrollView.zoomScale == scrollView.minimumZoomScale {
+            scrollView.panGestureRecognizer.isEnabled = false
+            if (parentPanGestureRecognizer != nil) {
+                parentPanGestureRecognizer.isEnabled = true
+            }
+        } else {
+            scrollView.panGestureRecognizer.isEnabled = true
+            if (parentPanGestureRecognizer != nil) {
+                parentPanGestureRecognizer.isEnabled = false
+            }
+        }
     }
 
 }

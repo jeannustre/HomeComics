@@ -18,9 +18,17 @@ class ComicPageViewController: UIPageViewController {
     var currentOffset: Int = 0
     var currentController: Int = 0
     var currentImageView: UIImageView?
+    var panGestureRecognizer: UIPanGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for gesture in self.gestureRecognizers {
+            if (gesture is UIPanGestureRecognizer) {
+                print("binding panGestureRecognizer")
+                panGestureRecognizer = gesture as? UIPanGestureRecognizer
+            }
+        }
         
         dataSource = self
         delegate = self
@@ -32,10 +40,17 @@ class ComicPageViewController: UIPageViewController {
         }
         currentImageView = orderedViewControllers[0].view.viewWithTag(11) as? UIImageView
         currentImageView?.af_setImage(withURL: pagesIndex[0])
+        
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
             nextImage.af_setImage(withURL: pagesIndex[1])
         }
+        if panGestureRecognizer != nil {
+            orderedViewControllers[0].parentPanGestureRecognizer = panGestureRecognizer
+            orderedViewControllers[1].parentPanGestureRecognizer = panGestureRecognizer
+            orderedViewControllers[2].parentPanGestureRecognizer = panGestureRecognizer
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,14 +58,14 @@ class ComicPageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
+    private(set) lazy var orderedViewControllers: [SinglePageViewController] = {
         return [self.newPageViewController(),
                 self.newPageViewController(),
                 self.newPageViewController()]
     }()
     
-    private func newPageViewController() -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePageViewController")
+    private func newPageViewController() -> SinglePageViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePageViewController") as! SinglePageViewController
     }
     
 }
@@ -59,7 +74,7 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         currentOffset = 1
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
         }
         guard currentPage < pagesIndex.count - 1 else {
@@ -83,7 +98,7 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
         currentOffset = -1
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
         }
         let previousIndex = viewControllerIndex - 1
