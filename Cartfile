@@ -1,4 +1,5 @@
 github "marmelroy/Zip"
 github "marmelroy/FileBrowser"
 github "Alamofire/Alamofire"
+github "Alamofire/AlamofireImage"
 github "SwiftyJSON/SwiftyJSON"

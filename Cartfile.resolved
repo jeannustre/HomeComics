@@ -1,4 +1,5 @@
 github "Alamofire/Alamofire" "4.4.0"
+github "Alamofire/AlamofireImage" "3.2.0"
 github "SwiftyJSON/SwiftyJSON" "3.1.4"
 github "marmelroy/FileBrowser" "0.2.0"
 github "marmelroy/Zip" "0.7.0"

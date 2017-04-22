@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 
 class ComicPageViewController: UIPageViewController {
@@ -19,6 +21,10 @@ class ComicPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for page in pagesIndex {
+            print("page : \(page.absoluteString)")
+        }
+        
         dataSource = self
         delegate = self
         if let firstViewController = orderedViewControllers.first {
@@ -28,13 +34,11 @@ class ComicPageViewController: UIPageViewController {
                                completion: nil)
         }
         let firstImage = orderedViewControllers[0].view.viewWithTag(11) as! UIImageView
-        let firstData = NSData(contentsOf: pagesIndex[0])! as Data
-        firstImage.image = UIImage(data: firstData)
-        // is this check relevant? should be tested with a book of only 1 page 
+        print("getting image at \(pagesIndex[0].absoluteString)")
+        firstImage.af_setImage(withURL: pagesIndex[0])
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
-            let nextData = NSData(contentsOf: pagesIndex[1])! as Data
-            nextImage.image = UIImage(data: nextData)
+            nextImage.af_setImage(withURL: pagesIndex[1])
         }
     }
 
@@ -132,13 +136,11 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             
             if (currentPage > 0) {
                 let prevImage = getPrevController(index: currentController).view.viewWithTag(11) as! UIImageView
-                let prevData = NSData(contentsOf: pagesIndex[currentPage - 1])! as Data
-                prevImage.image = UIImage(data: prevData)
+                prevImage.af_setImage(withURL: pagesIndex[currentPage - 1])
             }
             if (currentPage < pagesIndex.count - 1) {
                 let nextImage = getNextController(index: currentController).view.viewWithTag(11) as! UIImageView
-                let nextData = NSData(contentsOf: pagesIndex[currentPage + 1])! as Data
-                nextImage.image = UIImage(data: nextData)
+                nextImage.af_setImage(withURL: pagesIndex[currentPage + 1])
             }
         }
     }

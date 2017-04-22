@@ -12,11 +12,14 @@ import Zip
 import Alamofire
 import SwiftyJSON
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var readButton: UIButton!
+    @IBOutlet var jsonTextField: UITextField!
     
     var pagesIndex: [URL] = []
+    var pagesIndexJSON: [URL] = []
+    //let bookJSON =
     var bookTitle: String = "" {
         didSet {
             readButton.setTitle("Start reading \(bookTitle)", for: .normal)
@@ -31,8 +34,63 @@ class MainViewController: UIViewController {
         present(fileBrowser, animated: true, completion: nil)
     }
     
+    @IBAction func fetchJSON(_ sender: UIButton) {
+        let destination: DownloadRequest.DownloadFileDestination = {_, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            var fileURL = documentsURL
+            fileURL.appendPathComponent("books.json")
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        // http://127.0.0.1:8080/sgt.json
+        if let urlString = jsonTextField.text {
+            Alamofire.download(urlString, to: destination).response { response in
+                print(response)
+                self.readJSON()
+            }
+        }
+    }
+    
+    func readJSON() {
+        var fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        fileURL.appendPathComponent("books.json")
+        var json: JSON?
+        do {
+            json = try JSON(data: Data(contentsOf: fileURL))
+        } catch {
+            print("reading books.json thrown an error")
+        }
+        if (json == nil) {
+            print("could not read json")
+            return
+        }
+        // iterate through books
+        /*
+        for (key, subJson):(String, JSON) in (json?["books"])! {
+            print("Book \(key) : \(subJson["title"].stringValue)")
+            let arrayPages = subJson["contents"].arrayValue.map({subJson["location"].stringValue + "/" + $0.stringValue})
+            for page in arrayPages {
+                print("\(page)")
+            }
+        }
+        */
+        // open first book
+        let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://192.168.0.100:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
+        for page in stringArray! {
+            print("url as string : \(page)")
+            
+            
+            if let url = URL(string: page.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!) {
+                pagesIndexJSON.append(url)
+            }
+            //            print(url.absoluteString)
+        }
+        for url in pagesIndexJSON {
+            print("url as url : \(url)")
+        }
+    }
+    
     @IBAction func downloadCBZFile(_ sender: Any) {
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+        let destination: DownloadRequest.DownloadFileDestination = {_, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             var fileURL = documentsURL
             fileURL.appendPathComponent("batman.cbz")
@@ -82,15 +140,25 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "openComicSegue") {
             let comicPageViewController = segue.destination as! ComicPageViewController
-            comicPageViewController.pagesIndex = self.pagesIndex
+            // comicPageViewController.pagesIndex = self.pagesIndex
+            comicPageViewController.pagesIndex = self.pagesIndexJSON
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.jsonTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -45,6 +45,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-cf-s5P">
                                                 <rect key="frame" x="130" y="81" width="83" height="81"/>
                                                 <state key="normal" title="Fetch JSON"/>
+                                                <connections>
+                                                    <action selector="fetchJSON:" destination="UaP-T2-KOP" eventType="touchUpInside" id="Xc7-YI-fUk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -89,6 +92,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="jsonTextField" destination="HJV-c4-9fv" id="xl1-nk-bJa"/>
                         <outlet property="readButton" destination="uAV-D3-qjq" id="6mv-J3-QcL"/>
                         <segue destination="sL4-G8-MuV" kind="show" identifier="openComicSegue" id="bpN-IN-Z4F"/>
                     </connections>
