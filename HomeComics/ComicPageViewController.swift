@@ -17,6 +17,7 @@ class ComicPageViewController: UIPageViewController {
     var currentPage: Int = 0
     var currentOffset: Int = 0
     var currentController: Int = 0
+    var currentImageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,8 @@ class ComicPageViewController: UIPageViewController {
                                animated: true,
                                completion: nil)
         }
-        let firstImage = orderedViewControllers[0].view.viewWithTag(11) as! UIImageView
-        firstImage.af_setImage(withURL: pagesIndex[0])
+        currentImageView = orderedViewControllers[0].view.viewWithTag(11) as? UIImageView
+        currentImageView?.af_setImage(withURL: pagesIndex[0])
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
             nextImage.af_setImage(withURL: pagesIndex[1])
@@ -148,3 +149,25 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
         return orderedViewControllers[index - 1]
     }
 }
+
+/*extension ComicPageViewController: UIScrollViewDelegate {
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return orderedViewControllers[currentController].view.viewWithTag(11) as! UIImageView
+    }
+    
+    private func updateMinZoomScaleForSize(size: CGSize) {
+        let widthScale = size.width / imageView.bounds.width
+        let heightScale = size.height / imageView.bounds.height
+        let minScale = min(widthScale, heightScale)
+        
+        scrollView.minimumZoomScale = minScale
+        
+        scrollView.zoomScale = minScale
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        updateMinZoomScaleForSize(view.bounds.size)
+    }
+}*/
