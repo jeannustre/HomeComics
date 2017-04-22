@@ -19,6 +19,7 @@ class ComicPageViewController: UIPageViewController {
     var currentController: Int = 0
     var currentImageView: UIImageView?
     var panGestureRecognizer: UIPanGestureRecognizer?
+    let loadingImage = UIImage(named: "loading")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +40,11 @@ class ComicPageViewController: UIPageViewController {
                                completion: nil)
         }
         currentImageView = orderedViewControllers[0].view.viewWithTag(11) as? UIImageView
-        currentImageView?.af_setImage(withURL: pagesIndex[0])
+        currentImageView?.af_setImage(withURL: pagesIndex[0], placeholderImage: loadingImage)
         
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
-            nextImage.af_setImage(withURL: pagesIndex[1])
+            nextImage.af_setImage(withURL: pagesIndex[1], placeholderImage: loadingImage)
         }
         if panGestureRecognizer != nil {
             orderedViewControllers[0].parentPanGestureRecognizer = panGestureRecognizer
@@ -72,12 +73,11 @@ class ComicPageViewController: UIPageViewController {
 
 extension ComicPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        currentOffset = 1
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
+        guard currentPage < pagesIndex.count - 1 else {
             return nil
         }
-        guard currentPage < pagesIndex.count - 1 else {
+        currentOffset = 1
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
         }
         let nextIndex = viewControllerIndex + 1
@@ -96,7 +96,9 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-
+        guard currentPage > 0 else {
+            return nil
+        }
         currentOffset = -1
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
@@ -126,7 +128,12 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             // prepare next and previous pages
             currentController += currentOffset
             currentPage += currentOffset
-            
+            if currentPage < 0 {
+                currentPage = 0
+            }
+            if currentPage > pagesIndex.count {
+                currentPage = pagesIndex.count - 1
+            }
             if (currentController >= 3) {
                 currentController = 0
             }
@@ -134,7 +141,6 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
                 currentController = 2
             }
             print("currentPage: \(currentPage)")
-            
             if (currentPage > 0) {
                 let prevImage = getPrevController(index: currentController).view.viewWithTag(11) as! UIImageView
                 prevImage.af_setImage(withURL: pagesIndex[currentPage - 1])
