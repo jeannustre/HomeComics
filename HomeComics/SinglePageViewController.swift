@@ -34,6 +34,10 @@ class SinglePageViewController: UIViewController, UIScrollViewDelegate{
     override func viewWillLayoutSubviews() {
         setZoomScale()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        scrollView.zoomScale = scrollView.minimumZoomScale
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
