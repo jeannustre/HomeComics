@@ -34,16 +34,16 @@
                                 <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qo1-Qb-PkM">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="162"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address/file.json" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJV-c4-9fv">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="81"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="162"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-cf-s5P">
-                                                <rect key="frame" x="130" y="81" width="83" height="81"/>
+                                                <rect key="frame" x="130" y="162" width="83" height="161.5"/>
                                                 <state key="normal" title="Fetch JSON"/>
                                                 <connections>
                                                     <action selector="fetchJSON:" destination="UaP-T2-KOP" eventType="touchUpInside" id="Xc7-YI-fUk"/>
@@ -55,22 +55,8 @@
                                             <constraint firstItem="HJV-c4-9fv" firstAttribute="leading" secondItem="Qo1-Qb-PkM" secondAttribute="leading" id="kjU-iG-Z2e"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BW-45-1I8">
-                                        <rect key="frame" x="131.5" y="162" width="80" height="161.5"/>
-                                        <state key="normal" title="FileBrowser"/>
-                                        <connections>
-                                            <action selector="openFileBrowser:" destination="UaP-T2-KOP" eventType="touchUpInside" id="cdR-Xn-CLR"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RB4-IF-D7J">
-                                        <rect key="frame" x="120.5" y="323.5" width="102" height="162"/>
-                                        <state key="normal" title="Download CBZ"/>
-                                        <connections>
-                                            <action selector="downloadCBZFile:" destination="UaP-T2-KOP" eventType="touchUpInside" id="mAD-rU-S9z"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAV-D3-qjq">
-                                        <rect key="frame" x="148.5" y="485.5" width="46" height="161.5"/>
+                                        <rect key="frame" x="148.5" y="323.5" width="46" height="323.5"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="openReader:" destination="UaP-T2-KOP" eventType="touchUpInside" id="9tR-s4-rZJ"/>

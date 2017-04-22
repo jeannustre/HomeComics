@@ -21,10 +21,6 @@ class ComicPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for page in pagesIndex {
-            print("page : \(page.absoluteString)")
-        }
-        
         dataSource = self
         delegate = self
         if let firstViewController = orderedViewControllers.first {
@@ -34,7 +30,6 @@ class ComicPageViewController: UIPageViewController {
                                completion: nil)
         }
         let firstImage = orderedViewControllers[0].view.viewWithTag(11) as! UIImageView
-        print("getting image at \(pagesIndex[0].absoluteString)")
         firstImage.af_setImage(withURL: pagesIndex[0])
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
@@ -57,16 +52,6 @@ class ComicPageViewController: UIPageViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(name)PageViewController")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ComicPageViewController: UIPageViewControllerDataSource {

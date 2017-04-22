@@ -5,7 +5,7 @@ Designed to work with a local REST api.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -35,8 +35,6 @@ If the HomeComics-server is running on the same network as your device, you will
 
 * [Carthage](https://github.com/Carthage/Carthage) - A simple, decentralized dependency manager for Cocoa
 * [Alamofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift
-* [Zip](https://github.com/marmelroy/Zip) - Swift framework for zipping and unzipping files.
-* [FileBrowser](https://github.com/marmelroy/FileBrowser) - Finder-style iOS file browser written in Swift
 
 ## Contributing
 
@@ -53,5 +51,3 @@ See also the list of [contributors](https://github.com/jeannustre/HomeComics/con
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-
-

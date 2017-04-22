@@ -14,8 +14,6 @@
 		ABD19EB21E78BE44009725F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD19EB01E78BE44009725F3 /* Main.storyboard */; };
 		ABD19EB41E78BE44009725F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD19EB31E78BE44009725F3 /* Assets.xcassets */; };
 		ABD19EB71E78BE44009725F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD19EB51E78BE44009725F3 /* LaunchScreen.storyboard */; };
-		ABF4464A1E7986F000233721 /* FileBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF446461E79854100233721 /* FileBrowser.framework */; };
-		ABF4464B1E7986F000233721 /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF446471E79854100233721 /* Zip.framework */; };
 		ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF4464D1E7987C700233721 /* MainViewController.swift */; };
 		ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF4464F1E7998B700233721 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
@@ -30,8 +28,6 @@
 		ABD19EB31E78BE44009725F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABD19EB61E78BE44009725F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABD19EB81E78BE44009725F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ABF446461E79854100233721 /* FileBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileBrowser.framework; path = Carthage/Build/iOS/FileBrowser.framework; sourceTree = "<group>"; };
-		ABF446471E79854100233721 /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
 		ABF4464D1E7987C700233721 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ABF4464F1E7998B700233721 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,8 +39,6 @@
 			files = (
 				2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */,
 				2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */,
-				ABF4464A1E7986F000233721 /* FileBrowser.framework in Frameworks */,
-				ABF4464B1E7986F000233721 /* Zip.framework in Frameworks */,
 				ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,8 +83,6 @@
 				2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */,
 				2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */,
 				ABF4464F1E7998B700233721 /* Alamofire.framework */,
-				ABF446461E79854100233721 /* FileBrowser.framework */,
-				ABF446471E79854100233721 /* Zip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,8 +163,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FileBrowser.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
