@@ -105,6 +105,11 @@
                                     <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-iX-EWg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="646"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGE-Ng-Quf">
+                                        <rect key="frame" x="329" y="8" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0WM-iX-EWg" firstAttribute="centerY" secondItem="6dA-XP-ocF" secondAttribute="centerY" id="3q3-6D-elQ"/>

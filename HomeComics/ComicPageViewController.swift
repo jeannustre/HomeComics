@@ -15,8 +15,6 @@ class ComicPageViewController: UIPageViewController {
 
     var pagesIndex: [URL] = []
     var currentPage: Int = 0
-    var currentOffset: Int = 0
-    var currentController: Int = 0
     var currentImageView: UIImageView?
     var panGestureRecognizer: UIPanGestureRecognizer?
     let loadingImage = UIImage(named: "loading")
@@ -76,7 +74,6 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
         guard currentPage < pagesIndex.count - 1 else {
             return nil
         }
-        currentOffset = 1
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
         }
@@ -88,9 +85,6 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
             let nextPage = orderedViewControllers.first
             return nextPage
         }
-        guard orderedViewControllersCount > nextIndex else {
-            return nil
-        }
         let nextPage = orderedViewControllers[nextIndex]
         return nextPage
     }
@@ -99,7 +93,6 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
         guard currentPage > 0 else {
             return nil
         }
-        currentOffset = -1
 
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController as! SinglePageViewController) else {
             return nil
@@ -114,9 +107,6 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
             let prevPage = orderedViewControllers.last
             return prevPage
         }
-        guard orderedViewControllers.count > previousIndex else {
-            return nil
-        }
         let prevPage = orderedViewControllers[previousIndex]
         return prevPage
     }
@@ -125,72 +115,75 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
 extension ComicPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
+      /*  print("---- Starting didFinishAnimating ----")
+        print("Animation from \(previousViewControllers[0]) to \(self.viewControllers)")
+        print("-----------")
+        print("current page : \(currentPage)")*/
+        
         if (completed) {
-            // prepare next and previous pages
-            currentController += currentOffset
-            currentPage += currentOffset
-            if currentPage < 0 {
-                currentPage = 0
+            //print("completed transition")
+            
+            let prevIndex = orderedViewControllers.index(of: previousViewControllers[0] as! SinglePageViewController)
+            let currentIndex = orderedViewControllers.index(of: self.viewControllers?[0] as! SinglePageViewController)
+            if currentIndex! == prevIndex! + 1 || (currentIndex! == orderedViewControllers.startIndex && prevIndex! == orderedViewControllers.endIndex - 1) {
+                // we moved forward
+                //print("Direction : forward")
+                currentPage += 1
+            } else if currentIndex! == prevIndex! - 1 || (currentIndex! == orderedViewControllers.endIndex - 1 && prevIndex! == orderedViewControllers.startIndex) {
+                currentPage -= 1
+            } else {
+                print("Direction : neutral")
+                return
             }
-            if currentPage > pagesIndex.count {
-                currentPage = pagesIndex.count - 1
-            }
-            if (currentController >= 3) {
-                currentController = 0
-            }
-            if (currentController < 0) {
-                currentController = 2
-            }
-            print("currentPage: \(currentPage)")
-            print("currentController: \(currentController)")
+            print("new current page after transition changes : \(currentPage)")
+            print("index of current controller : \(currentIndex)")
+
+            
             if (currentPage > 0) {
-                let prevImage = getPrevController(index: currentController).view.viewWithTag(11) as! UIImageView
+                print("setting previous image")
+                var prevController: SinglePageViewController?
+                if currentIndex == orderedViewControllers.startIndex {
+                    prevController = orderedViewControllers.last
+                } else {
+                    prevController = orderedViewControllers[currentIndex! - 1]
+                }
+                let prevImage = prevController?.view.viewWithTag(11) as! UIImageView
                 prevImage.af_setImage(withURL: pagesIndex[currentPage - 1])
             }
             if (currentPage < pagesIndex.count - 1) {
-                let nextImage = getNextController(index: currentController).view.viewWithTag(11) as! UIImageView
+                //print("setting next image")
+                var nextController: SinglePageViewController?
+                if currentIndex == orderedViewControllers.endIndex - 1 {
+                    nextController = orderedViewControllers.first
+                } else {
+                    nextController = orderedViewControllers[currentIndex! + 1]
+                }
+                let nextImage = nextController?.view.viewWithTag(11) as! UIImageView
                 nextImage.af_setImage(withURL: pagesIndex[currentPage + 1])
             }
         }
+        //print("---- Ending didFinishAnimating ----")
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        
+        //print("willTransitionTo :: \(pendingViewControllers)")
     }
     
     func getNextController(index: Int) -> UIViewController {
-        if (index >= 2) {
-            return orderedViewControllers[0]
+        //print("getNext :: \(index) vs \(orderedViewControllers.count)")
+        if (index == orderedViewControllers.count - 1) {
+            //print("getNextController : reached end, starting over")
+            return orderedViewControllers.first!
         }
         return orderedViewControllers[index + 1]
     }
     
-    func getPrevController(index: Int) -> UIViewController {
-        if (index <= 0) {
-            return orderedViewControllers[2]
+    /*func getPrevController(index: Int) -> UIViewController {
+        print("getPrev :: \(index) vs \(orderedViewControllers.startIndex)")
+        if (index == orderedViewControllers.startIndex) {
+            print("getPrevController : reached start, going to end")
+            return orderedViewControllers.last!
         }
         return orderedViewControllers[index - 1]
-    }
+    }*/
 }
-
-/*extension ComicPageViewController: UIScrollViewDelegate {
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return orderedViewControllers[currentController].view.viewWithTag(11) as! UIImageView
-    }
-    
-    private func updateMinZoomScaleForSize(size: CGSize) {
-        let widthScale = size.width / imageView.bounds.width
-        let heightScale = size.height / imageView.bounds.height
-        let minScale = min(widthScale, heightScale)
-        
-        scrollView.minimumZoomScale = minScale
-        
-        scrollView.zoomScale = minScale
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        updateMinZoomScaleForSize(view.bounds.size)
-    }
-}*/
