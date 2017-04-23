@@ -27,7 +27,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
         //if let urlString = jsonTextField.text {
             //Alamofire.download(urlString, to: destination).response { response in
-        Alamofire.download("http://127.0.0.1:8080/books.json", to: destination).response { response in
+        Alamofire.download("http://192.168.0.100:8080/books.json", to: destination).response { response in
             print(response)
             if (response.error == nil) {
                 self.readJSON()
@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             return
         }
         // TODO: replace hardcoded url with user setting
-        let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://127.0.0.1:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
+        let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://192.168.0.100:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
         for page in stringArray! {
             print("url as string : \(page)")
             if let url = URL(string: page.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!) {

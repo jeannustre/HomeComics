@@ -10,18 +10,16 @@ import UIKit
 
 class SinglePageViewController: UIViewController, UIScrollViewDelegate{
     
-    // MARK: -
-   
+    // MARK: - Class variables
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var scrollView: HCScrollView!
-    
     var parentPanGestureRecognizer: UIPanGestureRecognizer!
     
     convenience init() {
         self.init()
     }
     
-    // MARK: - View lifecycle methods
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
