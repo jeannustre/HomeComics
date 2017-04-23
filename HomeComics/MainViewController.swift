@@ -13,11 +13,13 @@ import SwiftyJSON
 
 class MainViewController: UIViewController, UITextFieldDelegate {
 
+    //MARK: - Class variables & Outlets
     @IBOutlet var readButton: UIButton!
     @IBOutlet var jsonTextField: UITextField!
-    
     var pagesIndex: [URL] = []
+    var defaults: UserDefaults?
     
+    //MARK: - Actions
     @IBAction func fetchJSON(_ sender: UIButton) {
         let destination: DownloadRequest.DownloadFileDestination = {_, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -25,19 +27,43 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             fileURL.appendPathComponent("books.json")
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
-        //if let urlString = jsonTextField.text {
-            //Alamofire.download(urlString, to: destination).response { response in
-        Alamofire.download("http://192.168.0.100:8080/books.json", to: destination).response { response in
+        Alamofire.download((defaults?.string(forKey: "serverBaseURL"))! + "books.json", to: destination).response { response in
             print(response)
             if (response.error == nil) {
                 self.readJSON()
             }
             
         }
-       // }
     }
     
-    func readJSON() {
+    @IBAction func openReader(_ sender: Any) {
+        self.performSegue(withIdentifier: "openComicSegue", sender: self)
+    }
+    
+    //MARK: - View lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        defaults = UserDefaults.standard
+        self.setupUserDefaults(defaults: defaults!)
+        self.jsonTextField.delegate = self
+        readButton.isEnabled = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "openComicSegue") {
+            let comicPageViewController = segue.destination as! ComicPageViewController
+            comicPageViewController.pagesIndex = self.pagesIndex
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    //MARK: - Class methods
+    private func readJSON() {
         var fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         fileURL.appendPathComponent("books.json")
         var json: JSON?
@@ -50,8 +76,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             print("could not read json")
             return
         }
-        // TODO: replace hardcoded url with user setting
-        let stringArray = json?["books"][0]["contents"].arrayValue.map({"http://192.168.0.100:8080/" + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
+        let stringArray = json?["books"][0]["contents"].arrayValue.map({(defaults?.string(forKey: "serverBaseURL"))! + (json?["books"][0]["location"].stringValue)! + "/" + $0.stringValue})
         for page in stringArray! {
             print("url as string : \(page)")
             if let url = URL(string: page.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!) {
@@ -61,33 +86,29 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         readButton.isEnabled = true
     }
     
-    @IBAction func openReader(_ sender: Any) {
-        self.performSegue(withIdentifier: "openComicSegue", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "openComicSegue") {
-            let comicPageViewController = segue.destination as! ComicPageViewController
-            comicPageViewController.pagesIndex = self.pagesIndex
+    private func setupUserDefaults(defaults: UserDefaults) {
+        if defaults.object(forKey: "ramCache") == nil {
+            print("Creating ramCache defaults key with value: 128")
+            defaults.set(128, forKey: "ramCache")
+        }
+        if defaults.object(forKey: "diskCache") == nil {
+            print("Creating diskCache defaults key with value: 512")
+            defaults.set(512, forKey: "diskCache")
+        }
+        if defaults.object(forKey: "downloadPriority") == nil {
+            print("Creating downloadPriority defaults key with value: true")
+            defaults.set(true, forKey: "downloadPriority") // true:fifo, false:lifo
+        }
+        if defaults.object(forKey: "serverBaseURL") == nil {
+            print("Creating serverBaseURL defaults key with value: http://127.0.0.1:8080/")
+            defaults.set("http://127.0.0.1:8080/", forKey: "serverBaseURL")
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.jsonTextField.delegate = self
-        readButton.isEnabled = false
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
+    //MARK: - Delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-
+    
 }

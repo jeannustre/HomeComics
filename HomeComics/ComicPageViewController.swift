@@ -31,16 +31,19 @@ class ComicPageViewController: UIPageViewController {
     var imageCache: AutoPurgingImageCache?
     
     private func setupCache() {
+        let defaults = UserDefaults.standard
+        let ramCache = defaults.integer(forKey: "ramCache")
+        let diskCache = defaults.integer(forKey: "diskCache")
         let config = URLSessionConfiguration.default
         let urlCache = URLCache(
             memoryCapacity: 0,
-            diskCapacity: 500000000, //500Mo
+            diskCapacity: diskCache * 1000000,
             diskPath: nil
         )
         config.urlCache = URLCache.shared
         config.urlCache = urlCache
         imageCache = AutoPurgingImageCache(
-            memoryCapacity: 160_000_000,
+            memoryCapacity: UInt64(ramCache * 1000000),
             preferredMemoryUsageAfterPurge: 80_000_000
         )
         downloader = ImageDownloader(

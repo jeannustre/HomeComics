@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D08476A1EAC5955002CB13E /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0847691EAC5955002CB13E /* ModalViewController.swift */; };
+		2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0847691EAC5955002CB13E /* SettingsViewController.swift */; };
 		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
-		2DCA92BC1EAC00FE003918E3 /* ComicPageModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA92BB1EAC00FE003918E3 /* ComicPageModalViewController.swift */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
@@ -23,11 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D0847691EAC5955002CB13E /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		2D0847691EAC5955002CB13E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
-		2DCA92BB1EAC00FE003918E3 /* ComicPageModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageModalViewController.swift; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,10 +55,10 @@
 		2DCA92B81EABF9A4003918E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D0847691EAC5955002CB13E /* SettingsViewController.swift */,
 				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
 				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
-				2DCA92BB1EAC00FE003918E3 /* ComicPageModalViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
-				2D0847691EAC5955002CB13E /* ModalViewController.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -217,12 +214,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */,
-				2DCA92BC1EAC00FE003918E3 /* ComicPageModalViewController.swift in Sources */,
 				2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */,
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
-				2D08476A1EAC5955002CB13E /* ModalViewController.swift in Sources */,
+				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
