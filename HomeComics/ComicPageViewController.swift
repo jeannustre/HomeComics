@@ -26,12 +26,59 @@ class ComicPageViewController: UIPageViewController {
                 self.newPageViewController(),
                 self.newPageViewController()]
     }()
+    // MARK: - Cache variables
+    var downloader: ImageDownloader?
+    var imageCache: AutoPurgingImageCache?
+    
+    private func setupCache() {
+        let config = URLSessionConfiguration.default
+        let urlCache = URLCache(
+            memoryCapacity: 0,
+            diskCapacity: 500000000, //500Mo
+            diskPath: nil
+        )
+        config.urlCache = URLCache.shared
+        config.urlCache = urlCache
+        imageCache = AutoPurgingImageCache(
+            memoryCapacity: 160_000_000,
+            preferredMemoryUsageAfterPurge: 80_000_000
+        )
+        downloader = ImageDownloader(
+            configuration: config,
+            downloadPrioritization: .fifo,
+            maximumActiveDownloads: 5,
+            imageCache: imageCache
+        )
+    }
+    
+    func setImage(url: URL, imageView: UIImageView){
+        let request = URLRequest(url: url)
+        
+        if let image = self.imageCache?.image(for: request) {
+            print("----- found image in cache! -----")
+            imageView.image = image
+            return
+        }
+        print("---   sending request for image   ---")
+        // TODO : error checks
+        downloader?.download(request) { response in
+        /*    print(response.request ?? "default_value")
+            print(response.response ?? "default_value")
+            debugPrint(response.result)*/
+            
+            if let image = response.result.value {
+                imageView.image = image
+                self.imageCache?.add(image, for: request)
+            }
+        }
+    }
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
         delegate = self
+        self.setupCache()
         self.setupGestures()
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
@@ -40,10 +87,12 @@ class ComicPageViewController: UIPageViewController {
                                completion: nil)
         }
         currentImageView = orderedViewControllers[0].view.viewWithTag(11) as? UIImageView
-        currentImageView?.af_setImage(withURL: pagesIndex[0], placeholderImage: loadingImage)
+        //currentImageView?.af_setImage(withURL: pagesIndex[0], placeholderImage: loadingImage)
+        setImage(url: pagesIndex[0], imageView: currentImageView!)
         if (pagesIndex.count >= 2) {
             let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
-            nextImage.af_setImage(withURL: pagesIndex[1], placeholderImage: loadingImage)
+            setImage(url: pagesIndex[1], imageView: nextImage)
+//            nextImage.af_setImage(withURL: pagesIndex[1], placeholderImage: loadingImage)
         }
         if panGestureRecognizer != nil {
             orderedViewControllers[0].parentPanGestureRecognizer = panGestureRecognizer
@@ -71,7 +120,9 @@ class ComicPageViewController: UIPageViewController {
             }
         }
     }
+    
 }
+
 
 // MARK: - DataSource
 extension ComicPageViewController: UIPageViewControllerDataSource {
@@ -139,7 +190,7 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
                     prevController = orderedViewControllers[currentIndex! - 1]
                 }
                 let prevImage = prevController?.view.viewWithTag(11) as! UIImageView
-                prevImage.af_setImage(withURL: pagesIndex[currentPage - 1])
+                setImage(url: pagesIndex[currentPage - 1], imageView: prevImage)
             }
             if (currentPage < pagesIndex.count - 1) {
                 var nextController: SinglePageViewController?
@@ -149,7 +200,7 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
                     nextController = orderedViewControllers[currentIndex! + 1]
                 }
                 let nextImage = nextController?.view.viewWithTag(11) as! UIImageView
-                nextImage.af_setImage(withURL: pagesIndex[currentPage + 1])
+                setImage(url: pagesIndex[currentPage + 1], imageView: nextImage)
             }
         }
     }
