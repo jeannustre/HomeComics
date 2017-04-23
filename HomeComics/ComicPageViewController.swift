@@ -49,7 +49,6 @@ class ComicPageViewController: UIPageViewController {
             orderedViewControllers[1].parentPanGestureRecognizer = panGestureRecognizer
             orderedViewControllers[2].parentPanGestureRecognizer = panGestureRecognizer
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,19 +114,10 @@ extension ComicPageViewController: UIPageViewControllerDataSource {
 extension ComicPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
-      /*  print("---- Starting didFinishAnimating ----")
-        print("Animation from \(previousViewControllers[0]) to \(self.viewControllers)")
-        print("-----------")
-        print("current page : \(currentPage)")*/
-        
         if (completed) {
-            //print("completed transition")
-            
             let prevIndex = orderedViewControllers.index(of: previousViewControllers[0] as! SinglePageViewController)
             let currentIndex = orderedViewControllers.index(of: self.viewControllers?[0] as! SinglePageViewController)
             if currentIndex! == prevIndex! + 1 || (currentIndex! == orderedViewControllers.startIndex && prevIndex! == orderedViewControllers.endIndex - 1) {
-                // we moved forward
-                //print("Direction : forward")
                 currentPage += 1
             } else if currentIndex! == prevIndex! - 1 || (currentIndex! == orderedViewControllers.endIndex - 1 && prevIndex! == orderedViewControllers.startIndex) {
                 currentPage -= 1
@@ -137,10 +127,7 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             }
             print("new current page after transition changes : \(currentPage)")
             print("index of current controller : \(currentIndex)")
-
-            
             if (currentPage > 0) {
-                print("setting previous image")
                 var prevController: SinglePageViewController?
                 if currentIndex == orderedViewControllers.startIndex {
                     prevController = orderedViewControllers.last
@@ -151,7 +138,6 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
                 prevImage.af_setImage(withURL: pagesIndex[currentPage - 1])
             }
             if (currentPage < pagesIndex.count - 1) {
-                //print("setting next image")
                 var nextController: SinglePageViewController?
                 if currentIndex == orderedViewControllers.endIndex - 1 {
                     nextController = orderedViewControllers.first
@@ -162,28 +148,10 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
                 nextImage.af_setImage(withURL: pagesIndex[currentPage + 1])
             }
         }
-        //print("---- Ending didFinishAnimating ----")
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        //print("willTransitionTo :: \(pendingViewControllers)")
+        
     }
-    
-    func getNextController(index: Int) -> UIViewController {
-        //print("getNext :: \(index) vs \(orderedViewControllers.count)")
-        if (index == orderedViewControllers.count - 1) {
-            //print("getNextController : reached end, starting over")
-            return orderedViewControllers.first!
-        }
-        return orderedViewControllers[index + 1]
-    }
-    
-    /*func getPrevController(index: Int) -> UIViewController {
-        print("getPrev :: \(index) vs \(orderedViewControllers.startIndex)")
-        if (index == orderedViewControllers.startIndex) {
-            print("getPrevController : reached start, going to end")
-            return orderedViewControllers.last!
-        }
-        return orderedViewControllers[index - 1]
-    }*/
+   
 }
