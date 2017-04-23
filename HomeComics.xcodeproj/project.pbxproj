@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D08476A1EAC5955002CB13E /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0847691EAC5955002CB13E /* ModalViewController.swift */; };
 		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0847691EAC5955002CB13E /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
+				2D0847691EAC5955002CB13E /* ModalViewController.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
+				2D08476A1EAC5955002CB13E /* ModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
