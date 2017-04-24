@@ -10,6 +10,13 @@
 		2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0847691EAC5955002CB13E /* SettingsViewController.swift */; };
 		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
+		2D610A471EAD815500980867 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A461EAD815500980867 /* Book.swift */; };
+		2D610A491EAD824000980867 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A481EAD824000980867 /* Page.swift */; };
+		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
+		2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4B1EAD847400980867 /* ObjectMapper.framework */; };
+		2D610A4F1EAD84EE00980867 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A4E1EAD84EE00980867 /* TestViewController.swift */; };
+		2D610A511EAD8C0100980867 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A501EAD8C0100980867 /* TestCollectionViewController.swift */; };
+		2D610A531EAD906700980867 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A521EAD906700980867 /* TestCollectionViewCell.swift */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
@@ -25,6 +32,13 @@
 		2D0847691EAC5955002CB13E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		2D610A461EAD815500980867 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		2D610A481EAD824000980867 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
+		2D610A4B1EAD847400980867 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		2D610A4E1EAD84EE00980867 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		2D610A501EAD8C0100980867 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		2D610A521EAD906700980867 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */,
+				2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */,
 				2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */,
 				2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */,
 				ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */,
@@ -59,6 +75,8 @@
 				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
 				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
+				2D610A501EAD8C0100980867 /* TestCollectionViewController.swift */,
+				2D610A4E1EAD84EE00980867 /* TestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -76,6 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
+				2D610A461EAD815500980867 /* Book.swift */,
+				2D610A481EAD824000980867 /* Page.swift */,
+				2D610A521EAD906700980867 /* TestCollectionViewCell.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -113,6 +134,8 @@
 		ABF446451E79854000233721 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */,
+				2D610A4B1EAD847400980867 /* ObjectMapper.framework */,
 				2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */,
 				2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */,
 				ABF4464F1E7998B700233721 /* Alamofire.framework */,
@@ -199,6 +222,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
 			);
 			outputPaths = (
 			);
@@ -216,8 +241,13 @@
 				ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */,
 				2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */,
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
+				2D610A491EAD824000980867 /* Page.swift in Sources */,
+				2D610A531EAD906700980867 /* TestCollectionViewCell.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
+				2D610A471EAD815500980867 /* Book.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
+				2D610A4F1EAD84EE00980867 /* TestViewController.swift in Sources */,
+				2D610A511EAD8C0100980867 /* TestCollectionViewController.swift in Sources */,
 				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
