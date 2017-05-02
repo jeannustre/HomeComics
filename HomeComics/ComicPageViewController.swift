@@ -19,6 +19,7 @@ class ComicPageViewController: UIPageViewController {
     var currentPage: Int = 0
     var currentImageView: UIImageView?
     var panGestureRecognizer: UIPanGestureRecognizer?
+    var pageIndicator: UIBarButtonItem?
     let loadingImage = UIImage(named: "loading")
     
     private(set) lazy var orderedViewControllers: [SinglePageViewController] = {
@@ -52,6 +53,11 @@ class ComicPageViewController: UIPageViewController {
             maximumActiveDownloads: 5,
             imageCache: imageCache
         )
+    }
+    
+    func attachPageIndicator(item: UIBarButtonItem) {
+        pageIndicator = item
+        pageIndicator?.title = "\(currentPage + 1) of \(pagesIndex.count)"
     }
     
     func setImage(url: URL, imageView: UIImageView){
@@ -174,6 +180,7 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             } else {
                 return
             }
+            pageIndicator?.title = "\(currentPage + 1) of \(pagesIndex.count)"
             if (currentPage > 0) {
                 let prevController = currentIndex == orderedViewControllers.startIndex ? orderedViewControllers.last : orderedViewControllers[currentIndex! - 1]
                 if let prevImage = prevController?.imageView {

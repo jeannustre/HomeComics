@@ -27,6 +27,23 @@
                                     <segue destination="8fJ-DB-qge" kind="embed" identifier="embedSegue" id="8up-iZ-cSd"/>
                                 </connections>
                             </containerView>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a36-aS-Lrw">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Close" id="VCy-sp-DND">
+                                        <connections>
+                                            <segue destination="nWe-xe-Xwv" kind="show" id="iGy-Hx-UgK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Z9R-Xe-Po4"/>
+                                    <barButtonItem enabled="NO" title="0 of X" style="plain" id="Xch-iY-xLP">
+                                        <color key="tintColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ehc-d6-Yd9"/>
+                                    <barButtonItem title="Info" id="5bP-9c-YFp"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -38,6 +55,8 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="Oi4-4D-bjo" id="ndw-v3-qwx"/>
+                        <outlet property="pageIndicatorToolbar" destination="Xch-iY-xLP" id="L4G-cA-fDo"/>
+                        <outlet property="toolbar" destination="a36-aS-Lrw" id="xhU-du-krh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLc-gy-pcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,7 +66,6 @@
         <!--Single Page View Controller-->
         <scene sceneID="B3w-KI-h32">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X4H-lp-2r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SinglePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QDE-YV-Xqh" customClass="SinglePageViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mpP-YW-eAI"/>
@@ -87,6 +105,7 @@
                         <outlet property="scrollView" destination="xIM-yv-LDc" id="Sxm-Xi-Cgs"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4H-lp-2r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="1224"/>
         </scene>
@@ -97,6 +116,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4a-gK-GHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="554"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="wUZ-Q3-lKe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="nWe-xe-Xwv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WW3-Cu-nf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="1042"/>
         </scene>
     </scenes>
 </document>

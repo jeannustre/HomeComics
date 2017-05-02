@@ -10,6 +10,8 @@ import UIKit
 
 class ReaderViewController: UIViewController {
     
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var pageIndicatorToolbar: UIBarButtonItem!
     @IBOutlet weak var button: UIButton!
     var pagesIndex: [URL] = []
     
@@ -27,6 +29,20 @@ class ReaderViewController: UIViewController {
         if segue.identifier == "embedSegue" {
             let vc = segue.destination as! ComicPageViewController
             vc.pagesIndex = self.pagesIndex
+            vc.view.addGestureRecognizer(twoFingerTap)
+            vc.attachPageIndicator(item: pageIndicatorToolbar)
+        }
+    }
+    
+    lazy var twoFingerTap: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.twoFingerTapHandler(recognizer:)))
+        tap.numberOfTouchesRequired = 2
+        return tap
+    }()
+    
+    func twoFingerTapHandler(recognizer : UITapGestureRecognizer) {
+        if recognizer.state == .ended {
+            toolbar.isHidden = toolbar.isHidden ? false : true
         }
     }
 }
