@@ -17,8 +17,13 @@ class ReaderViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+    @IBAction func closeReader(_ sender: Any) {
+        dismiss(animated: true, completion: {})
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        toolbar.center.y += toolbar.bounds.height * 2
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +47,12 @@ class ReaderViewController: UIViewController {
     
     func twoFingerTapHandler(recognizer : UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            toolbar.isHidden = toolbar.isHidden ? false : true
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                let centerY = self.toolbar.center.y
+                let barH = self.toolbar.bounds.height
+                let screenH = self.view.bounds.height
+                self.toolbar.center.y = centerY > screenH ? centerY - barH * 2 : centerY + barH * 2
+            }, completion: nil)
         }
     }
 }
