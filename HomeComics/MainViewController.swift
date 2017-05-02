@@ -43,28 +43,20 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "startReading", sender: self)
     }
     
-    private func setColors() {
-        let bg = UIColor(gradientStyle: .topToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatBlueColorDark(), UIColor.flatSkyBlueColorDark()])
-        let hightlightColor = UIColor.flatOrange()
-        //let bg = UIColor(gradientStyle: .topToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatWhite(), UIColor.flatSkyBlue()])
-        self.view.backgroundColor = bg
-        let normalColor = UIColor(contrastingBlackOrWhiteColorOn: bg, isFlat: false)
-        self.readButton.setTitleColor(normalColor, for: .normal)
-        self.readButton.setTitleColor(hightlightColor, for: .highlighted)
-        self.readButton.setTitleColor(UIColor.flatGray(), for: .disabled)
-        self.settingsButton.setTitleColor(normalColor, for: .normal)
-        self.settingsButton.setTitleColor(hightlightColor, for: .highlighted)
-        self.fetchButton.setTitleColor(normalColor, for: .normal)
-        self.fetchButton.setTitleColor(hightlightColor, for: .highlighted)
-        self.titleLabel.textColor = normalColor
-        self.setStatusBarStyle(normalColor?.hexValue() == UIColor.black.hexValue() ? .default : .lightContent)
-    }
-    
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setColors()
+        self.readButton.layer.cornerRadius = 5
+        self.readButton.clipsToBounds = true
+        self.settingsButton.layer.cornerRadius = 5
+        self.settingsButton.clipsToBounds = true
+        self.fetchButton.layer.cornerRadius = 5
+        self.fetchButton.clipsToBounds = true
+        let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        self.readButton.contentEdgeInsets = insets
+        self.settingsButton.contentEdgeInsets = insets
+        self.fetchButton.contentEdgeInsets = insets
         defaults = UserDefaults.standard
         self.setupUserDefaults(defaults: defaults!)
         self.jsonTextField.delegate = self

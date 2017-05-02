@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //let bg = UIColor(gradientStyle: .topToBottom, withFrame: (self.window?.bounds)!, andColors: [UIColor.flatBlueColorDark(), UIColor.flatSkyBlueColorDark()])
         //Chameleon.setGlobalThemeUsingPrimaryColor(bg, with: .contrast)
+        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatPinkColorDark(), with: .light)
         return true
     }
 
