@@ -65,10 +65,6 @@ class ComicPageViewController: UIPageViewController {
         print("---   sending request for image   ---")
         // TODO : error checks
         downloader?.download(request) { response in
-        /*    print(response.request ?? "default_value")
-            print(response.response ?? "default_value")
-            debugPrint(response.result)*/
-            
             if let image = response.result.value {
                 imageView.image = image
                 self.imageCache?.add(image, for: request)
@@ -89,13 +85,11 @@ class ComicPageViewController: UIPageViewController {
                                animated: true,
                                completion: nil)
         }
-        currentImageView = orderedViewControllers[0].view.viewWithTag(11) as? UIImageView
-        //currentImageView?.af_setImage(withURL: pagesIndex[0], placeholderImage: loadingImage)
+        currentImageView = orderedViewControllers[0].imageView
         setImage(url: pagesIndex[0], imageView: currentImageView!)
         if (pagesIndex.count >= 2) {
-            let nextImage = orderedViewControllers[1].view.viewWithTag(11) as! UIImageView
+            let nextImage = orderedViewControllers[1].imageView
             setImage(url: pagesIndex[1], imageView: nextImage)
-//            nextImage.af_setImage(withURL: pagesIndex[1], placeholderImage: loadingImage)
         }
         if panGestureRecognizer != nil {
             orderedViewControllers[0].parentPanGestureRecognizer = panGestureRecognizer
@@ -123,9 +117,7 @@ class ComicPageViewController: UIPageViewController {
             }
         }
     }
-    
 }
-
 
 // MARK: - DataSource
 extension ComicPageViewController: UIPageViewControllerDataSource {
@@ -184,13 +176,16 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             }
             if (currentPage > 0) {
                 let prevController = currentIndex == orderedViewControllers.startIndex ? orderedViewControllers.last : orderedViewControllers[currentIndex! - 1]
-                let prevImage = prevController?.view.viewWithTag(11) as! UIImageView
-                setImage(url: pagesIndex[currentPage - 1], imageView: prevImage)
+                if let prevImage = prevController?.imageView {
+                    setImage(url: pagesIndex[currentPage - 1], imageView: prevImage)
+                }
             }
             if (currentPage < pagesIndex.count - 1) {
                 let nextController = currentIndex == orderedViewControllers.endIndex - 1 ? orderedViewControllers.first : orderedViewControllers[currentIndex! + 1]
-                let nextImage = nextController?.view.viewWithTag(11) as! UIImageView
-                setImage(url: pagesIndex[currentPage + 1], imageView: nextImage)
+                if let nextImage = nextController?.imageView {
+                    setImage(url: pagesIndex[currentPage + 1], imageView: nextImage)
+                }
+                
             }
         }
     }

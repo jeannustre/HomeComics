@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gjZ-ow-jzp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oTS-Ul-TPT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Comic Page View Controller-->
-        <scene sceneID="UsR-cs-F8b">
+        <!--Reader View Controller-->
+        <scene sceneID="MSW-fx-XTW">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gjZ-ow-jzp" customClass="ComicPageViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W3C-S3-9sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="oTS-Ul-TPT" customClass="ReaderViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nmo-xx-oTl"/>
+                        <viewControllerLayoutGuide type="bottom" id="mvZ-7A-yMg"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="H73-zt-3Z1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oi4-4D-bjo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <segue destination="8fJ-DB-qge" kind="embed" identifier="embedSegue" id="8up-iZ-cSd"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oi4-4D-bjo" firstAttribute="top" secondItem="nmo-xx-oTl" secondAttribute="bottom" id="04K-nj-52i"/>
+                            <constraint firstItem="Oi4-4D-bjo" firstAttribute="leading" secondItem="H73-zt-3Z1" secondAttribute="leading" id="UKc-oG-vLc"/>
+                            <constraint firstAttribute="trailing" secondItem="Oi4-4D-bjo" secondAttribute="trailing" id="iNY-I6-1Wn"/>
+                            <constraint firstItem="Oi4-4D-bjo" firstAttribute="bottom" secondItem="mvZ-7A-yMg" secondAttribute="top" id="t6j-eR-Vyp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="Oi4-4D-bjo" id="ndw-v3-qwx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MLc-gy-pcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="-188"/>
+            <point key="canvasLocation" x="730" y="554"/>
         </scene>
         <!--Single Page View Controller-->
         <scene sceneID="B3w-KI-h32">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4H-lp-2r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SinglePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QDE-YV-Xqh" customClass="SinglePageViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mpP-YW-eAI"/>
@@ -32,7 +60,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIM-yv-LDc" customClass="HCScrollView" customModule="HomeComics" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bRm-5I-3Nr">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bRm-5I-3Nr">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="646"/>
                                     </imageView>
                                 </subviews>
@@ -59,9 +87,16 @@
                         <outlet property="scrollView" destination="xIM-yv-LDc" id="Sxm-Xi-Cgs"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X4H-lp-2r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1519" y="-188"/>
+            <point key="canvasLocation" x="1748" y="1224"/>
+        </scene>
+        <!--Comic Page View Controller-->
+        <scene sceneID="Joa-Y0-eIv">
+            <objects>
+                <viewController id="8fJ-DB-qge" customClass="ComicPageViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4a-gK-GHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="554"/>
         </scene>
     </scenes>
 </document>

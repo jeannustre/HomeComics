@@ -11,20 +11,19 @@ import UIKit
 class SinglePageViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Class variables
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var scrollView: HCScrollView!
+    //@IBOutlet var imageView: UIImageView!
+    //@IBOutlet var scrollView: HCScrollView!
+    var scrollView = HCScrollView()
+    var imageView = UIImageView()
     var parentPanGestureRecognizer: UIPanGestureRecognizer!
-    
-    convenience init() {
-        self.init()
-    }
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        scrollView.bounds = self.view.bounds
+        imageView.bounds = self.view.bounds
         scrollView.delegate = self
-        //scrollView.panGestureRecognizer.delegate = self
+        
         self.setZoomScale()
         self.setupGestureRecognizer()
     }

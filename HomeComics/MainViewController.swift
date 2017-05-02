@@ -32,7 +32,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             if (response.error == nil) {
                 self.readJSON()
             }
-            
         }
     }
     
@@ -52,7 +51,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "startReading") {
-            let comicPageViewController = segue.destination as! ComicPageViewController
+            let comicPageViewController = segue.destination as! ReaderViewController
             comicPageViewController.pagesIndex = self.pagesIndex
         }
     }
