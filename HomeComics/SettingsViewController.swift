@@ -26,11 +26,15 @@ class SettingsViewController: UIViewController {
         defaults?.set(diskSlider.value, forKey: "diskCache")
         defaults?.set(downloadPrioritySwitch.isOn, forKey: "downloadPriority")
 
-        self.dismiss(animated: true, completion: { })
+        //self.dismiss(animated: true, completion: { })
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: { })
+        defaults = UserDefaults.standard
+        setupInterface(defaults: defaults!)
+        self.updateRamLabel(value: ramSlider.value)
+        self.updateDiskLabel(value: diskSlider.value)
+        self.updateDownloadLabel(switchIsOn: downloadPrioritySwitch.isOn)
     }
     
     @IBAction func ramValueChanged(_ sender: UISlider) {
