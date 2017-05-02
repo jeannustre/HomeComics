@@ -106,11 +106,11 @@ class ComicPageViewController: UIPageViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        imageCache?.removeAllImages()
     }
     
     private func newPageViewController() -> SinglePageViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePageViewController") as! SinglePageViewController
+        return UIStoryboard(name: "Reading", bundle: nil).instantiateViewController(withIdentifier: "SinglePageViewController") as! SinglePageViewController
     }
     
     private func setupGestures() {
@@ -180,28 +180,15 @@ extension ComicPageViewController: UIPageViewControllerDelegate {
             } else if currentIndex! == prevIndex! - 1 || (currentIndex! == orderedViewControllers.endIndex - 1 && prevIndex! == orderedViewControllers.startIndex) {
                 currentPage -= 1
             } else {
-                print("Direction : neutral")
                 return
             }
-            print("new current page after transition changes : \(currentPage)")
-            print("index of current controller : \(String(describing: currentIndex))")
             if (currentPage > 0) {
-                var prevController: SinglePageViewController?
-                if currentIndex == orderedViewControllers.startIndex {
-                    prevController = orderedViewControllers.last
-                } else {
-                    prevController = orderedViewControllers[currentIndex! - 1]
-                }
+                let prevController = currentIndex == orderedViewControllers.startIndex ? orderedViewControllers.last : orderedViewControllers[currentIndex! - 1]
                 let prevImage = prevController?.view.viewWithTag(11) as! UIImageView
                 setImage(url: pagesIndex[currentPage - 1], imageView: prevImage)
             }
             if (currentPage < pagesIndex.count - 1) {
-                var nextController: SinglePageViewController?
-                if currentIndex == orderedViewControllers.endIndex - 1 {
-                    nextController = orderedViewControllers.first
-                } else {
-                    nextController = orderedViewControllers[currentIndex! + 1]
-                }
+                let nextController = currentIndex == orderedViewControllers.endIndex - 1 ? orderedViewControllers.first : orderedViewControllers[currentIndex! + 1]
                 let nextImage = nextController?.view.viewWithTag(11) as! UIImageView
                 setImage(url: pagesIndex[currentPage + 1], imageView: nextImage)
             }

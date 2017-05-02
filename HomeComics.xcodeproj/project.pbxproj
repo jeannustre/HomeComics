@@ -10,14 +10,11 @@
 		2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0847691EAC5955002CB13E /* SettingsViewController.swift */; };
 		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
-		2D610A471EAD815500980867 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A461EAD815500980867 /* Book.swift */; };
-		2D610A491EAD824000980867 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A481EAD824000980867 /* Page.swift */; };
 		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
 		2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4B1EAD847400980867 /* ObjectMapper.framework */; };
-		2D610A4F1EAD84EE00980867 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A4E1EAD84EE00980867 /* TestViewController.swift */; };
-		2D610A511EAD8C0100980867 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A501EAD8C0100980867 /* TestCollectionViewController.swift */; };
-		2D610A531EAD906700980867 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D610A521EAD906700980867 /* TestCollectionViewCell.swift */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
+		2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8D1EB82D050068ACCC /* Reading.storyboard */; };
+		2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
@@ -32,14 +29,11 @@
 		2D0847691EAC5955002CB13E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
-		2D610A461EAD815500980867 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		2D610A481EAD824000980867 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2D610A4B1EAD847400980867 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		2D610A4E1EAD84EE00980867 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		2D610A501EAD8C0100980867 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
-		2D610A521EAD906700980867 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
+		2DBECD8D1EB82D050068ACCC /* Reading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reading.storyboard; sourceTree = "<group>"; };
+		2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,8 +69,6 @@
 				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
 				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
-				2D610A501EAD8C0100980867 /* TestCollectionViewController.swift */,
-				2D610A4E1EAD84EE00980867 /* TestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -85,7 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				ABD19EB01E78BE44009725F3 /* Main.storyboard */,
-				ABD19EB51E78BE44009725F3 /* LaunchScreen.storyboard */,
+				2DBECD8D1EB82D050068ACCC /* Reading.storyboard */,
+				2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -94,9 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
-				2D610A461EAD815500980867 /* Book.swift */,
-				2D610A481EAD824000980867 /* Page.swift */,
-				2D610A521EAD906700980867 /* TestCollectionViewCell.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -125,6 +115,7 @@
 				ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */,
 				2DCA92B91EABF9D0003918E3 /* Storyboards */,
 				2DCA92BA1EABF9E0003918E3 /* Components */,
+				ABD19EB51E78BE44009725F3 /* LaunchScreen.storyboard */,
 				ABD19EB31E78BE44009725F3 /* Assets.xcassets */,
 				ABD19EB81E78BE44009725F3 /* Info.plist */,
 			);
@@ -207,6 +198,8 @@
 				ABD19EB71E78BE44009725F3 /* LaunchScreen.storyboard in Resources */,
 				ABD19EB41E78BE44009725F3 /* Assets.xcassets in Resources */,
 				ABD19EB21E78BE44009725F3 /* Main.storyboard in Resources */,
+				2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */,
+				2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,13 +234,8 @@
 				ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */,
 				2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */,
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
-				2D610A491EAD824000980867 /* Page.swift in Sources */,
-				2D610A531EAD906700980867 /* TestCollectionViewCell.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
-				2D610A471EAD815500980867 /* Book.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
-				2D610A4F1EAD84EE00980867 /* TestViewController.swift in Sources */,
-				2D610A511EAD8C0100980867 /* TestCollectionViewController.swift in Sources */,
 				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

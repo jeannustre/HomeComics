@@ -37,7 +37,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func openReader(_ sender: Any) {
-        self.performSegue(withIdentifier: "openComicSegue", sender: self)
+        self.performSegue(withIdentifier: "startReading", sender: self)
     }
     
     //MARK: - View lifecycle
@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "openComicSegue") {
+        if (segue.identifier == "startReading") {
             let comicPageViewController = segue.destination as! ComicPageViewController
             comicPageViewController.pagesIndex = self.pagesIndex
         }
