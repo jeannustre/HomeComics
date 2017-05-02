@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Chameleon
 
 class ReaderViewController: UIViewController {
     
@@ -14,6 +15,15 @@ class ReaderViewController: UIViewController {
     @IBOutlet weak var pageIndicatorToolbar: UIBarButtonItem!
     @IBOutlet weak var button: UIButton!
     var pagesIndex: [URL] = []
+    
+    var chaine: String = "" {
+        willSet(new) {
+            print("current: \(chaine) next: \(new)")
+        }
+        didSet {
+            
+        }
+    }
     
     @IBOutlet weak var containerView: UIView!
     
@@ -23,6 +33,8 @@ class ReaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let bg = UIColor(gradientStyle: .topToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatBlueColorDark(), UIColor.flatSkyBlueColorDark()])
+        toolbar.backgroundColor = bg
         toolbar.center.y += toolbar.bounds.height * 2
     }
 

@@ -10,12 +10,16 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import Chameleon
 
 class MainViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Class variables & Outlets
     @IBOutlet var readButton: UIButton!
+    @IBOutlet var fetchButton: UIButton!
+    @IBOutlet var settingsButton: UIButton!
     @IBOutlet var jsonTextField: UITextField!
+    @IBOutlet var titleLabel: UILabel!
     var pagesIndex: [URL] = []
     var defaults: UserDefaults?
     
@@ -39,10 +43,28 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "startReading", sender: self)
     }
     
+    private func setColors() {
+        let bg = UIColor(gradientStyle: .topToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatBlueColorDark(), UIColor.flatSkyBlueColorDark()])
+        let hightlightColor = UIColor.flatOrange()
+        //let bg = UIColor(gradientStyle: .topToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatWhite(), UIColor.flatSkyBlue()])
+        self.view.backgroundColor = bg
+        let normalColor = UIColor(contrastingBlackOrWhiteColorOn: bg, isFlat: false)
+        self.readButton.setTitleColor(normalColor, for: .normal)
+        self.readButton.setTitleColor(hightlightColor, for: .highlighted)
+        self.readButton.setTitleColor(UIColor.flatGray(), for: .disabled)
+        self.settingsButton.setTitleColor(normalColor, for: .normal)
+        self.settingsButton.setTitleColor(hightlightColor, for: .highlighted)
+        self.fetchButton.setTitleColor(normalColor, for: .normal)
+        self.fetchButton.setTitleColor(hightlightColor, for: .highlighted)
+        self.titleLabel.textColor = normalColor
+        self.setStatusBarStyle(normalColor?.hexValue() == UIColor.black.hexValue() ? .default : .lightContent)
+    }
+    
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setColors()
         defaults = UserDefaults.standard
         self.setupUserDefaults(defaults: defaults!)
         self.jsonTextField.delegate = self

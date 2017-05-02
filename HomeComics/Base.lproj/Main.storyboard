@@ -40,36 +40,30 @@
                                 <rect key="frame" x="20" y="420" width="728" height="604"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qo1-Qb-PkM">
-                                        <rect key="frame" x="0.0" y="0.0" width="728" height="201.5"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address/file.json" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJV-c4-9fv">
-                                                <rect key="frame" x="0.0" y="0.0" width="728" height="100.5"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-cf-s5P">
-                                                <rect key="frame" x="322.5" y="100.5" width="83" height="101"/>
-                                                <state key="normal" title="Fetch JSON"/>
-                                                <connections>
-                                                    <action selector="fetchJSON:" destination="UaP-T2-KOP" eventType="touchUpInside" id="Xc7-YI-fUk"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="HJV-c4-9fv" secondAttribute="trailing" id="STh-1i-FL4"/>
-                                            <constraint firstItem="HJV-c4-9fv" firstAttribute="leading" secondItem="Qo1-Qb-PkM" secondAttribute="leading" id="kjU-iG-Z2e"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="728" height="121"/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAV-D3-qjq">
-                                        <rect key="frame" x="346.5" y="201.5" width="35" height="201"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address/file.json" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJV-c4-9fv">
+                                        <rect key="frame" x="20" y="121" width="688" height="120.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAV-D3-qjq">
+                                        <rect key="frame" x="343" y="241.5" width="42" height="121"/>
                                         <state key="normal" title="Read"/>
                                         <connections>
                                             <action selector="openReader:" destination="UaP-T2-KOP" eventType="touchUpInside" id="9tR-s4-rZJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7Q-zr-Fa0" userLabel="Settings">
-                                        <rect key="frame" x="335.5" y="402.5" width="57" height="201.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-cf-s5P">
+                                        <rect key="frame" x="315.5" y="362.5" width="97" height="120.5"/>
+                                        <state key="normal" title="Fetch JSON"/>
+                                        <connections>
+                                            <action selector="fetchJSON:" destination="UaP-T2-KOP" eventType="touchUpInside" id="Xc7-YI-fUk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7Q-zr-Fa0" userLabel="Settings">
+                                        <rect key="frame" x="330.5" y="483" width="67" height="121"/>
                                         <state key="normal" title="Settings"/>
                                         <connections>
                                             <segue destination="Ob4-lH-trU" kind="presentation" modalPresentationStyle="overCurrentContext" id="oag-71-HOw"/>
@@ -78,11 +72,13 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Qo1-Qb-PkM" firstAttribute="leading" secondItem="h3a-Um-YLb" secondAttribute="leading" id="7c9-Kn-ZHQ"/>
+                                    <constraint firstItem="HJV-c4-9fv" firstAttribute="leading" secondItem="h3a-Um-YLb" secondAttribute="leading" constant="20" id="Cqr-zB-4yh"/>
+                                    <constraint firstAttribute="trailing" secondItem="HJV-c4-9fv" secondAttribute="trailing" constant="20" id="RFa-30-QI7"/>
                                     <constraint firstAttribute="trailing" secondItem="Qo1-Qb-PkM" secondAttribute="trailing" id="w70-De-pu3"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.18998533487319946" green="0.35768887400627136" blue="0.43821841478347778" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Wty-SI-sTd" firstAttribute="centerX" secondItem="1hx-ud-jF9" secondAttribute="centerX" id="82w-mC-IMN"/>
                             <constraint firstItem="Wty-SI-sTd" firstAttribute="top" secondItem="1wl-I2-Z2q" secondAttribute="bottom" constant="20" id="KlM-Ft-qgW"/>
@@ -93,8 +89,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fetchButton" destination="m2v-cf-s5P" id="LbC-Vm-opa"/>
                         <outlet property="jsonTextField" destination="HJV-c4-9fv" id="xl1-nk-bJa"/>
                         <outlet property="readButton" destination="uAV-D3-qjq" id="6mv-J3-QcL"/>
+                        <outlet property="settingsButton" destination="N7Q-zr-Fa0" id="Ax6-RK-rQ6"/>
+                        <outlet property="titleLabel" destination="Wty-SI-sTd" id="XQJ-wl-h9k"/>
                         <segue destination="W4e-kB-FUh" kind="show" identifier="startReading" id="yXg-Lr-uHe"/>
                     </connections>
                 </viewController>
