@@ -57,7 +57,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         self.settingsButton.contentEdgeInsets = insets
         self.fetchButton.contentEdgeInsets = insets
         defaults = UserDefaults.standard
-        self.setupUserDefaults(defaults: defaults!)
         self.jsonTextField.delegate = self
         readButton.isEnabled = false
     }
@@ -98,29 +97,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         readButton.isEnabled = true
     }
     
-    private func setupUserDefaults(defaults: UserDefaults) {
-        if defaults.object(forKey: "ramCache") == nil {
-            print("Creating ramCache defaults key with value: 128")
-            defaults.set(128, forKey: "ramCache")
-        }
-        if defaults.object(forKey: "diskCache") == nil {
-            print("Creating diskCache defaults key with value: 512")
-            defaults.set(512, forKey: "diskCache")
-        }
-        if defaults.object(forKey: "downloadPriority") == nil {
-            print("Creating downloadPriority defaults key with value: true")
-            defaults.set(true, forKey: "downloadPriority") // true:fifo, false:lifo
-        }
-        if defaults.object(forKey: "serverBaseURL") == nil {
-            print("Creating serverBaseURL defaults key with value: http://127.0.0.1:8080/")
-            defaults.set("http://127.0.0.1:8080/", forKey: "serverBaseURL")
-        }
-/*        if defaults.object(forKey: "primaryColor") == nil {
-            print("Creating primaryColor defaults key with value: \(UIColor.flatNavyBlueColorDark().hexValue())")
-            defaults.set()
-        }*/
-    }
- 
     //MARK: - Delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

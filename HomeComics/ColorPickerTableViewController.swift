@@ -77,9 +77,7 @@ class ColorPickerTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.initTheme()
-        
+       
     }
 
     override func didReceiveMemoryWarning() {

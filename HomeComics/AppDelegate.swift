@@ -14,15 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
  
-        self.initTheme()
+        let defaults = UserDefaults.standard
+        self.setupUserDefaults(defaults)
+        self.initTheme(defaults)
         return true
     }
     
-    func initTheme() {
-        let defaults = UserDefaults.standard
+    func initTheme(_ defaults: UserDefaults) {
         let primaryHex = defaults.string(forKey: "primaryColor")
         let primaryColor = UIColor(hexString: primaryHex)
         let secondaryHex = defaults.string(forKey: "secondaryColor")
@@ -34,6 +34,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UIButton.appearance(whenContainedInInstancesOf: [UITableView.self]).backgroundColor = UIColor.clear
     }
+    
+    private func setupUserDefaults(_ defaults: UserDefaults) {
+        if defaults.object(forKey: "ramCache") == nil {
+            print("Creating ramCache defaults key with value: 128")
+            defaults.set(128, forKey: "ramCache")
+        }
+        if defaults.object(forKey: "diskCache") == nil {
+            print("Creating diskCache defaults key with value: 512")
+            defaults.set(512, forKey: "diskCache")
+        }
+        if defaults.object(forKey: "downloadPriority") == nil {
+            print("Creating downloadPriority defaults key with value: true")
+            defaults.set(true, forKey: "downloadPriority") // true:fifo, false:lifo
+        }
+        if defaults.object(forKey: "serverBaseURL") == nil {
+            print("Creating serverBaseURL defaults key with value: http://127.0.0.1:8080/")
+            defaults.set("http://127.0.0.1:8080/", forKey: "serverBaseURL")
+        }
+        if defaults.object(forKey: "primaryColor") == nil {
+         print("Creating primaryColor defaults key with value: \(UIColor.flatBlueColorDark().hexValue())")
+            defaults.set(UIColor.flatBlueColorDark().hexValue(), forKey: "primaryColor")
+        }
+        if defaults.object(forKey: "secondaryColor") == nil {
+            print("Creating primaryColor defaults key with value: none")
+            defaults.set("none", forKey: "secondaryColor")
+        }
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
