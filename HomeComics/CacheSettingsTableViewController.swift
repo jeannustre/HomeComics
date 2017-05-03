@@ -10,15 +10,14 @@ import UIKit
 
 class CacheSettingsTableViewController: UITableViewController {
 
-    
+    //MARK: - Class variables & Outlets
     @IBOutlet var useStorageCacheCell: UITableViewCell!
     @IBOutlet var sizeStorageCacheCell: UITableViewCell!
-    
     @IBOutlet var useRamCacheCell: UITableViewCell!
     @IBOutlet var sizeRamCacheCell: UITableViewCell!
-    
     var defaults: UserDefaults?
     
+    //MARK: - Lazy variables
     lazy var useStorageSwitch: UISwitch = {
         let storageSwitch = UISwitch()
         storageSwitch.addTarget(self, action: #selector(diskSwitchToggled(sender:)), for: .valueChanged)
@@ -31,6 +30,7 @@ class CacheSettingsTableViewController: UITableViewController {
         return ramSwitch
     }()
     
+    //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,13 +41,12 @@ class CacheSettingsTableViewController: UITableViewController {
         self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
     }
     
-    private func loadDefaults(_ defaults: UserDefaults) {
-        useStorageSwitch.isOn = defaults.bool(forKey: "diskCacheEnabled")
-        useRamSwitch.isOn = defaults.bool(forKey: "ramCacheEnabled")
-        sizeRamCacheCell.detailTextLabel?.text = defaults.integer(forKey: "ramCache").description
-        sizeStorageCacheCell.detailTextLabel?.text = defaults.integer(forKey: "diskCache").description
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
+
+    //MARK: - Class methods
     private func initLayout() {
         // Workaround for the default TableView separator left inset
         tableView.layoutMargins = UIEdgeInsets.zero
@@ -58,6 +57,13 @@ class CacheSettingsTableViewController: UITableViewController {
         // Make background of cell unselectable
         useStorageCacheCell.selectionStyle = .none
         useRamCacheCell.selectionStyle = .none
+    }
+    
+    private func loadDefaults(_ defaults: UserDefaults) {
+        useStorageSwitch.isOn = defaults.bool(forKey: "diskCacheEnabled")
+        useRamSwitch.isOn = defaults.bool(forKey: "ramCacheEnabled")
+        sizeRamCacheCell.detailTextLabel?.text = defaults.integer(forKey: "ramCache").description
+        sizeStorageCacheCell.detailTextLabel?.text = defaults.integer(forKey: "diskCache").description
     }
     
     private func updateLayout(switchIsOn: Bool, cell: UITableViewCell) {
@@ -74,6 +80,7 @@ class CacheSettingsTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - Callbacks
     func diskSwitchToggled(sender:UISwitch!) {
         defaults?.set(sender.isOn, forKey: "diskCacheEnabled")
         updateLayout(switchIsOn: sender.isOn, cell: sizeStorageCacheCell)
@@ -84,8 +91,4 @@ class CacheSettingsTableViewController: UITableViewController {
         updateLayout(switchIsOn: sender.isOn, cell: sizeRamCacheCell)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }

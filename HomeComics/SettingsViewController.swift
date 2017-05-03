@@ -60,6 +60,7 @@ class SettingsViewController: UIViewController {
         self.updateDownloadLabel(switchIsOn: downloadPrioritySwitch.isOn)
     }
 
+    //MARK: - Class methods
     private func setupInterface(defaults: UserDefaults) {
         ramSlider.value = Float(defaults.integer(forKey: "ramCache"))
         diskSlider.value = Float(defaults.integer(forKey: "diskCache"))
