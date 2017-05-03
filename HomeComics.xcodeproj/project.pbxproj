@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D001DE31EB8E229006570DF /* Chameleon.framework */; };
-		2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0847691EAC5955002CB13E /* SettingsViewController.swift */; };
 		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
 		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
@@ -35,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		2D001DE31EB8E229006570DF /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
-		2D0847691EAC5955002CB13E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				2DFCCF881EB952AD002DFF2A /* Settings */,
-				2D0847691EAC5955002CB13E /* SettingsViewController.swift */,
 				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
 				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
@@ -300,7 +297,6 @@
 				2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */,
 				2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */,
 				2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */,
-				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
 				2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

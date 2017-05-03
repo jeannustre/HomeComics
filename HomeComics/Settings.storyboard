@@ -419,10 +419,12 @@
             </objects>
             <point key="canvasLocation" x="44" y="1675"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="obb-9W-uMT">
             <objects>
                 <navigationController id="dpe-q7-B4j" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="kBS-SY-56U"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bl3-uh-MLz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -439,6 +441,7 @@
     <resources>
         <image name="Database-empty" width="25" height="25"/>
         <image name="Database-full" width="25" height="25"/>
+        <image name="Settings" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pQZ-W9-eKl"/>
