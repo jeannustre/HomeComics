@@ -35,6 +35,10 @@ If the HomeComics-server is running on the same network as your device, you will
 
 * [Carthage](https://github.com/Carthage/Carthage) - A simple, decentralized dependency manager for Cocoa
 * [Alamofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift
+* [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Image component library for Alamofire
+* [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper) - An Alamofire extension which converts JSON response data into swift objects using ObjectMapper
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - The better way to deal with JSON data in Swift
+* [Chameleon](https://github.com/ViccAlexander/Chameleon) - Flat Color Framework for iOS (Obj-C & Swift)
 
 ## Contributing
 
