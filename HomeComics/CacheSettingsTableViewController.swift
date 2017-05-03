@@ -41,6 +41,13 @@ class CacheSettingsTableViewController: UITableViewController {
         self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("cache view will appear")
+        self.loadDefaults(defaults!)
+        self.updateLayout(switchIsOn: useStorageSwitch.isOn, cell: sizeStorageCacheCell)
+        self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,10 +57,12 @@ class CacheSettingsTableViewController: UITableViewController {
         let sliderViewController = segue.destination as! MemorySliderViewController
         sliderViewController.defaults = defaults
         if (segue.identifier == "showRamSlider") {
+            sliderViewController.navigationItem.title = "RAM Cache"
             sliderViewController.key = "ramCache"
             sliderViewController.steps = [8, 16, 32, 64, 128, 256]
         }
         if (segue.identifier == "showDiskSlider") {
+            sliderViewController.navigationItem.title = "Disk Cache"
             sliderViewController.key = "diskCache"
             sliderViewController.steps = [32, 64, 128, 256, 512, 1024, 2048]
         }
@@ -80,14 +89,14 @@ class CacheSettingsTableViewController: UITableViewController {
     }
     
     private func updateLayout(switchIsOn: Bool, cell: UITableViewCell) {
+        cell.isSelected = false
+        cell.isHighlighted = false
         if switchIsOn {
             cell.isUserInteractionEnabled = true
             cell.textLabel?.textColor = UIColor.flatBlackColorDark()
             cell.detailTextLabel?.textColor = UIColor.flatWhiteColorDark()
         } else {
             cell.isUserInteractionEnabled = false
-            cell.isSelected = false
-            cell.isHighlighted = false
             cell.textLabel?.textColor = UIColor.flatWhite()
             cell.detailTextLabel?.textColor = UIColor.flatWhite()
         }

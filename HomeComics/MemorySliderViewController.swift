@@ -19,12 +19,17 @@ class MemorySliderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         slider.isContinuous = false
         slider.maximumValue = Float((steps?.count)! - 1)
+        if let value = defaults?.integer(forKey: key!) {
+            let index = steps?.index(of: value)
+            slider.value = Float(index!)
+            label.text = "\(value.description) MB"
+        }
         
         slider.addTarget(self, action: #selector(memorySliderAction(sender:forEvent:)), for: .valueChanged)
-        // Do any additional setup after loading the view.
+        slider.addTarget(self, action: #selector(dragSliderAction(sender:forEvent:)), for: .touchDragInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,15 +37,20 @@ class MemorySliderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func dragSliderAction(sender: UISlider, forEvent event: UIEvent) {
+        sender.value = roundf(sender.value)
+        if let value = steps?[Int(sender.value)] {
+            label.text = "\(value.description) MB"
+            //defaults?.set(value, forKey: key!)
+        }
+    }
+    
     func memorySliderAction(sender: UISlider, forEvent event: UIEvent) {
         sender.value = roundf(sender.value)
         if let value = steps?[Int(sender.value)] {
-            defaults?.set(value, forKey: key!)
             label.text = "\(value.description) MB"
+            defaults?.set(value, forKey: key!)
         }
-        
-//        print("old : \(sliderValue) new : \(newValue)")
-        
     }
 
     /*
