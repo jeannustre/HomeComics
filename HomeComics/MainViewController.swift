@@ -19,7 +19,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var fetchButton: UIButton!
     @IBOutlet var settingsButton: UIButton!
     @IBOutlet var jsonTextField: UITextField!
-    @IBOutlet var titleLabel: UILabel!
     var pagesIndex: [URL] = []
     var defaults: UserDefaults?
     
@@ -37,10 +36,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 self.readJSON()
             }
         }
-    }
-    
-    @IBAction func settingz(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "openSettings", sender: self)
     }
     
     @IBAction func openReader(_ sender: Any) {
@@ -71,9 +66,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         if (segue.identifier == "startReading") {
             let comicPageViewController = segue.destination as! ReaderViewController
             comicPageViewController.pagesIndex = self.pagesIndex
-        }
-        if (segue.identifier == "openSettings") {
-            
         }
     }
     

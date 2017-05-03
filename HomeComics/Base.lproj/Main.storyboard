@@ -57,12 +57,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-jR-lje">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="0YL-A1-hct"/>
+                                    <constraint firstAttribute="height" constant="64" id="0YL-A1-hct"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="HomeComics" id="1lH-6U-ehL"/>
+                                    <navigationItem title="HomeComics" id="q1Q-2b-PIY"/>
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-Um-YLb">

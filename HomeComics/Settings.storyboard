@@ -113,7 +113,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Storage Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mpi-1j-E5h">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Disk Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mpi-1j-E5h">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -204,10 +204,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cache" id="rKc-MG-dgd"/>
                     <connections>
+                        <outlet property="sizeDiskCacheCell" destination="tCc-5V-EEL" id="5Cb-vl-6NE"/>
                         <outlet property="sizeRamCacheCell" destination="VnU-c1-BkS" id="ILf-e1-VLc"/>
-                        <outlet property="sizeStorageCacheCell" destination="tCc-5V-EEL" id="lD8-kQ-TaH"/>
+                        <outlet property="useDiskCacheCell" destination="pVZ-qs-IQM" id="Qvg-IK-jvn"/>
                         <outlet property="useRamCacheCell" destination="wqP-Vs-XX5" id="jbQ-d7-CL6"/>
-                        <outlet property="useStorageCacheCell" destination="pVZ-qs-IQM" id="61H-QV-25W"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tek-lz-7bU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -444,7 +444,7 @@
         <image name="Settings" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pQZ-W9-eKl"/>
         <segue reference="cGt-1C-ekk"/>
+        <segue reference="gIJ-6b-aZc"/>
     </inferredMetricsTieBreakers>
 </document>

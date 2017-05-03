@@ -9,19 +9,20 @@
 import UIKit
 
 class CacheSettingsTableViewController: UITableViewController {
-
+    
     //MARK: - Class variables & Outlets
-    @IBOutlet var useStorageCacheCell: UITableViewCell!
-    @IBOutlet var sizeStorageCacheCell: UITableViewCell!
+    @IBOutlet var useDiskCacheCell: UITableViewCell!
+   
+    @IBOutlet var sizeDiskCacheCell: UITableViewCell!
     @IBOutlet var useRamCacheCell: UITableViewCell!
     @IBOutlet var sizeRamCacheCell: UITableViewCell!
     var defaults: UserDefaults?
     
     //MARK: - Lazy variables
-    lazy var useStorageSwitch: UISwitch = {
-        let storageSwitch = UISwitch()
-        storageSwitch.addTarget(self, action: #selector(diskSwitchToggled(sender:)), for: .valueChanged)
-        return storageSwitch
+    lazy var useDiskSwitch: UISwitch = {
+        let diskSwitch = UISwitch()
+        diskSwitch.addTarget(self, action: #selector(diskSwitchToggled(sender:)), for: .valueChanged)
+        return diskSwitch
     }()
     
     lazy var useRamSwitch: UISwitch = {
@@ -33,18 +34,17 @@ class CacheSettingsTableViewController: UITableViewController {
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         defaults = UserDefaults.standard
         self.initLayout()
         self.loadDefaults(defaults!)
-        self.updateLayout(switchIsOn: useStorageSwitch.isOn, cell: sizeStorageCacheCell)
+        self.updateLayout(switchIsOn: useDiskSwitch.isOn, cell: sizeDiskCacheCell)
         self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("cache view will appear")
         self.loadDefaults(defaults!)
-        self.updateLayout(switchIsOn: useStorageSwitch.isOn, cell: sizeStorageCacheCell)
+        self.updateLayout(switchIsOn: useDiskSwitch.isOn, cell: sizeDiskCacheCell)
         self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
     }
     
@@ -52,7 +52,7 @@ class CacheSettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sliderViewController = segue.destination as! MemorySliderViewController
         sliderViewController.defaults = defaults
@@ -74,18 +74,18 @@ class CacheSettingsTableViewController: UITableViewController {
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         // Lazy switches
-        useStorageCacheCell.accessoryView = useStorageSwitch
+        useDiskCacheCell.accessoryView = useDiskSwitch
         useRamCacheCell.accessoryView = useRamSwitch
         // Make background of cell unselectable
-        useStorageCacheCell.selectionStyle = .none
+        useDiskCacheCell.selectionStyle = .none
         useRamCacheCell.selectionStyle = .none
     }
     
     private func loadDefaults(_ defaults: UserDefaults) {
-        useStorageSwitch.isOn = defaults.bool(forKey: "diskCacheEnabled")
+        useDiskSwitch.isOn = defaults.bool(forKey: "diskCacheEnabled")
         useRamSwitch.isOn = defaults.bool(forKey: "ramCacheEnabled")
         sizeRamCacheCell.detailTextLabel?.text = defaults.integer(forKey: "ramCache").description
-        sizeStorageCacheCell.detailTextLabel?.text = defaults.integer(forKey: "diskCache").description
+        sizeDiskCacheCell.detailTextLabel?.text = defaults.integer(forKey: "diskCache").description
     }
     
     private func updateLayout(switchIsOn: Bool, cell: UITableViewCell) {
@@ -105,12 +105,12 @@ class CacheSettingsTableViewController: UITableViewController {
     //MARK: - Callbacks
     func diskSwitchToggled(sender:UISwitch!) {
         defaults?.set(sender.isOn, forKey: "diskCacheEnabled")
-        updateLayout(switchIsOn: sender.isOn, cell: sizeStorageCacheCell)
+        updateLayout(switchIsOn: sender.isOn, cell: sizeDiskCacheCell)
     }
     
     func ramSwitchToggled(sender:UISwitch!) {
         defaults?.set(sender.isOn, forKey: "ramCacheEnabled")
         updateLayout(switchIsOn: sender.isOn, cell: sizeRamCacheCell)
     }
-
+    
 }

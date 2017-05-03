@@ -27,7 +27,6 @@ class MemorySliderViewController: UIViewController {
             slider.value = Float(index!)
             label.text = "\(value.description) MB"
         }
-        
         slider.addTarget(self, action: #selector(memorySliderAction(sender:forEvent:)), for: .valueChanged)
         slider.addTarget(self, action: #selector(dragSliderAction(sender:forEvent:)), for: .touchDragInside)
     }
