@@ -65,65 +65,44 @@
                                     <navigationItem title="HomeComics" id="q1Q-2b-PIY"/>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-Um-YLb">
-                                <rect key="frame" x="20" y="80" width="728" height="875"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address/file.json" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJV-c4-9fv">
-                                        <rect key="frame" x="300.5" y="0.0" width="127.5" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAV-D3-qjq">
-                                        <rect key="frame" x="341.5" y="285.5" width="45" height="18"/>
-                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Read"/>
-                                        <connections>
-                                            <action selector="openReader:" destination="UaP-T2-KOP" eventType="touchUpInside" id="9tR-s4-rZJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-cf-s5P">
-                                        <rect key="frame" x="322.5" y="559.5" width="83" height="30"/>
-                                        <state key="normal" title="Fetch JSON"/>
-                                        <connections>
-                                            <action selector="fetchJSON:" destination="UaP-T2-KOP" eventType="touchUpInside" id="Xc7-YI-fUk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7Q-zr-Fa0" userLabel="Settings">
-                                        <rect key="frame" x="335.5" y="845" width="57" height="30"/>
-                                        <state key="normal" title="Settings"/>
-                                        <connections>
-                                            <action selector="settingz:" destination="UaP-T2-KOP" eventType="touchUpInside" id="oT9-qx-A50"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-5R-X65">
+                                <rect key="frame" x="20" y="937" width="83" height="30"/>
+                                <state key="normal" title="Fetch JSON"/>
+                                <connections>
+                                    <action selector="fetchJSON:" destination="UaP-T2-KOP" eventType="touchUpInside" id="YW2-mw-RR6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4Y-HA-njF">
+                                <rect key="frame" x="713" y="937" width="35" height="30"/>
+                                <state key="normal" title="Read"/>
+                                <connections>
+                                    <action selector="openReader:" destination="UaP-T2-KOP" eventType="touchUpInside" id="Yqp-u9-yes"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="C1Y-jR-lje" firstAttribute="leading" secondItem="1hx-ud-jF9" secondAttribute="leading" id="4U1-i5-we9"/>
                             <constraint firstItem="C1Y-jR-lje" firstAttribute="centerX" secondItem="1hx-ud-jF9" secondAttribute="centerX" id="4uM-dJ-csA"/>
-                            <constraint firstItem="h3a-Um-YLb" firstAttribute="centerX" secondItem="C1Y-jR-lje" secondAttribute="centerX" id="G8e-vK-qZC"/>
+                            <constraint firstItem="NVT-M3-yMp" firstAttribute="top" secondItem="aPH-5R-X65" secondAttribute="bottom" constant="8" id="5TG-kR-33Z"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="aPH-5R-X65" secondAttribute="leading" id="Gke-Ur-v7r"/>
                             <constraint firstItem="C1Y-jR-lje" firstAttribute="top" secondItem="1wl-I2-Z2q" secondAttribute="bottom" constant="-20" id="XmK-yY-NB5"/>
-                            <constraint firstItem="h3a-Um-YLb" firstAttribute="leading" secondItem="1hx-ud-jF9" secondAttribute="leadingMargin" id="buj-TP-NNJ"/>
                             <constraint firstAttribute="trailing" secondItem="C1Y-jR-lje" secondAttribute="trailing" id="gDu-AC-czD"/>
-                            <constraint firstItem="NVT-M3-yMp" firstAttribute="top" secondItem="h3a-Um-YLb" secondAttribute="bottom" constant="20" id="gXs-et-SrJ"/>
-                            <constraint firstItem="h3a-Um-YLb" firstAttribute="top" secondItem="C1Y-jR-lje" secondAttribute="bottom" constant="20" id="y1X-gj-mL4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E4Y-HA-njF" secondAttribute="trailing" id="upp-WE-VC0"/>
+                            <constraint firstItem="NVT-M3-yMp" firstAttribute="top" secondItem="E4Y-HA-njF" secondAttribute="bottom" constant="8" id="xUw-oG-KuR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="Ahe-Mx-yCU"/>
                     <connections>
-                        <outlet property="fetchButton" destination="m2v-cf-s5P" id="LbC-Vm-opa"/>
-                        <outlet property="jsonTextField" destination="HJV-c4-9fv" id="xl1-nk-bJa"/>
-                        <outlet property="readButton" destination="uAV-D3-qjq" id="6mv-J3-QcL"/>
-                        <outlet property="settingsButton" destination="N7Q-zr-Fa0" id="Ax6-RK-rQ6"/>
+                        <outlet property="fetchButton" destination="aPH-5R-X65" id="l7f-dA-sGk"/>
+                        <outlet property="readButton" destination="E4Y-HA-njF" id="e0h-7I-5dV"/>
                         <segue destination="W4e-kB-FUh" kind="show" identifier="startReading" id="yXg-Lr-uHe"/>
                         <segue destination="koe-B0-CbY" kind="show" identifier="openSettings" id="ev7-4g-iAq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKA-aI-ifa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-261"/>
+            <point key="canvasLocation" x="70.3125" y="-261.328125"/>
         </scene>
         <!--Settings-->
         <scene sceneID="w99-jk-g7t">

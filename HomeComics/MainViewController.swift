@@ -17,8 +17,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Class variables & Outlets
     @IBOutlet var readButton: UIButton!
     @IBOutlet var fetchButton: UIButton!
-    @IBOutlet var settingsButton: UIButton!
-    @IBOutlet var jsonTextField: UITextField!
     var pagesIndex: [URL] = []
     var defaults: UserDefaults?
     
@@ -48,16 +46,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         self.readButton.layer.cornerRadius = 5
         self.readButton.clipsToBounds = true
-        self.settingsButton.layer.cornerRadius = 5
-        self.settingsButton.clipsToBounds = true
         self.fetchButton.layer.cornerRadius = 5
         self.fetchButton.clipsToBounds = true
         let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         self.readButton.contentEdgeInsets = insets
-        self.settingsButton.contentEdgeInsets = insets
         self.fetchButton.contentEdgeInsets = insets
         defaults = UserDefaults.standard
-        self.jsonTextField.delegate = self
         readButton.isEnabled = false
     }
     
