@@ -18,6 +18,14 @@
             </objects>
             <point key="canvasLocation" x="71" y="194"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="zzQ-GN-sK2">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Se" storyboardName="Settings" id="koe-B0-CbY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZK-UN-pTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181" y="158"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h8v-nP-38H">
             <objects>
@@ -84,6 +92,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7Q-zr-Fa0" userLabel="Settings">
                                         <rect key="frame" x="335.5" y="845" width="57" height="30"/>
                                         <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="settingz:" destination="UaP-T2-KOP" eventType="touchUpInside" id="oT9-qx-A50"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -107,6 +118,7 @@
                         <outlet property="readButton" destination="uAV-D3-qjq" id="6mv-J3-QcL"/>
                         <outlet property="settingsButton" destination="N7Q-zr-Fa0" id="Ax6-RK-rQ6"/>
                         <segue destination="W4e-kB-FUh" kind="show" identifier="startReading" id="yXg-Lr-uHe"/>
+                        <segue destination="koe-B0-CbY" kind="show" identifier="openSettings" id="ev7-4g-iAq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKA-aI-ifa" userLabel="First Responder" sceneMemberID="firstResponder"/>

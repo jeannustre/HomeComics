@@ -17,6 +17,9 @@
 		2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8D1EB82D050068ACCC /* Reading.storyboard */; };
 		2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
+		2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */; };
+		2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */; };
+		2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
@@ -38,6 +41,9 @@
 		2DBECD8D1EB82D050068ACCC /* Reading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reading.storyboard; sourceTree = "<group>"; };
 		2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
+		2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSettingsTableViewController.swift; sourceTree = "<group>"; };
+		2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSettingsViewController.swift; sourceTree = "<group>"; };
+		2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +76,7 @@
 		2DCA92B81EABF9A4003918E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DFCCF881EB952AD002DFF2A /* Settings */,
 				2D0847691EAC5955002CB13E /* SettingsViewController.swift */,
 				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
 				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
@@ -95,6 +102,16 @@
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		2DFCCF881EB952AD002DFF2A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */,
+				2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */,
+				2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		ABD19EA01E78BE43009725F3 = {
@@ -244,8 +261,11 @@
 				AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */,
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
+				2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
+				2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */,
 				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
+				2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

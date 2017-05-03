@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let bg = UIColor(gradientStyle: .topToBottom, withFrame: (self.window?.bounds)!, andColors: [UIColor.flatBlueColorDark(), UIColor.flatSkyBlueColorDark()])
         //Chameleon.setGlobalThemeUsingPrimaryColor(bg, with: .contrast)
         Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatBlueColorDark(), with: .light)
+        UIButton.appearance(whenContainedInInstancesOf: [UITableView.self]).backgroundColor = UIColor.clear
        // Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatTealColorDark(), withSecondaryColor: UIColor.flatPinkColorDark(), andContentStyle: .contrast)
         return true
     }
