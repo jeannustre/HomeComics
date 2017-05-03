@@ -16,13 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        //let bg = UIColor(gradientStyle: .topToBottom, withFrame: (self.window?.bounds)!, andColors: [UIColor.flatBlueColorDark(), UIColor.flatSkyBlueColorDark()])
-        //Chameleon.setGlobalThemeUsingPrimaryColor(bg, with: .contrast)
-        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatBlueColorDark(), with: .light)
-        UIButton.appearance(whenContainedInInstancesOf: [UITableView.self]).backgroundColor = UIColor.clear
-       // Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatTealColorDark(), withSecondaryColor: UIColor.flatPinkColorDark(), andContentStyle: .contrast)
+ 
+        self.initTheme()
         return true
+    }
+    
+    func initTheme() {
+        let defaults = UserDefaults.standard
+        let primaryHex = defaults.string(forKey: "primaryColor")
+        let primaryColor = UIColor(hexString: primaryHex)
+        let secondaryHex = defaults.string(forKey: "secondaryColor")
+        if secondaryHex != "none" {
+            let secondaryColor = UIColor(hexString: secondaryHex)
+            Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: secondaryColor, andContentStyle: .contrast)
+        } else {
+            Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, with: .contrast)
+        }
+        UIButton.appearance(whenContainedInInstancesOf: [UITableView.self]).backgroundColor = UIColor.clear
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

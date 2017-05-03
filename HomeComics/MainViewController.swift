@@ -123,6 +123,10 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             print("Creating serverBaseURL defaults key with value: http://127.0.0.1:8080/")
             defaults.set("http://127.0.0.1:8080/", forKey: "serverBaseURL")
         }
+/*        if defaults.object(forKey: "primaryColor") == nil {
+            print("Creating primaryColor defaults key with value: \(UIColor.flatNavyBlueColorDark().hexValue())")
+            defaults.set()
+        }*/
     }
  
     //MARK: - Delegates

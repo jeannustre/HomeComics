@@ -45,7 +45,7 @@ class ComicPageViewController: UIPageViewController {
         config.urlCache = urlCache
         imageCache = AutoPurgingImageCache(
             memoryCapacity: UInt64(ramCache * 1000000),
-            preferredMemoryUsageAfterPurge: 80_000_000
+            preferredMemoryUsageAfterPurge: UInt64(ramCache * 1000000 / 2)
         )
         downloader = ImageDownloader(
             configuration: config,

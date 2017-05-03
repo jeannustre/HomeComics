@@ -16,6 +16,8 @@
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
 		2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8D1EB82D050068ACCC /* Reading.storyboard */; };
 		2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */; };
+		2DD531371EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */; };
+		2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
 		2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */; };
 		2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */; };
@@ -41,6 +43,8 @@
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
 		2DBECD8D1EB82D050068ACCC /* Reading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reading.storyboard; sourceTree = "<group>"; };
 		2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSettingsTableViewController.swift; sourceTree = "<group>"; };
+		2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerTableViewController.swift; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSettingsViewController.swift; sourceTree = "<group>"; };
@@ -106,12 +110,30 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		2DD531341EBA2E20007BEAEC /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		2DD531351EBA2E2A007BEAEC /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */,
+				2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		2DFCCF881EB952AD002DFF2A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2DD531351EBA2E2A007BEAEC /* Interface */,
+				2DD531341EBA2E20007BEAEC /* Server */,
 				2DFCCF8D1EB96F1D002DFF2A /* Cache */,
 				2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */,
-				2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -269,11 +291,13 @@
 			files = (
 				ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */,
 				2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */,
+				2DD531371EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift in Sources */,
 				AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */,
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
 				2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
+				2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */,
 				2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */,
 				2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */,
 				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
