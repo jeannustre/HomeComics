@@ -37,6 +37,7 @@ class ColorPickerTableViewController: UITableViewController {
 
     var defaults: UserDefaults?
     var key: String?
+    var dark = false
     var colors = [
             ColorCell(light: UIColor.flatPowderBlue(), dark: UIColor.flatPowderBlueColorDark(), name: "Powder Blue"),
             ColorCell(light: UIColor.flatSkyBlue(), dark: UIColor.flatSkyBlueColorDark(), name: "Sky Blue"),
@@ -71,6 +72,8 @@ class ColorPickerTableViewController: UITableViewController {
             let noColorCell = ColorCell(light: UIColor.white, dark: UIColor.white, name: "None")
             colors.insert(noColorCell, at: 0)
         }
+        let rightButton = UIBarButtonItem(title: "Dark", style: .plain, target: self, action: #selector(rightButtonTapped(sender:)))
+        self.navigationItem.rightBarButtonItem = rightButton
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,20 +87,31 @@ class ColorPickerTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func rightButtonTapped(sender: UIBarButtonItem) {
+        if dark {
+            sender.title = "Dark"
+            dark = false
+        } else {
+            sender.title = "Light"
+            dark = true
+        }
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let color = colors[indexPath.row]
         let cell = UITableViewCell(style: .default, reuseIdentifier: "colorCell")
         cell.contentView.backgroundColor = UIColor.clear
-        cell.backgroundColor = color.getColor(dark: true)
+        cell.backgroundColor = color.getColor(dark: self.dark)
         cell.textLabel?.text = color.name
-        cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color.getColor(dark: true), isFlat: true)
+        cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color.getColor(dark: self.dark), isFlat: true)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         print("Selected color at row \(index)")
-        let hex = colors[index].getHex(dark: true)
+        let hex = colors[index].getHex(dark: self.dark)
         defaults?.set(hex, forKey: key!)
         self.navigationController?.popViewController(animated: true)
     }
