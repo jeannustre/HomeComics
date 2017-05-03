@@ -46,6 +46,19 @@ class CacheSettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sliderViewController = segue.destination as! MemorySliderViewController
+        sliderViewController.defaults = defaults
+        if (segue.identifier == "showRamSlider") {
+            sliderViewController.key = "ramCache"
+            sliderViewController.steps = [8, 16, 32, 64, 128, 256]
+        }
+        if (segue.identifier == "showDiskSlider") {
+            sliderViewController.key = "diskCache"
+            sliderViewController.steps = [32, 64, 128, 256, 512, 1024, 2048]
+        }
+    }
+    
     //MARK: - Class methods
     private func initLayout() {
         // Workaround for the default TableView separator left inset

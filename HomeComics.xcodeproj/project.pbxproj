@@ -20,6 +20,7 @@
 		2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */; };
 		2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */; };
 		2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */; };
+		2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSettingsViewController.swift; sourceTree = "<group>"; };
 		2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingsTableViewController.swift; sourceTree = "<group>"; };
+		2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorySliderViewController.swift; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,11 +109,20 @@
 		2DFCCF881EB952AD002DFF2A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */,
+				2DFCCF8D1EB96F1D002DFF2A /* Cache */,
 				2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */,
 				2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		2DFCCF8D1EB96F1D002DFF2A /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */,
+				2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 		ABD19EA01E78BE43009725F3 = {
@@ -263,6 +274,7 @@
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
 				2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
+				2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */,
 				2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */,
 				2D08476A1EAC5955002CB13E /* SettingsViewController.swift in Sources */,
 				2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */,

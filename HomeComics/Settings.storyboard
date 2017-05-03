@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -145,6 +146,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jBX-YS-adw" kind="show" identifier="showDiskSlider" id="pQZ-W9-eKl"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kof-DI-9Rn" style="IBUITableViewCellStyleDefault" id="wqP-Vs-XX5">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
@@ -186,6 +190,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jBX-YS-adw" kind="show" identifier="showRamSlider" id="gIJ-6b-aZc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -206,6 +213,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tek-lz-7bU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1359" y="868"/>
+        </scene>
+        <!--Memory Slider View Controller-->
+        <scene sceneID="b2Y-9U-qHH">
+            <objects>
+                <viewController id="jBX-YS-adw" customClass="MemorySliderViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G9T-Wa-bC5"/>
+                        <viewControllerLayoutGuide type="bottom" id="bNf-ND-1xX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GOj-F8-xYy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiY-rn-n4w">
+                                <rect key="frame" x="34" y="318" width="307" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="128 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3a-Iz-hRT">
+                                <rect key="frame" x="143.5" y="418" width="88" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O3a-Iz-hRT" firstAttribute="centerX" secondItem="GOj-F8-xYy" secondAttribute="centerX" id="BPq-Jw-0qc"/>
+                            <constraint firstItem="eiY-rn-n4w" firstAttribute="centerY" secondItem="GOj-F8-xYy" secondAttribute="centerY" id="Bkc-ID-bZ4"/>
+                            <constraint firstItem="eiY-rn-n4w" firstAttribute="leading" secondItem="GOj-F8-xYy" secondAttribute="leadingMargin" constant="20" id="Y1L-Lq-hlR"/>
+                            <constraint firstItem="eiY-rn-n4w" firstAttribute="centerX" secondItem="GOj-F8-xYy" secondAttribute="centerX" id="dVH-Jy-sAv"/>
+                            <constraint firstItem="O3a-Iz-hRT" firstAttribute="top" secondItem="eiY-rn-n4w" secondAttribute="bottom" constant="70" id="msd-Qi-d0m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="O3a-Iz-hRT" id="4OA-73-WxL"/>
+                        <outlet property="slider" destination="eiY-rn-n4w" id="TZp-u3-znG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDf-bt-SWl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1359" y="1676"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Z6P-fK-fXY">
@@ -291,4 +338,7 @@
             <point key="canvasLocation" x="-1359" y="26"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gIJ-6b-aZc"/>
+    </inferredMetricsTieBreakers>
 </document>
