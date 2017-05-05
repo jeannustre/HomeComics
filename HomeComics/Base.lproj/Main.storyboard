@@ -30,6 +30,7 @@
                     <connections>
                         <segue destination="UaP-T2-KOP" kind="relationship" relationship="viewControllers" id="nnD-Mo-iaS"/>
                         <segue destination="k54-uf-Xy3" kind="relationship" relationship="viewControllers" id="l4s-xu-J7H"/>
+                        <segue destination="LYV-U3-Peu" kind="relationship" relationship="viewControllers" id="TRg-8j-wha"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-US-p1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,6 +95,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKA-aI-ifa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="419" y="-383"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="PeG-7e-19Z">
+            <objects>
+                <collectionViewController id="LYV-U3-Peu" customClass="ComicCollectionViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Lrv-Wk-L69">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="opI-yO-h33">
+                            <size key="itemSize" width="54" height="89"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="comicCell" id="MZT-b6-YaZ" customClass="ComicCollectionViewCell" customModule="HomeComics" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="54" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H4O-fG-SlH">
+                                            <rect key="frame" x="2" y="2" width="50" height="69"/>
+                                            <color key="backgroundColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="H4O-fG-SlH" firstAttribute="leading" secondItem="MZT-b6-YaZ" secondAttribute="leadingMargin" id="32u-TD-D8F"/>
+                                    <constraint firstItem="H4O-fG-SlH" firstAttribute="top" secondItem="MZT-b6-YaZ" secondAttribute="topMargin" id="H2J-HQ-Zwo"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="H4O-fG-SlH" secondAttribute="trailing" id="TtG-sS-pJF"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="H4O-fG-SlH" secondAttribute="bottom" constant="10" id="hch-TW-rsw"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="2" left="2" bottom="8" right="2"/>
+                                <connections>
+                                    <outlet property="imageView" destination="H4O-fG-SlH" id="MXF-6g-EK7"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="LYV-U3-Peu" id="Kmd-D7-hlQ"/>
+                            <outlet property="delegate" destination="LYV-U3-Peu" id="3if-u1-IIN"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="kzG-RJ-2ov"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="udM-CJ-2Tm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1720.3125" y="-888.28124999999989"/>
         </scene>
         <!--Settings-->
         <scene sceneID="w99-jk-g7t">
