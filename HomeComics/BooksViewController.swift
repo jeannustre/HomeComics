@@ -26,16 +26,9 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
 
         // Do any additional setup after loading the view
         //self.collectionView.delegate
-        self.searchController = UISearchController(searchResultsController: nil)
-        self.searchController.searchResultsUpdater = self
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
-        self.searchController.searchBar.returnKeyType = .done
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = true
-        self.navigationItem.titleView = searchController.searchBar
-        let navBarColor = self.navigationController?.navigationBar.backgroundColor
-        self.navigationItem.titleView?.backgroundColor = navBarColor
+        
+        self.setupNavBar()
+        self.bookDataSource.setupCache()
         self.definesPresentationContext = true
         collectionView.dataSource = bookDataSource
         collectionView.delegate = self
@@ -59,6 +52,19 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupNavBar(){
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        self.searchController.searchBar.returnKeyType = .done
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+        self.navigationItem.titleView = searchController.searchBar
+        let navBarColor = self.navigationController?.navigationBar.backgroundColor
+        self.navigationItem.titleView?.backgroundColor = navBarColor
     }
     
     func updateSearchResults(for searchController: UISearchController) {

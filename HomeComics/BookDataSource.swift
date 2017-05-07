@@ -17,7 +17,8 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
     var books = [Book]()
     var filteredBooks = [Book]()
     var authors = [Author]()
-    let downloader = ImageDownloader()
+    var downloader: ImageDownloader?
+    var imageCache: AutoPurgingImageCache?
     let baseURL = "http://127.0.0.1:1337"
     let cdnURL = "http://127.0.0.1:8080/"
     let defaults = UserDefaults.standard
@@ -65,6 +66,52 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
         }
     }
     
+    func setImage(url: URL, imageView: UIImageView){
+        let request = URLRequest(url: url)
+        
+        if let image = self.imageCache?.image(for: request) {
+            print("----- found image in cache! -----")
+            imageView.image = image
+            return
+        }
+        print("---   sending request for image   ---")
+        // TODO : error checks
+        downloader?.download(request) { response in
+            if let image = response.result.value {
+                imageView.image = image
+                self.imageCache?.add(image, for: request)
+            }
+        }
+    }
+    
+    func setupCache() {
+        let defaults = UserDefaults.standard
+        //let ramCache = defaults.integer(forKey: "ramCache")
+        let ramCache = 256
+        //let diskCache = defaults.integer(forKey: "diskCache")
+//        print("coverCache: \()")
+        let coverCache = defaults.integer(forKey: "coverCache")
+        let config = URLSessionConfiguration.default
+        let urlCache = URLCache(
+            memoryCapacity: ramCache * 1000000,
+            diskCapacity: coverCache * 1000000,
+            diskPath: nil
+        )
+        config.urlCache = URLCache.shared
+        config.urlCache = urlCache
+        imageCache = AutoPurgingImageCache(
+            memoryCapacity: UInt64(ramCache * 1000000),
+            preferredMemoryUsageAfterPurge: UInt64(0)
+            //preferredMemoryUsageAfterPurge: UInt64(ramCache * 1000000 / 2)
+        )
+        downloader = ImageDownloader(
+            configuration: config,
+            downloadPrioritization: .fifo,
+            maximumActiveDownloads: 5,
+            imageCache: imageCache
+        )
+    }
+    
     //MARK: - CollectionView DataSource delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.searching {
@@ -108,7 +155,8 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
             let urlString = cdnURL + coverUrlString
             let escapedUrl = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
             if let url = URL(string: escapedUrl!) {
-                cell.imageView.af_setImage(withURL: url)
+                self.setImage(url: url, imageView: cell.imageView)
+//                cell.imageView.af_setImage(withURL: url)
             } else {
                 print("invalid url?")
             }
