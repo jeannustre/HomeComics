@@ -40,9 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Creating ramCache defaults key with value: 128")
             defaults.set(128, forKey: "ramCache")
         }
+//        if defaults.object(forKey: "ramCacheEnabled") == nil {
+//            print("Creating   defaults key with value: ")
+//        }
         if defaults.object(forKey: "diskCache") == nil {
             print("Creating diskCache defaults key with value: 512")
             defaults.set(512, forKey: "diskCache")
+        }
+        if defaults.object(forKey: "coverCache") == nil {
+            print("Creating coverCache defaults key with value: 128")
+            defaults.set(128, forKey: "coverCache")
         }
         if defaults.object(forKey: "downloadPriority") == nil {
             print("Creating downloadPriority defaults key with value: true")

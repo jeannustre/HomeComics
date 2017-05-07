@@ -22,6 +22,9 @@ class MemorySliderViewController: UIViewController {
         
         slider.isContinuous = false
         slider.maximumValue = Float((steps?.count)! - 1)
+        slider.minimumValueImage = slider.minimumValueImage?.withRenderingMode(.alwaysTemplate)
+        slider.maximumValueImage = slider.maximumValueImage?.withRenderingMode(.alwaysTemplate)
+        slider.tintColor = UIColor(hexString: defaults?.string(forKey: "secondaryColor"))
         if let value = defaults?.integer(forKey: key!) {
             let index = steps?.index(of: value)
             slider.value = Float(index!)
@@ -47,6 +50,7 @@ class MemorySliderViewController: UIViewController {
     func memorySliderAction(sender: UISlider, forEvent event: UIEvent) {
         sender.value = roundf(sender.value)
         if let value = steps?[Int(sender.value)] {
+            print("Did set value \(value.description) for key \(key!)")
             label.text = "\(value.description) MB"
             defaults?.set(value, forKey: key!)
         }

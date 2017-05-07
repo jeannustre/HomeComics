@@ -12,10 +12,12 @@ class CacheSettingsTableViewController: UITableViewController {
     
     //MARK: - Class variables & Outlets
     @IBOutlet var useDiskCacheCell: UITableViewCell!
-   
     @IBOutlet var sizeDiskCacheCell: UITableViewCell!
     @IBOutlet var useRamCacheCell: UITableViewCell!
     @IBOutlet var sizeRamCacheCell: UITableViewCell!
+    @IBOutlet var useCoverCacheCell: UITableViewCell!
+    @IBOutlet var sizeCoverCacheCell: UITableViewCell!
+    
     var defaults: UserDefaults?
     
     //MARK: - Lazy variables
@@ -31,6 +33,12 @@ class CacheSettingsTableViewController: UITableViewController {
         return ramSwitch
     }()
     
+    lazy var useCoverSwitch: UISwitch = {
+        let coverSwitch = UISwitch()
+        coverSwitch.addTarget(self, action: #selector(coverSwitchToggled(sender:)), for: .valueChanged)
+        return coverSwitch
+    }()
+    
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +48,14 @@ class CacheSettingsTableViewController: UITableViewController {
         self.loadDefaults(defaults!)
         self.updateLayout(switchIsOn: useDiskSwitch.isOn, cell: sizeDiskCacheCell)
         self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
+        self.updateLayout(switchIsOn: useCoverSwitch.isOn, cell: sizeCoverCacheCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.loadDefaults(defaults!)
         self.updateLayout(switchIsOn: useDiskSwitch.isOn, cell: sizeDiskCacheCell)
         self.updateLayout(switchIsOn: useRamSwitch.isOn, cell: sizeRamCacheCell)
+        self.updateLayout(switchIsOn: useCoverSwitch.isOn, cell: sizeCoverCacheCell)
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,6 +76,11 @@ class CacheSettingsTableViewController: UITableViewController {
             sliderViewController.key = "diskCache"
             sliderViewController.steps = [32, 64, 128, 256, 512, 1024, 2048]
         }
+        if (segue.identifier == "showCoverSlider") {
+            sliderViewController.navigationItem.title = "Cover Cache"
+            sliderViewController.key = "coverCache"
+            sliderViewController.steps = [64, 128, 256, 512, 1024]
+        }
     }
     
     //MARK: - Class methods
@@ -76,16 +91,20 @@ class CacheSettingsTableViewController: UITableViewController {
         // Lazy switches
         useDiskCacheCell.accessoryView = useDiskSwitch
         useRamCacheCell.accessoryView = useRamSwitch
+        useCoverCacheCell.accessoryView = useCoverSwitch
         // Make background of cell unselectable
         useDiskCacheCell.selectionStyle = .none
         useRamCacheCell.selectionStyle = .none
+        useCoverCacheCell.selectionStyle = .none
     }
     
     private func loadDefaults(_ defaults: UserDefaults) {
         useDiskSwitch.isOn = defaults.bool(forKey: "diskCacheEnabled")
         useRamSwitch.isOn = defaults.bool(forKey: "ramCacheEnabled")
+        useCoverSwitch.isOn = defaults.bool(forKey: "coverCacheEnabled")
         sizeRamCacheCell.detailTextLabel?.text = defaults.integer(forKey: "ramCache").description
         sizeDiskCacheCell.detailTextLabel?.text = defaults.integer(forKey: "diskCache").description
+        sizeCoverCacheCell.detailTextLabel?.text = defaults.integer(forKey: "coverCache").description
     }
     
     private func updateLayout(switchIsOn: Bool, cell: UITableViewCell) {
@@ -111,6 +130,11 @@ class CacheSettingsTableViewController: UITableViewController {
     func ramSwitchToggled(sender:UISwitch!) {
         defaults?.set(sender.isOn, forKey: "ramCacheEnabled")
         updateLayout(switchIsOn: sender.isOn, cell: sizeRamCacheCell)
+    }
+    
+    func coverSwitchToggled(sender:UISwitch!) {
+        defaults?.set(sender.isOn, forKey: "coverCacheEnabled")
+        updateLayout(switchIsOn: sender.isOn, cell: sizeCoverCacheCell)
     }
     
 }

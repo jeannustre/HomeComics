@@ -194,6 +194,50 @@
                                             <segue destination="jBX-YS-adw" kind="show" identifier="showRamSlider" id="gIJ-6b-aZc"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="jf0-fZ-Fye" style="IBUITableViewCellStyleDefault" id="Tbw-XY-ucI">
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tbw-XY-ucI" id="pXP-ct-N0w">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Cover Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jf0-fZ-Fye">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="0Cy-4l-RCH" detailTextLabel="y8h-mD-OEE" style="IBUITableViewCellStyleValue1" id="IS3-9L-lyf">
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IS3-9L-lyf" id="Qnc-MF-B1X">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="  Size (MB)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Cy-4l-RCH">
+                                                    <rect key="frame" x="15" y="12" width="82" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="64" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y8h-mD-OEE">
+                                                    <rect key="frame" x="319" y="12" width="21" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.68888300660000001" green="0.71366006140000005" blue="0.73448425530000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jBX-YS-adw" kind="show" identifier="showCoverSlider" id="E9n-lq-zuG"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -204,8 +248,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cache" id="rKc-MG-dgd"/>
                     <connections>
+                        <outlet property="sizeCoverCacheCell" destination="IS3-9L-lyf" id="j0a-K8-2aa"/>
                         <outlet property="sizeDiskCacheCell" destination="tCc-5V-EEL" id="5Cb-vl-6NE"/>
                         <outlet property="sizeRamCacheCell" destination="VnU-c1-BkS" id="ILf-e1-VLc"/>
+                        <outlet property="useCoverCacheCell" destination="Tbw-XY-ucI" id="Sv3-NC-vWe"/>
                         <outlet property="useDiskCacheCell" destination="pVZ-qs-IQM" id="Qvg-IK-jvn"/>
                         <outlet property="useRamCacheCell" destination="wqP-Vs-XX5" id="jbQ-d7-CL6"/>
                     </connections>
@@ -445,6 +491,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cGt-1C-ekk"/>
-        <segue reference="gIJ-6b-aZc"/>
+        <segue reference="E9n-lq-zuG"/>
     </inferredMetricsTieBreakers>
 </document>
