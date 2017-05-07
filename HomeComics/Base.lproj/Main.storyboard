@@ -30,14 +30,14 @@
                     <connections>
                         <segue destination="UaP-T2-KOP" kind="relationship" relationship="viewControllers" id="nnD-Mo-iaS"/>
                         <segue destination="k54-uf-Xy3" kind="relationship" relationship="viewControllers" id="l4s-xu-J7H"/>
-                        <segue destination="oe2-QX-STd" kind="relationship" relationship="viewControllers" id="yoC-kh-d2T"/>
+                        <segue destination="xrm-kG-B4O" kind="relationship" relationship="viewControllers" id="yoC-kh-d2T"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-US-p1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="774" y="-1085"/>
         </scene>
-        <!--Collection-->
+        <!--Books View Controller-->
         <scene sceneID="PFR-XJ-Dnb">
             <objects>
                 <viewController id="oe2-QX-STd" customClass="BooksViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="En7-de-Iop">
-                                <rect key="frame" x="16" y="20" width="343" height="598"/>
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j7I-9o-xY3">
                                     <size key="itemSize" width="106" height="152"/>
@@ -134,14 +134,16 @@
                             <constraint firstItem="En7-de-Iop" firstAttribute="leading" secondItem="NJk-sA-sme" secondAttribute="leadingMargin" id="lG4-Jg-jl9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Collection" image="Magazine" id="vgE-KA-3AW"/>
+                    <navigationItem key="navigationItem" id="mIO-fX-1Xp">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="En7-de-Iop" id="r9n-NI-rdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9Z-jk-0ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="-772"/>
+            <point key="canvasLocation" x="2687.1999999999998" y="-772.26386806596713"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="i2m-Rg-bY7">
@@ -196,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3C-Qq-dhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2704.8000000000002" y="-772.26386806596713"/>
+            <point key="canvasLocation" x="3644" y="-772.26386806596713"/>
         </scene>
         <!--Home-->
         <scene sceneID="2vR-jO-cAk">
@@ -266,6 +268,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCd-kS-xPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1027" y="-485"/>
+        </scene>
+        <!--Collection-->
+        <scene sceneID="dgw-xV-B2O">
+            <objects>
+                <navigationController id="xrm-kG-B4O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Collection" image="Magazine" id="vgE-KA-3AW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GnN-Ve-fN0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oe2-QX-STd" kind="relationship" relationship="rootViewController" id="RLl-4V-MCX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R1s-4d-OUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="-772.26386806596713"/>
         </scene>
     </scenes>
     <resources>

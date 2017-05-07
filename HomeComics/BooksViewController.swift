@@ -11,9 +11,11 @@ import Alamofire
 import AlamofireObjectMapper
 import Chameleon
 
-class BooksViewController: UIViewController, UICollectionViewDelegate {
+class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
+    
+    var searchController: UISearchController!
     
     let bookDataSource = BookDataSource()
     let count = 0
@@ -24,6 +26,16 @@ class BooksViewController: UIViewController, UICollectionViewDelegate {
 
         // Do any additional setup after loading the view
         //self.collectionView.delegate
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+        self.navigationItem.titleView = searchController.searchBar
+        let navBarColor = self.navigationController?.navigationBar.backgroundColor
+        self.navigationItem.titleView?.backgroundColor = navBarColor
+        self.definesPresentationContext = true
         collectionView.dataSource = bookDataSource
         collectionView.delegate = self
         bookDataSource.fetchBooks {
@@ -48,6 +60,26 @@ class BooksViewController: UIViewController, UICollectionViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+   /* func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }*/
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("did select item")
         let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
@@ -62,7 +94,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate {
         print("B \(cell.imageView)")
         bookDetailViewController.image = cell.imageView.image
         bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-        self.present(bookDetailViewController, animated: true, completion: nil)
+        //self.present(bookDetailViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(bookDetailViewController, animated: true)
 
         //return cell
     }
