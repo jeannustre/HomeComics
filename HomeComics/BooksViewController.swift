@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 import Chameleon
 
-class BooksViewController: UIViewController {
+class BooksViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -22,8 +22,10 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
+        //self.collectionView.delegate
         collectionView.dataSource = bookDataSource
+        collectionView.delegate = self
         bookDataSource.fetchBooks {
             print("Fetched books through BookDataSource!")
             self.collectionView.reloadData()
@@ -46,15 +48,29 @@ class BooksViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("did select item")
+        let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
+        
+        
+        let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
+//        let url = bookDataSource.cdnURL + book.cover!
+//        let escapedUrl = url.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+//        troller, animated: true, completion: nil)
+        
+        print("A \(bookDetailViewController.background)")
+        print("B \(cell.imageView)")
+        bookDetailViewController.image = cell.imageView.image
+        bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
+        self.present(bookDetailViewController, animated: true, completion: nil)
 
-    /*
-    // MARK: - Navigation
+        //return cell
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

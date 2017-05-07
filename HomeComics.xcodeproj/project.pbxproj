@@ -23,6 +23,7 @@
 		2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */; };
 		2DD531371EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */; };
 		2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */; };
+		2DE5273A1EBEC7FE00AF785E /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE527391EBEC7FE00AF785E /* BookDetailViewController.swift */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
 		2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */; };
 		2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */; };
@@ -55,6 +56,7 @@
 		2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerTableViewController.swift; sourceTree = "<group>"; };
+		2DE527391EBEC7FE00AF785E /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSettingsViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +104,6 @@
 		2D65CB801EBEA76600E95AAD /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -116,7 +117,7 @@
 				2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
 				AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */,
-				2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */,
+				2DE5273B1EBEC82900AF785E /* Collection */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -154,6 +155,16 @@
 				2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */,
 			);
 			name = Interface;
+			sourceTree = "<group>";
+		};
+		2DE5273B1EBEC82900AF785E /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */,
+				2DE527391EBEC7FE00AF785E /* BookDetailViewController.swift */,
+				2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */,
+			);
+			name = Collection;
 			sourceTree = "<group>";
 		};
 		2DFCCF881EB952AD002DFF2A /* Settings */ = {
@@ -335,6 +346,7 @@
 				2D65CB7B1EBE8D1C00E95AAD /* Author.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
 				2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */,
+				2DE5273A1EBEC7FE00AF785E /* BookDetailViewController.swift in Sources */,
 				2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */,
 				2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */,
 				2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */,
