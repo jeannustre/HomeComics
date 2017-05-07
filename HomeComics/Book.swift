@@ -1,5 +1,5 @@
 //
-//  Comic.swift
+//  Book.swift
 //  HomeComics
 //
 //  Created by Jean Sarda on 05/05/2017.
@@ -8,9 +8,9 @@
 
 import ObjectMapper
 
-class Comic: Mappable {
+class Book: Mappable {
     var title: String?
-    var author: String?
+    var authors: [Int]? // not sure this will map correctly as is
     var pages: Int?
     var year: Int?
     var id: Int?
@@ -24,12 +24,13 @@ class Comic: Mappable {
     
     func mapping(map: Map) {
         title <- map["title"]
-        author <- map["author"]
+        authors <- map["authors"]
         pages <- map["pages"]
         year <- map["year"]
         id <- map["id"]
         location <- map["location"]
         cover <- map["cover"]
+        // contents is not always available, check that in init
         contents <- map["contents"]
     }
     

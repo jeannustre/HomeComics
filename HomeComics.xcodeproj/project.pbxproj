@@ -12,8 +12,12 @@
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
 		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
 		2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4B1EAD847400980867 /* ObjectMapper.framework */; };
+		2D65CB7B1EBE8D1C00E95AAD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB7A1EBE8D1C00E95AAD /* Author.swift */; };
+		2D65CB7D1EBE900100E95AAD /* BookDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB7C1EBE900100E95AAD /* BookDataSource.swift */; };
+		2D65CB7F1EBE90A700E95AAD /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */; };
+		2D65CB821EBEA78800E95AAD /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
-		2D9862531EBC111F00C599C7 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9862521EBC111F00C599C7 /* Comic.swift */; };
+		2D9862531EBC111F00C599C7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9862521EBC111F00C599C7 /* Book.swift */; };
 		2DA44B211EBA7F59006B620F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */; };
 		2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8D1EB82D050068ACCC /* Reading.storyboard */; };
 		2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */; };
@@ -40,8 +44,12 @@
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2D610A4B1EAD847400980867 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		2D65CB7A1EBE8D1C00E95AAD /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		2D65CB7C1EBE900100E95AAD /* BookDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataSource.swift; sourceTree = "<group>"; };
+		2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
-		2D9862521EBC111F00C599C7 /* Comic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		2D9862521EBC111F00C599C7 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2DBECD8D1EB82D050068ACCC /* Reading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reading.storyboard; sourceTree = "<group>"; };
 		2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -81,6 +89,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D65CB771EBE8CDF00E95AAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2D9862521EBC111F00C599C7 /* Book.swift */,
+				2D65CB7A1EBE8D1C00E95AAD /* Author.swift */,
+				2D65CB7C1EBE900100E95AAD /* BookDataSource.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2D65CB801EBEA76600E95AAD /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
 		2DCA92B81EABF9A4003918E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,8 +115,8 @@
 				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
 				2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
-				2D9862521EBC111F00C599C7 /* Comic.swift */,
 				AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */,
+				2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -172,6 +198,8 @@
 			children = (
 				2DCA92B81EABF9A4003918E3 /* View Controllers */,
 				ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */,
+				2D65CB801EBEA76600E95AAD /* Layout */,
+				2D65CB771EBE8CDF00E95AAD /* Models */,
 				2DCA92B91EABF9D0003918E3 /* Storyboards */,
 				2DCA92BA1EABF9E0003918E3 /* Components */,
 				ABD19EB51E78BE44009725F3 /* LaunchScreen.storyboard */,
@@ -295,12 +323,16 @@
 				ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */,
 				2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */,
 				2DD531371EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift in Sources */,
+				2D65CB821EBEA78800E95AAD /* BookCollectionViewCell.swift in Sources */,
 				AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */,
 				ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */,
+				2D65CB7D1EBE900100E95AAD /* BookDataSource.swift in Sources */,
+				2D65CB7F1EBE90A700E95AAD /* BooksViewController.swift in Sources */,
 				AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */,
-				2D9862531EBC111F00C599C7 /* Comic.swift in Sources */,
+				2D9862531EBC111F00C599C7 /* Book.swift in Sources */,
 				2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */,
 				2DA44B211EBA7F59006B620F /* MainTabBarViewController.swift in Sources */,
+				2D65CB7B1EBE8D1C00E95AAD /* Author.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
 				2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */,
 				2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */,
