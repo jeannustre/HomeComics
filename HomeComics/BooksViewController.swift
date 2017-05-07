@@ -30,6 +30,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
+        self.searchController.searchBar.returnKeyType = .done
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.dimsBackgroundDuringPresentation = true
         self.navigationItem.titleView = searchController.searchBar
@@ -62,6 +63,20 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("textDidChange : <\(searchText)>")
+        self.bookDataSource.searchWith(searchText) {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        self.bookDataSource.searchWith("") {
+            self.collectionView.reloadData()
+        }
     }
     
    /* func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

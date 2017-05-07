@@ -15,11 +15,14 @@ import Chameleon
 class BookDataSource: NSObject, UICollectionViewDataSource {
     
     var books = [Book]()
+    var filteredBooks = [Book]()
     var authors = [Author]()
     let downloader = ImageDownloader()
     let baseURL = "http://127.0.0.1:1337"
     let cdnURL = "http://127.0.0.1:8080/"
     let defaults = UserDefaults.standard
+    var searching = false
+    //let searchString = ""
     
     func fetchBooks(completion: @escaping () -> ()) {
         let url = baseURL + "/book"
@@ -43,19 +46,47 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
         }
     }
     
+    func searchWith(_ string: String, completion: @escaping () ->()) {
+        if string.isEmpty {
+            searching = false
+            completion()
+        } else {
+            searching = true
+            //filteredBooks.removeAll()
+            let filtered = self.books.filter {
+                ($0.title?.lowercased().contains(string.lowercased()))!
+            }
+            if filtered.count != filteredBooks.count {
+                // number of items to display changed. refreshing collection
+                filteredBooks = filtered
+                completion()
+            }
+            
+        }
+    }
+    
     //MARK: - CollectionView DataSource delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return books.count
+        if self.searching {
+            return filteredBooks.count
+        } else {
+            return books.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = "bookCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! BookCollectionViewCell
-        let book = books[indexPath.row]
+        var book: Book
+        if self.searching {
+            book = filteredBooks[indexPath.row]
+        } else {
+            book = books[indexPath.row]
+        }
+        
         cell.titleLabel.text = book.title
         cell.authorLabel.text = ""
         let primaryColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-        let secondaryColor = UIColor(hexString: defaults.string(forKey: "secondaryColor"))
         let darkerPrimaryColor = primaryColor?.darken(byPercentage: 80)
         cell.backgroundColor = darkerPrimaryColor
         if let authorsID = book.authors {
@@ -72,19 +103,16 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
             }
         }
         
-        
         if let coverUrlString = book.cover {
             print("URL : <\(cdnURL + coverUrlString)>")
             let urlString = cdnURL + coverUrlString
             let escapedUrl = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
             if let url = URL(string: escapedUrl!) {
-                
                 cell.imageView.af_setImage(withURL: url)
             } else {
                 print("invalid url?")
             }
         }
-        
         
         return cell
     }
