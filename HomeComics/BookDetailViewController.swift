@@ -12,7 +12,7 @@ class BookDetailViewController: UIViewController {
 
     @IBOutlet var background: UIImageView!
     
-    var image: UIImage?
+    //var image: UIImage?
     
     @IBOutlet var popButton: UIButton!
     
@@ -28,7 +28,7 @@ class BookDetailViewController: UIViewController {
         let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         self.popButton.contentEdgeInsets = insets
 
-        background.image = self.image
+       // background.image = self.image
         // Do any additional setup after loading the view.
     }
 

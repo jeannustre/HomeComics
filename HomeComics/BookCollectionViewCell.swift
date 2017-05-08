@@ -23,7 +23,8 @@ class BookCollectionViewCell: UICollectionViewCell {
         titleLabel.text = book.title
         authorLabel.text = ""
         backgroundColor = background
-        imageURL = book.cover
+        print("Book cover: \(book.cover)")
+       // imageURL = book.cover
         for authorID in book.authors! { // for each author id in the book
             if !((authorLabel.text?.isEmpty)!) { // if it's the second author or more,
                 authorLabel.text = authorLabel.text! + ", " // we separate them

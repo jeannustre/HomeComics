@@ -103,11 +103,12 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     }*/
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("did select item")
         let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
         let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
-        //TODO : fetch the image again, as Haneke already downscaled the image in the cell
-        bookDetailViewController.image = cell.imageView.image
+        if let url = URL(string: cell.imageURL!) {
+            bookDetailViewController.view.layoutIfNeeded()
+            bookDetailViewController.background.hnk_setImageFromURL(url, format: Format<UIImage>(name: "original"))
+        }
         bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
         navigationController?.pushViewController(bookDetailViewController, animated: true)
     }
