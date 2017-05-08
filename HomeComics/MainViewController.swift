@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-import SwiftyJSON
 import Chameleon
 
 class MainViewController: UIViewController, UITextFieldDelegate {
@@ -69,7 +68,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Class methods
     private func readJSON() {
-        var fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+      /*  var fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         fileURL.appendPathComponent("books.json")
         var json: JSON?
         do {
@@ -88,7 +87,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 pagesIndex.append(url)
             }
         }
-        readButton.isEnabled = true
+        readButton.isEnabled = true*/
     }
     
     //MARK: - Delegates

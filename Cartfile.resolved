@@ -1,6 +1,5 @@
 github "Alamofire/Alamofire" "4.4.0"
 github "Alamofire/AlamofireImage" "3.2.0"
-github "Haneke/HanekeSwift" "v0.10.1"
 github "Hearst-DD/ObjectMapper" "2.2.6"
 github "ViccAlexander/Chameleon" "2.2.0"
 github "tristanhimmelman/AlamofireObjectMapper" "4.1.0"

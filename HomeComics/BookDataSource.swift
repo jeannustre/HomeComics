@@ -83,7 +83,8 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
             let urlString = cdnURL + coverUrlString
             let escapedUrl = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
             if let url = URL(string: escapedUrl!) {
-                cell.imageView.af_setImage(withURL: url)
+                cell.imageView.hnk_setImageFromURL(url)
+//                cell.imageView.af_setImage(withURL: url)
             } else {
                 print("invalid url?")
             }

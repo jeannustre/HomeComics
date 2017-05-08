@@ -17,10 +17,13 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var authorLabel: UILabel!
     
+    var imageURL: String?
+    
     func configureWith(book: Book, authors: [Author], background: UIColor) {
         titleLabel.text = book.title
         authorLabel.text = ""
         backgroundColor = background
+        imageURL = book.cover
         for authorID in book.authors! { // for each author id in the book
             if !((authorLabel.text?.isEmpty)!) { // if it's the second author or more,
                 authorLabel.text = authorLabel.text! + ", " // we separate them

@@ -10,13 +10,14 @@ import UIKit
 import Alamofire
 import AlamofireObjectMapper
 import Chameleon
+import Haneke
 
 class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     
     var searchController: UISearchController!
-    
+    let cache = Cache<UIImage>(name: "collection")
     let bookDataSource = BookDataSource()
     let count = 0
     let defaults = UserDefaults.standard
@@ -104,18 +105,11 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("did select item")
         let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
-        
-        
         let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
-        
-        print("A \(bookDetailViewController.background)")
-        print("B \(cell.imageView)")
+        //TODO : fetch the image again, as Haneke already downscaled the image in the cell
         bookDetailViewController.image = cell.imageView.image
         bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-        //self.present(bookDetailViewController, animated: true, completion: nil)
         navigationController?.pushViewController(bookDetailViewController, animated: true)
-
-        //return cell
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

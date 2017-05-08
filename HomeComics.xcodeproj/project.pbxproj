@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D001DE31EB8E229006570DF /* Chameleon.framework */; };
-		2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */; };
+		2D4637FB1EC0F6C200BB652F /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4637FA1EC0F6C200BB652F /* Haneke.framework */; };
 		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
 		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
 		2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4B1EAD847400980867 /* ObjectMapper.framework */; };
@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2D001DE31EB8E229006570DF /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
+		2D4637FA1EC0F6C200BB652F /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
 		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
@@ -79,11 +80,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4637FB1EC0F6C200BB652F /* Haneke.framework in Frameworks */,
 				2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */,
 				2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */,
 				2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */,
 				2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */,
-				2D49DAF51EAAC71F00D212FC /* SwiftyJSON.framework in Frameworks */,
 				ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +224,7 @@
 		ABF446451E79854000233721 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D4637FA1EC0F6C200BB652F /* Haneke.framework */,
 				2D001DE31EB8E229006570DF /* Chameleon.framework */,
 				2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */,
 				2D610A4B1EAD847400980867 /* ObjectMapper.framework */,
@@ -312,11 +314,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Haneke.framework",
 			);
 			outputPaths = (
 			);
