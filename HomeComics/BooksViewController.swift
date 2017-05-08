@@ -26,7 +26,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
 
         // Do any additional setup after loading the view
         //self.collectionView.delegate
-        
+        //collectionView.bounds.origin = collectionView.bounds.origin  - collectionView.bounds.origin
         self.setupNavBar()
         self.bookDataSource.setupCache()
         self.definesPresentationContext = true
@@ -107,9 +107,6 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         
         
         let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
-//        let url = bookDataSource.cdnURL + book.cover!
-//        let escapedUrl = url.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
-//        troller, animated: true, completion: nil)
         
         print("A \(bookDetailViewController.background)")
         print("B \(cell.imageView)")

@@ -17,6 +17,7 @@ class Book: Mappable {
     var location: String?
     var cover: String?
     var contents: [String]?
+    let defaults = UserDefaults.standard
     
     required init?(map: Map) {
         

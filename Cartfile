@@ -1,5 +1,5 @@
 github "Alamofire/Alamofire"
 github "Alamofire/AlamofireImage"
-github "SwiftyJSON/SwiftyJSON"
 github "tristanhimmelman/AlamofireObjectMapper"
 github "ViccAlexander/Chameleon"
+github "Haneke/HanekeSwift"

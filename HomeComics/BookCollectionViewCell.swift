@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Chameleon
 
 class BookCollectionViewCell: UICollectionViewCell {
     
@@ -15,5 +16,21 @@ class BookCollectionViewCell: UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var authorLabel: UILabel!
+    
+    func configureWith(book: Book, authors: [Author], background: UIColor) {
+        titleLabel.text = book.title
+        authorLabel.text = ""
+        backgroundColor = background
+        for authorID in book.authors! { // for each author id in the book
+            if !((authorLabel.text?.isEmpty)!) { // if it's the second author or more,
+                authorLabel.text = authorLabel.text! + ", " // we separate them
+            }
+            let author = authors.filter { $0.id == authorID } // get the Author that matches the current book.author id
+            if author.count > 0 {
+                authorLabel.text = authorLabel.text! + author[0].name!
+            }
+
+        }
+    }
     
 }
