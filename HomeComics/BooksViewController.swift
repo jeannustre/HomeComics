@@ -105,9 +105,10 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
         let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
+        let format = Format<UIImage>(name: "original", diskCapacity: 30 * 1024 * 1024)
         if let url = URL(string: cell.imageURL!) {
             bookDetailViewController.view.layoutIfNeeded()
-            bookDetailViewController.background.hnk_setImageFromURL(url, format: Format<UIImage>(name: "original"))
+            bookDetailViewController.background.hnk_setImageFromURL(url, format: format)
         }
         bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
         navigationController?.pushViewController(bookDetailViewController, animated: true)
