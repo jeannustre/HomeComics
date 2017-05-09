@@ -16,15 +16,6 @@ class ReaderViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     var pagesIndex: [URL] = []
     
-    var chaine: String = "" {
-        willSet(new) {
-            print("current: \(chaine) next: \(new)")
-        }
-        didSet {
-            
-        }
-    }
-    
     @IBOutlet weak var containerView: UIView!
     
     @IBAction func closeReader(_ sender: Any) {

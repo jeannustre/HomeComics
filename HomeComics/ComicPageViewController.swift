@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import Haneke
 
 // TODO: - Implement caching
 
@@ -61,8 +62,12 @@ class ComicPageViewController: UIPageViewController {
     }
     
     func setImage(url: URL, imageView: UIImageView){
-        let request = URLRequest(url: url)
-        
+        print("setting image with url: <\(url.description)>")
+        orderedViewControllers[0].view.layoutIfNeeded()
+        orderedViewControllers[1].view.layoutIfNeeded()
+        orderedViewControllers[2].view.layoutIfNeeded()
+        imageView.hnk_setImageFromURL(url)
+        /*
         if let image = self.imageCache?.image(for: request) {
             print("----- found image in cache! -----")
             imageView.image = image
@@ -75,7 +80,7 @@ class ComicPageViewController: UIPageViewController {
                 imageView.image = image
                 self.imageCache?.add(image, for: request)
             }
-        }
+        }*/
     }
     
     // MARK: - View lifecycle

@@ -18,6 +18,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     
     var searchController: UISearchController!
     let cache = Cache<UIImage>(name: "collection")
+    //let cache = DiskCache(path: "collection")
+//    let cache = Cache<UIImage>(name: <#T##String#>)
     let bookDataSource = BookDataSource()
     let count = 0
     let defaults = UserDefaults.standard
@@ -28,6 +30,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         // Do any additional setup after loading the view
         //self.collectionView.delegate
         //collectionView.bounds.origin = collectionView.bounds.origin  - collectionView.bounds.origin
+//        cache.
         self.setupNavBar()
         self.bookDataSource.setupCache()
         self.definesPresentationContext = true
@@ -105,11 +108,15 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
         let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
-        let format = Format<UIImage>(name: "original", diskCapacity: 30 * 1024 * 1024)
+        let capacity = UInt64(defaults.integer(forKey: "diskCache"))
+        let format = Format<UIImage>(name: "original", diskCapacity: capacity * 1024 * 1024)
+        print("Disk capacity : \(format.diskCapacity / (1024*1024))")
+        bookDetailViewController.book = bookDataSource.books[indexPath.row]
         if let url = URL(string: cell.imageURL!) {
             bookDetailViewController.view.layoutIfNeeded()
             bookDetailViewController.background.hnk_setImageFromURL(url, format: format)
         }
+        
         bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
         navigationController?.pushViewController(bookDetailViewController, animated: true)
     }

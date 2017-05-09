@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Reading" id="W4e-kB-FUh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1S-HO-oTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="-383"/>
+            <point key="canvasLocation" x="4444" y="-773"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="h8v-nP-38H">
@@ -194,6 +194,7 @@
                     <connections>
                         <outlet property="background" destination="gT0-7H-oVc" id="6Ul-4y-qxe"/>
                         <outlet property="popButton" destination="5lD-VT-ZQ7" id="1UC-Bo-8gW"/>
+                        <segue destination="W4e-kB-FUh" kind="presentation" identifier="startReading" id="tPh-nF-KwN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3C-Qq-dhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +253,6 @@
                     <connections>
                         <outlet property="fetchButton" destination="aPH-5R-X65" id="l7f-dA-sGk"/>
                         <outlet property="readButton" destination="E4Y-HA-njF" id="e0h-7I-5dV"/>
-                        <segue destination="W4e-kB-FUh" kind="show" identifier="startReading" id="yXg-Lr-uHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKA-aI-ifa" userLabel="First Responder" sceneMemberID="firstResponder"/>
