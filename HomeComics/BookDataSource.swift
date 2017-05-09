@@ -85,7 +85,6 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
             cell.imageURL = escapedUrl
             if let url = URL(string: escapedUrl!) {
                 cell.imageView.hnk_setImageFromURL(url)
-//                cell.imageView.af_setImage(withURL: url)
             } else {
                 print("invalid url?")
             }

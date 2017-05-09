@@ -13,10 +13,7 @@ import AlamofireObjectMapper
 class BookDetailViewController: UIViewController {
 
     @IBOutlet var background: UIImageView!
-    
-    //var image: UIImage?
-    
-    @IBOutlet var popButton: UIButton!
+    @IBOutlet var scrollView: UIScrollView!
     
     var book: Book?
     var bookLocation: String?
@@ -24,8 +21,8 @@ class BookDetailViewController: UIViewController {
     // TODO: define these with the user settings
     let baseURL = "http://127.0.0.1:1337"
     let cdnURL = "http://127.0.0.1:8080/"
-    
-    @IBAction func popAction(_ sender: UIButton) {
+
+    func startReading(sender: UIBarButtonItem?) {
         if let contents = book?.contents {
             for page in contents {
                 print("page: \(page)")
@@ -35,24 +32,15 @@ class BookDetailViewController: UIViewController {
             }
             performSegue(withIdentifier: "startReading", sender: nil)
         }
-//        print("urls: \(urls)")
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("detail view book : \(book)")
-        print("book id : \(book?.id)")
-        self.popButton.layer.cornerRadius = 5
-        self.popButton.clipsToBounds = true
-        let insets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        self.popButton.contentEdgeInsets = insets
+        let readButton = UIBarButtonItem(title: "Read", style: .plain, target: self, action: #selector(startReading(sender:)))
+        navigationItem.setRightBarButton(readButton, animated: false)
         if let id = book?.id {
             self.getBookContents(id: id)
         }
-       // background.image = self.image
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,12 +55,9 @@ class BookDetailViewController: UIViewController {
             let comicPageViewController = segue.destination as! ReaderViewController
             comicPageViewController.pagesIndex = self.urls
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     // MARK: - Private
-    
     private func getBookContents(id: Int) {
         let url = baseURL + "/book/\(id)"
         print("Requesting book contents on url : <\(url)>")
@@ -81,7 +66,7 @@ class BookDetailViewController: UIViewController {
             if let book = book {
                 self.book = book
             }
-            print("Did receive book!")
+            print("Received book contents!")
         }
     }
 

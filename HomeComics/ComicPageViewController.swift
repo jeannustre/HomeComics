@@ -22,6 +22,7 @@ class ComicPageViewController: UIPageViewController {
     var panGestureRecognizer: UIPanGestureRecognizer?
     var pageIndicator: UIBarButtonItem?
     let loadingImage = UIImage(named: "loading")
+    var format: Format<UIImage>?
     
     private(set) lazy var orderedViewControllers: [SinglePageViewController] = {
         return [self.newPageViewController(),
@@ -34,26 +35,8 @@ class ComicPageViewController: UIPageViewController {
     
     private func setupCache() {
         let defaults = UserDefaults.standard
-        let ramCache = defaults.integer(forKey: "ramCache")
-        let diskCache = defaults.integer(forKey: "diskCache")
-        let config = URLSessionConfiguration.default
-        let urlCache = URLCache(
-            memoryCapacity: 0,
-            diskCapacity: diskCache * 1000000,
-            diskPath: nil
-        )
-        config.urlCache = URLCache.shared
-        config.urlCache = urlCache
-        imageCache = AutoPurgingImageCache(
-            memoryCapacity: UInt64(ramCache * 1000000),
-            preferredMemoryUsageAfterPurge: UInt64(ramCache * 1000000 / 2)
-        )
-        downloader = ImageDownloader(
-            configuration: config,
-            downloadPrioritization: .fifo,
-            maximumActiveDownloads: 5,
-            imageCache: imageCache
-        )
+        let capacity = UInt64(defaults.integer(forKey: "diskCache"))
+        self.format = Format<UIImage>(name: "ReaderCache", diskCapacity: capacity * 1024 * 1024)
     }
     
     func attachPageIndicator(item: UIBarButtonItem) {
@@ -62,25 +45,11 @@ class ComicPageViewController: UIPageViewController {
     }
     
     func setImage(url: URL, imageView: UIImageView){
-        print("setting image with url: <\(url.description)>")
+        //TODO: Optimize this
         orderedViewControllers[0].view.layoutIfNeeded()
         orderedViewControllers[1].view.layoutIfNeeded()
         orderedViewControllers[2].view.layoutIfNeeded()
-        imageView.hnk_setImageFromURL(url)
-        /*
-        if let image = self.imageCache?.image(for: request) {
-            print("----- found image in cache! -----")
-            imageView.image = image
-            return
-        }
-        print("---   sending request for image   ---")
-        // TODO : error checks
-        downloader?.download(request) { response in
-            if let image = response.result.value {
-                imageView.image = image
-                self.imageCache?.add(image, for: request)
-            }
-        }*/
+        imageView.hnk_setImageFromURL(url, format: format)
     }
     
     // MARK: - View lifecycle
@@ -111,7 +80,6 @@ class ComicPageViewController: UIPageViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        imageCache?.removeAllImages()
     }
     
     private func newPageViewController() -> SinglePageViewController {

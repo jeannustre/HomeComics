@@ -18,21 +18,16 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     
     var searchController: UISearchController!
     let cache = Cache<UIImage>(name: "collection")
-    //let cache = DiskCache(path: "collection")
-//    let cache = Cache<UIImage>(name: <#T##String#>)
     let bookDataSource = BookDataSource()
     let count = 0
     let defaults = UserDefaults.standard
+    var format: Format<UIImage>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view
-        //self.collectionView.delegate
-        //collectionView.bounds.origin = collectionView.bounds.origin  - collectionView.bounds.origin
-//        cache.
         self.setupNavBar()
-        self.bookDataSource.setupCache()
+        self.setupCache()
         self.definesPresentationContext = true
         collectionView.dataSource = bookDataSource
         collectionView.delegate = self
@@ -45,7 +40,6 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
             print("Fetched authors through BookDataSource!")
             self.collectionView.reloadData()
         }
-        //let defaults = UserDefaults.standard
         let bgColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
         view.backgroundColor = bgColor
         collectionView.backgroundColor = bgColor
@@ -89,6 +83,12 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         }
     }
     
+    func setupCache() {
+        bookDataSource.setupCache()
+        let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
+        self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
+    }
+    
    /* func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
@@ -106,24 +106,23 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
     }*/
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
-        let bookDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
-        let capacity = UInt64(defaults.integer(forKey: "diskCache"))
-        let format = Format<UIImage>(name: "original", diskCapacity: capacity * 1024 * 1024)
-        print("Disk capacity : \(format.diskCapacity / (1024*1024))")
-        bookDetailViewController.book = bookDataSource.books[indexPath.row]
-        if let url = URL(string: cell.imageURL!) {
-            bookDetailViewController.view.layoutIfNeeded()
-            bookDetailViewController.background.hnk_setImageFromURL(url, format: format)
-        }
-        
-        bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-        navigationController?.pushViewController(bookDetailViewController, animated: true)
+        let book = bookDataSource.books[indexPath.row]
+        book.cover = "http://127.0.0.1:8080/" + book.cover!
+        performSegue(withIdentifier: "showDetail", sender: book)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            let bookDetailViewController = segue.destination as! BookDetailViewController
+            let book = sender as! Book
+            if let url = URL(string: (book.cover?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed))!) {
+                print("URL: \(url.description)")
+                bookDetailViewController.book = book
+                bookDetailViewController.view.layoutIfNeeded()
+                bookDetailViewController.background.hnk_setImageFromURL(url, format: self.format)
+                bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
+            }
+        }
     }
     
 
