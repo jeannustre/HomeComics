@@ -7,30 +7,31 @@
 //
 
 import UIKit
-import Alamofire
-import AlamofireObjectMapper
 import Chameleon
 import Haneke
 
-class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class BooksViewController: UIViewController, UISearchControllerDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     
+    // TODO: Define Formats elsewhere
     var searchController: UISearchController!
     let cache = Cache<UIImage>(name: "collection")
     let bookDataSource = BookDataSource()
-    let count = 0
     let defaults = UserDefaults.standard
+    let bgColor = UIColor(hexString: UserDefaults.standard.string(forKey: "primaryColor"))
     var format: Format<UIImage>?
     
+    //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupNavBar()
         self.setupCache()
+        self.setupCollectionView(bgColor)
+        self.view.backgroundColor = bgColor
         self.definesPresentationContext = true
-        collectionView.dataSource = bookDataSource
-        collectionView.delegate = self
+        
         bookDataSource.fetchBooks {
             print("Fetched books through BookDataSource!")
             self.collectionView.reloadData()
@@ -40,11 +41,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
             print("Fetched authors through BookDataSource!")
             self.collectionView.reloadData()
         }
-        let bgColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-        view.backgroundColor = bgColor
-        collectionView.backgroundColor = bgColor
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +49,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         // Dispose of any resources that can be recreated.
     }
     
-    func setupNavBar(){
+    //MARK: - Setup after View loaded
+    func setupNavBar() {
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
@@ -65,9 +63,58 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         self.navigationItem.titleView?.backgroundColor = navBarColor
     }
     
+    func setupCollectionView(_ backgroundColor: UIColor?) {
+        collectionView.dataSource = bookDataSource
+        collectionView.delegate = self
+        collectionView.backgroundColor = backgroundColor
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func setupCache() {
+        bookDataSource.setupCache()
+        let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
+        self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
+    }
+    
+    //MARK: - Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let bookDetailViewController = segue.destination as! BookDetailViewController
+            let book = sender as! Book
+            if let url = URL(string: (book.cover?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed))!) {
+                //print("URL: \(url.description)")
+                bookDetailViewController.book = book
+                bookDetailViewController.view.layoutIfNeeded()
+                bookDetailViewController.background.hnk_setImageFromURL(url, format: self.format)
+                bookDetailViewController.view.backgroundColor = bgColor
+            }
+        }
+    }
+    
+}
+
+//MARK: - Collection Delegate
+extension BooksViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = bookDataSource.books[indexPath.row]
+        book.cover = defaults.string(forKey: "cdnBaseURL")! + "/" + book.cover!
+        performSegue(withIdentifier: "showDetail", sender: book)
+    }
+    
+}
+
+//MARK: - Search Delegates
+extension BooksViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         
     }
+    
+}
+
+extension BooksViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("textDidChange : <\(searchText)>")
@@ -83,47 +130,6 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UISearchC
         }
     }
     
-    func setupCache() {
-        bookDataSource.setupCache()
-        let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
-        self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
-    }
-    
-   /* func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }*/
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let book = bookDataSource.books[indexPath.row]
-        book.cover = "http://127.0.0.1:8080/" + book.cover!
-        performSegue(withIdentifier: "showDetail", sender: book)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            let bookDetailViewController = segue.destination as! BookDetailViewController
-            let book = sender as! Book
-            if let url = URL(string: (book.cover?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed))!) {
-                print("URL: \(url.description)")
-                bookDetailViewController.book = book
-                bookDetailViewController.view.layoutIfNeeded()
-                bookDetailViewController.background.hnk_setImageFromURL(url, format: self.format)
-                bookDetailViewController.view.backgroundColor = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-            }
-        }
-    }
-    
-
 }
+
+
