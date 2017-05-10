@@ -19,6 +19,7 @@ class ServerSettingsTableViewController: UITableViewController {
 
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
+        serverAddressCell.serverAddressTextField.text = defaults.string(forKey: "serverBaseURL")
         serverAddressCell.serverAddressTextField.delegate = self
         serverAddressCell.selectionStyle = .none
     }

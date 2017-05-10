@@ -13,7 +13,6 @@ class ReaderViewController: UIViewController {
     
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var pageIndicatorToolbar: UIBarButtonItem!
-    @IBOutlet weak var button: UIButton!
     var pagesIndex: [URL] = []
     
     @IBOutlet weak var containerView: UIView!

@@ -106,22 +106,23 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		2D65CB801EBEA76600E95AAD /* Layout */ = {
+		2D744E471EC394DB004FA3D0 /* Reader */ = {
 			isa = PBXGroup;
 			children = (
+				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
+				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
+				AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */,
 			);
-			name = Layout;
+			name = Reader;
 			sourceTree = "<group>";
 		};
 		2DCA92B81EABF9A4003918E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2DFCCF881EB952AD002DFF2A /* Settings */,
-				2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */,
-				AB1742661E797408005E20AC /* ComicPageViewController.swift */,
 				2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
-				AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */,
+				2D744E471EC394DB004FA3D0 /* Reader */,
 				2DE5273B1EBEC82900AF785E /* Collection */,
 			);
 			name = "View Controllers";
@@ -216,7 +217,6 @@
 			children = (
 				2DCA92B81EABF9A4003918E3 /* View Controllers */,
 				ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */,
-				2D65CB801EBEA76600E95AAD /* Layout */,
 				2D65CB771EBE8CDF00E95AAD /* Models */,
 				2DCA92B91EABF9D0003918E3 /* Storyboards */,
 				2DCA92BA1EABF9E0003918E3 /* Components */,

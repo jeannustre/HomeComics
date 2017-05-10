@@ -21,6 +21,7 @@ class BookDetailViewController: UIViewController {
     // TODO: define these with the user settings
     let baseURL = "http://127.0.0.1:1337"
     let cdnURL = "http://127.0.0.1:8080/"
+    let defaults = UserDefaults.standard
 
     func startReading(sender: UIBarButtonItem?) {
         if let contents = book?.contents {
@@ -59,14 +60,19 @@ class BookDetailViewController: UIViewController {
     
     // MARK: - Private
     private func getBookContents(id: Int) {
-        let url = baseURL + "/book/\(id)"
-        print("Requesting book contents on url : <\(url)>")
-        Alamofire.request(url).responseObject { (response: DataResponse<Book>) in
+        var url = defaults.string(forKey: "serverBaseURL")
+        url = url! + "/book/\(id)"
+        let finalURL = url?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+        print("Requesting book contents on url : <\(String(describing: finalURL))>")
+        Alamofire.request(finalURL!).responseObject { (response: DataResponse<Book>) in
             let book = response.result.value
             if let book = book {
+                print("Received book contents!")
                 self.book = book
+            } else {
+                // TODO: Couldn't fetch book contents, warn user
             }
-            print("Received book contents!")
+            
         }
     }
 
