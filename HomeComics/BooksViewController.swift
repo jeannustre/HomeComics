@@ -69,12 +69,31 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
         collectionView.backgroundColor = backgroundColor
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshCollection(sender:)), for: .valueChanged)
+        refresh.tintColor = UIColor.white
+        collectionView.refreshControl = refresh
+        collectionView.addSubview(refresh)
     }
     
     func setupCache() {
         bookDataSource.setupCache()
         let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
         self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
+    }
+    
+    func refreshCollection(sender: UIRefreshControl?) {
+        bookDataSource.fetchBooks {
+            self.collectionView.refreshControl?.endRefreshing()
+            self.collectionView.reloadData()
+            print("Reloaded data")
+        }
+        // TODO: find a way to wait for the two completion handlers, without nesting them
+        /*bookDataSource.fetchAuthors {
+            self.collectionView.reloadData()
+            print("Reloading data..")
+        }*/
     }
     
     //MARK: - Segues
