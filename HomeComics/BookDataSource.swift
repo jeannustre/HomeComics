@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import AlamofireObjectMapper
-import AlamofireImage
 import Chameleon
 
 fileprivate let cellIdentifier = "bookCell"

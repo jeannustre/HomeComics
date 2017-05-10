@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D001DE31EB8E229006570DF /* Chameleon.framework */; };
 		2D4637FB1EC0F6C200BB652F /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4637FA1EC0F6C200BB652F /* Haneke.framework */; };
-		2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */; };
 		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
 		2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4B1EAD847400980867 /* ObjectMapper.framework */; };
 		2D65CB7B1EBE8D1C00E95AAD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB7A1EBE8D1C00E95AAD /* Author.swift */; };
@@ -94,7 +93,6 @@
 				2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */,
 				2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */,
 				2D610A4D1EAD847400980867 /* ObjectMapper.framework in Frameworks */,
-				2D49DAF71EAAEA5B00D212FC /* AlamofireImage.framework in Frameworks */,
 				ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +339,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",

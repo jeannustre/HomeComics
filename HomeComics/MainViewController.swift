@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 import Chameleon
 
 class MainViewController: UIViewController, UITextFieldDelegate {
