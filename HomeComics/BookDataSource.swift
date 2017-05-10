@@ -14,18 +14,16 @@ import Chameleon
 
 fileprivate let cellIdentifier = "bookCell"
 
-class BookDataSource: NSObject, UICollectionViewDataSource {
+class BookDataSource: NSObject {
     
     var books = [Book]()
     var filteredBooks = [Book]()
     var authors = [Author]()
-    let baseURL = "http://127.0.0.1:1337"
-    let cdnURL = "http://127.0.0.1:8080/"
     let defaults = UserDefaults.standard
     var searching = false
     
     func fetchBooks(completion: @escaping () -> ()) {
-        let url = baseURL + "/book"
+        let url = defaults.string(forKey: "serverBaseURL")! + "/book"
         Alamofire.request(url).responseArray { (response: DataResponse<[Book]>) in
             let bookArray = response.result.value
             if let bookArray = bookArray {
@@ -36,7 +34,7 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func fetchAuthors(completion: @escaping () -> ()) {
-        let url = baseURL + "/author"
+        let url = defaults.string(forKey: "serverBaseURL")! + "/author"
         Alamofire.request(url).responseArray { (response: DataResponse<[Author]>) in
             let authorArray = response.result.value
             if let authorArray = authorArray {
@@ -64,7 +62,11 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
     
     }
     
-    //MARK: - CollectionView DataSource delegate
+}
+
+//MARK: - CollectionView DataSource extension
+extension BookDataSource: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.searching {
             return filteredBooks.count
@@ -79,8 +81,8 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
         let cellBackground = UIColor(hexString: defaults.string(forKey: "secondaryColor"))
         cell.configureWith(book: book, authors: self.authors, background: cellBackground!)
         if let coverUrlString = book.cover {
-            print("URL : <\(cdnURL + coverUrlString)>")
-            let urlString = cdnURL + coverUrlString
+            let cdnURL = defaults.string(forKey: "cdnBaseURL")
+            let urlString = cdnURL! + "/" + coverUrlString
             let escapedUrl = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
             cell.imageURL = escapedUrl
             if let url = URL(string: escapedUrl!) {
@@ -91,5 +93,5 @@ class BookDataSource: NSObject, UICollectionViewDataSource {
         }
         return cell
     }
-    
+
 }
