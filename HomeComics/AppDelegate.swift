@@ -51,6 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if defaults.object(forKey: "serverBaseURL") == nil {
             defaults.set("http://127.0.0.1:1337/", forKey: "serverBaseURL")
         }
+        if defaults.object(forKey: "cdnBaseURL") == nil {
+            defaults.set("http://127.0.0.1:8080/", forKey: "cdnBaseURL")
+        }
         if defaults.object(forKey: "primaryColor") == nil {
             defaults.set(UIColor.flatBlueColorDark().hexValue(), forKey: "primaryColor")
         }

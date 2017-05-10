@@ -47,8 +47,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="serverAddressLabel" destination="k5f-eF-f8l" id="c9F-PD-XPQ"/>
-                                            <outlet property="serverAddressTextField" destination="9VE-Zg-tIB" id="GWd-pb-IMj"/>
+                                            <outlet property="label" destination="k5f-eF-f8l" id="eQv-qB-V94"/>
+                                            <outlet property="textField" destination="9VE-Zg-tIB" id="KLU-sf-BfP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="C5r-Le-5Ff" style="IBUITableViewCellStyleDefault" id="xfo-pi-vBD" customClass="HCTFTableViewCell" customModule="HomeComics" customModuleProvider="target">
@@ -78,8 +78,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="serverAddressLabel" destination="C5r-Le-5Ff" id="tZL-Ed-sOk"/>
-                                            <outlet property="serverAddressTextField" destination="kXS-6O-LWo" id="d6A-AG-3tw"/>
+                                            <outlet property="label" destination="C5r-Le-5Ff" id="bNx-RF-Ndn"/>
+                                            <outlet property="textField" destination="kXS-6O-LWo" id="0bb-wg-LZG"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -92,8 +92,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Server" id="b8z-IN-ELY"/>
                     <connections>
-                        <outlet property="cdnAddressCell" destination="xfo-pi-vBD" id="Mca-f0-Mxz"/>
-                        <outlet property="serverAddressCell" destination="Kxa-XK-epU" id="wbB-en-jby"/>
+                        <outlet property="cdnAddressCell" destination="xfo-pi-vBD" id="iyZ-QF-98t"/>
+                        <outlet property="serverAddressCell" destination="Kxa-XK-epU" id="V4i-TW-ZoI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXj-PG-QeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
