@@ -7,11 +7,7 @@
 //
 
 import UIKit
-import Alamofire
-import AlamofireImage
 import Haneke
-
-// TODO: - Implement caching
 
 class ComicPageViewController: UIPageViewController {
 
@@ -29,9 +25,6 @@ class ComicPageViewController: UIPageViewController {
                 self.newPageViewController(),
                 self.newPageViewController()]
     }()
-    // MARK: - Cache variables
-    var downloader: ImageDownloader?
-    var imageCache: AutoPurgingImageCache?
     
     private func setupCache() {
         let defaults = UserDefaults.standard
