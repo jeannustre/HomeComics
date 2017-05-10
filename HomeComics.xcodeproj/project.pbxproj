@@ -24,6 +24,7 @@
 		2DD531371EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */; };
 		2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */; };
 		2DDEF7E51EC1786A00A68AFA /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDEF7E41EC1786A00A68AFA /* Collection.storyboard */; };
+		2DDEF7E71EC1814300A68AFA /* HCTFTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEF7E61EC1814300A68AFA /* HCTFTableViewCell.swift */; };
 		2DE5273A1EBEC7FE00AF785E /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE527391EBEC7FE00AF785E /* BookDetailViewController.swift */; };
 		2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */; };
 		2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */; };
@@ -59,6 +60,7 @@
 		2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DD531381EBA3631007BEAEC /* ColorPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerTableViewController.swift; sourceTree = "<group>"; };
 		2DDEF7E41EC1786A00A68AFA /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
+		2DDEF7E61EC1814300A68AFA /* HCTFTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTFTableViewCell.swift; sourceTree = "<group>"; };
 		2DE527391EBEC7FE00AF785E /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		2DF6A3E21EABAB4000808096 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		2DFCCF841EB94B5F002DFF2A /* CacheSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
+				2DDEF7E61EC1814300A68AFA /* HCTFTableViewCell.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				2DE5273A1EBEC7FE00AF785E /* BookDetailViewController.swift in Sources */,
 				2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */,
 				2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */,
+				2DDEF7E71EC1814300A68AFA /* HCTFTableViewCell.swift in Sources */,
 				2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

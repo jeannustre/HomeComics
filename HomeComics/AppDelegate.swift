@@ -37,34 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupUserDefaults(_ defaults: UserDefaults) {
         if defaults.object(forKey: "ramCache") == nil {
-            print("Creating ramCache defaults key with value: 128")
             defaults.set(128, forKey: "ramCache")
         }
-//        if defaults.object(forKey: "ramCacheEnabled") == nil {
-//            print("Creating   defaults key with value: ")
-//        }
         if defaults.object(forKey: "diskCache") == nil {
-            print("Creating diskCache defaults key with value: 512")
             defaults.set(512, forKey: "diskCache")
         }
         if defaults.object(forKey: "coverCache") == nil {
-            print("Creating coverCache defaults key with value: 128")
             defaults.set(128, forKey: "coverCache")
         }
         if defaults.object(forKey: "downloadPriority") == nil {
-            print("Creating downloadPriority defaults key with value: true")
             defaults.set(true, forKey: "downloadPriority") // true:fifo, false:lifo
         }
         if defaults.object(forKey: "serverBaseURL") == nil {
-            print("Creating serverBaseURL defaults key with value: http://127.0.0.1:8080/")
-            defaults.set("http://127.0.0.1:8080/", forKey: "serverBaseURL")
+            defaults.set("http://127.0.0.1:1337/", forKey: "serverBaseURL")
         }
         if defaults.object(forKey: "primaryColor") == nil {
-         print("Creating primaryColor defaults key with value: \(UIColor.flatBlueColorDark().hexValue())")
             defaults.set(UIColor.flatBlueColorDark().hexValue(), forKey: "primaryColor")
         }
         if defaults.object(forKey: "secondaryColor") == nil {
-            print("Creating primaryColor defaults key with value: none")
             defaults.set("none", forKey: "secondaryColor")
         }
     }
