@@ -11,6 +11,8 @@ import UIKit
 class ServerSettingsTableViewController: UITableViewController {
 
     @IBOutlet var serverAddressCell: HCTFTableViewCell!
+    @IBOutlet var cdnAddressCell: HCTFTableViewCell!
+    
     let defaults = UserDefaults.standard
     
     //MARK: - View Lifecycle
@@ -19,14 +21,27 @@ class ServerSettingsTableViewController: UITableViewController {
 
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
-        serverAddressCell.serverAddressTextField.text = defaults.string(forKey: "serverBaseURL")
-        serverAddressCell.serverAddressTextField.delegate = self
-        serverAddressCell.selectionStyle = .none
+        self.setupCell(cell: serverAddressCell,
+                       text: defaults.string(forKey: "serverBaseURL"),
+                       delegate: self,
+                       tag: 0)
+        self.setupCell(cell: cdnAddressCell,
+                       text: defaults.string(forKey: "cdnBaseURL"),
+                       delegate: self,
+                       tag: 1)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Class methods
+    func setupCell(cell: HCTFTableViewCell, text: String?, delegate: UITextFieldDelegate?, tag: Int) {
+        cell.textField.text = text
+        cell.textField.tag = tag
+        cell.textField.delegate = delegate
+        cell.selectionStyle = .none
     }
     
 }
@@ -75,7 +90,9 @@ extension ServerSettingsTableViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         // TODO: textFieldDidEndEditing delegate method should be called here, but isn't.
         // Until this is fixed, saving address here.
-        defaults.set(textField.text, forKey: "serverBaseURL")
+        let key = textField.tag == 0 ? "serverBaseURL" : "cdnBaseURL"
+        print("Saving value for <\(key)>")
+        defaults.set(textField.text, forKey: key)
         return false
     }
     

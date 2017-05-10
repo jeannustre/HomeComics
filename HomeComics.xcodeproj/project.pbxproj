@@ -16,6 +16,9 @@
 		2D65CB7D1EBE900100E95AAD /* BookDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB7C1EBE900100E95AAD /* BookDataSource.swift */; };
 		2D65CB7F1EBE90A700E95AAD /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */; };
 		2D65CB821EBEA78800E95AAD /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */; };
+		2D744E4A1EC39B91004FA3D0 /* Server.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D744E491EC39B91004FA3D0 /* Server.storyboard */; };
+		2D744E4C1EC39BF3004FA3D0 /* Cache.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D744E4B1EC39BF3004FA3D0 /* Cache.storyboard */; };
+		2D744E4E1EC39C8C004FA3D0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D744E4D1EC39C8C004FA3D0 /* Interface.storyboard */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
 		2D9862531EBC111F00C599C7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9862521EBC111F00C599C7 /* Book.swift */; };
 		2DA44B211EBA7F59006B620F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */; };
@@ -52,6 +55,9 @@
 		2D65CB7C1EBE900100E95AAD /* BookDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataSource.swift; sourceTree = "<group>"; };
 		2D65CB7E1EBE90A700E95AAD /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		2D65CB811EBEA78800E95AAD /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D744E491EC39B91004FA3D0 /* Server.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Server.storyboard; sourceTree = "<group>"; };
+		2D744E4B1EC39BF3004FA3D0 /* Cache.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cache.storyboard; sourceTree = "<group>"; };
+		2D744E4D1EC39C8C004FA3D0 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
 		2D9862521EBC111F00C599C7 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,17 @@
 			name = Reader;
 			sourceTree = "<group>";
 		};
+		2D744E481EC39B72004FA3D0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */,
+				2D744E4B1EC39BF3004FA3D0 /* Cache.storyboard */,
+				2D744E4D1EC39C8C004FA3D0 /* Interface.storyboard */,
+				2D744E491EC39B91004FA3D0 /* Server.storyboard */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		2DCA92B81EABF9A4003918E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +151,7 @@
 				ABD19EB01E78BE44009725F3 /* Main.storyboard */,
 				2DDEF7E41EC1786A00A68AFA /* Collection.storyboard */,
 				2DBECD8D1EB82D050068ACCC /* Reading.storyboard */,
-				2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */,
+				2D744E481EC39B72004FA3D0 /* Settings */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -305,8 +322,11 @@
 				2DDEF7E51EC1786A00A68AFA /* Collection.storyboard in Resources */,
 				ABD19EB71E78BE44009725F3 /* LaunchScreen.storyboard in Resources */,
 				ABD19EB41E78BE44009725F3 /* Assets.xcassets in Resources */,
+				2D744E4C1EC39BF3004FA3D0 /* Cache.storyboard in Resources */,
+				2D744E4A1EC39B91004FA3D0 /* Server.storyboard in Resources */,
 				ABD19EB21E78BE44009725F3 /* Main.storyboard in Resources */,
 				2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */,
+				2D744E4E1EC39C8C004FA3D0 /* Interface.storyboard in Resources */,
 				2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

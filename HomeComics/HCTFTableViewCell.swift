@@ -11,15 +11,13 @@ import UIKit
 class HCTFTableViewCell: UITableViewCell {
 
     
-    @IBOutlet var serverAddressLabel: UILabel!
-    @IBOutlet var serverAddressTextField: UITextField!
+    @IBOutlet var label: UILabel!
+    @IBOutlet var textField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        print("tf width \(serverAddressTextField.bounds.width)")
-        //serverAddressTextField.bounds.width = 200
-        print("tf width \(serverAddressTextField.bounds.width)")
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
