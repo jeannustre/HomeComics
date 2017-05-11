@@ -18,7 +18,7 @@ class ComicPageViewController: UIPageViewController {
     var panGestureRecognizer: UIPanGestureRecognizer?
     var pageIndicator: UIBarButtonItem?
     let loadingImage = UIImage(named: "loading")
-    var format: Format<UIImage>?
+    //var format: Format<UIImage>?
     
     private(set) lazy var orderedViewControllers: [SinglePageViewController] = {
         return [self.newPageViewController(),
@@ -27,9 +27,7 @@ class ComicPageViewController: UIPageViewController {
     }()
     
     private func setupCache() {
-        let defaults = UserDefaults.standard
-        let capacity = UInt64(defaults.integer(forKey: "diskCache"))
-        self.format = Format<UIImage>(name: "ReaderCache", diskCapacity: capacity * 1024 * 1024)
+        
     }
     
     func attachPageIndicator(item: UIBarButtonItem) {
@@ -42,7 +40,7 @@ class ComicPageViewController: UIPageViewController {
         orderedViewControllers[0].view.layoutIfNeeded()
         orderedViewControllers[1].view.layoutIfNeeded()
         orderedViewControllers[2].view.layoutIfNeeded()
-        imageView.hnk_setImageFromURL(url, format: format)
+        imageView.hnk_setImageFromURL(url, format: HCFormats.shared.reader)
     }
     
     // MARK: - View lifecycle

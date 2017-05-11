@@ -79,8 +79,8 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
     
     func setupCache() {
         bookDataSource.setupCache()
-        let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
-        self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
+        //let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
+        //self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
     }
     
     func refreshCollection(sender: UIRefreshControl?) {
@@ -105,7 +105,7 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
                 //print("URL: \(url.description)")
                 bookDetailViewController.book = book
                 bookDetailViewController.view.layoutIfNeeded()
-                bookDetailViewController.background.hnk_setImageFromURL(url, format: self.format)
+                bookDetailViewController.background.hnk_setImageFromURL(url)
                 bookDetailViewController.view.backgroundColor = bgColor
             }
         }

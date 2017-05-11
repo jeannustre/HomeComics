@@ -35,6 +35,7 @@
 		2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */; };
 		2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */; };
 		2DFE6B951EC4DCE500DF861B /* Haneke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DFE6B8D1EC4DCD700DF861B /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2DFE6B971EC4DE0500DF861B /* HCFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE6B961EC4DE0500DF861B /* HCFormats.swift */; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
@@ -120,6 +121,7 @@
 		2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorySliderViewController.swift; sourceTree = "<group>"; };
 		2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haneke.xcodeproj; path = ../../../Desktop/HanekeSwift/Haneke.xcodeproj; sourceTree = "<group>"; };
+		2DFE6B961EC4DE0500DF861B /* HCFormats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCFormats.swift; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +210,7 @@
 			children = (
 				2D82C4071EABB6C7003502CA /* HCScrollView.swift */,
 				2DDEF7E61EC1814300A68AFA /* HCTFTableViewCell.swift */,
+				2DFE6B961EC4DE0500DF861B /* HCFormats.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				2D680C531EC3EF04002AC6CA /* InfoPopOverViewController.swift in Sources */,
 				2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */,
 				2DA44B211EBA7F59006B620F /* MainTabBarViewController.swift in Sources */,
+				2DFE6B971EC4DE0500DF861B /* HCFormats.swift in Sources */,
 				2D65CB7B1EBE8D1C00E95AAD /* Author.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
 				2DD531391EBA3631007BEAEC /* ColorPickerTableViewController.swift in Sources */,
