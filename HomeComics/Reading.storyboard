@@ -41,7 +41,13 @@
                                         <color key="tintColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ehc-d6-Yd9"/>
-                                    <barButtonItem title="Info" id="5bP-9c-YFp"/>
+                                    <barButtonItem title="Info" id="5bP-9c-YFp">
+                                        <connections>
+                                            <segue destination="3Zt-zu-vRM" kind="popoverPresentation" popoverAnchorBarButtonItem="5bP-9c-YFp" id="Off-QV-pT8">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -62,6 +68,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLc-gy-pcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="730" y="554"/>
+        </scene>
+        <!--Info Pop Over View Controller-->
+        <scene sceneID="j5V-Hw-Nff">
+            <objects>
+                <viewController id="3Zt-zu-vRM" customClass="InfoPopOverViewController" customModule="HomeComics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WPI-Gb-NQI"/>
+                        <viewControllerLayoutGuide type="bottom" id="3t1-3z-6l1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vjI-XJ-Nb9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQ0-ex-mNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="1331"/>
         </scene>
         <!--Single Page View Controller-->
         <scene sceneID="B3w-KI-h32">
