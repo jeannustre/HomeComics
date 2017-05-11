@@ -34,6 +34,7 @@
 		2DFCCF871EB94DE2002DFF2A /* RootSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */; };
 		2DFCCF8C1EB952ED002DFF2A /* ServerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */; };
 		2DFCCF8F1EB96F70002DFF2A /* MemorySliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */; };
+		2DFE6B951EC4DCE500DF861B /* Haneke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DFE6B8D1EC4DCD700DF861B /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB1742671E797408005E20AC /* ComicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1742661E797408005E20AC /* ComicPageViewController.swift */; };
 		AB7BC8911EB83DF000CBB635 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */; };
 		ABD19EAD1E78BE44009725F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD19EAC1E78BE44009725F3 /* AppDelegate.swift */; };
@@ -43,6 +44,50 @@
 		ABF4464E1E7987C700233721 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF4464D1E7987C700233721 /* MainViewController.swift */; };
 		ABF446501E7998B700233721 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF4464F1E7998B700233721 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DFE6B8C1EC4DCD700DF861B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A095C9561980418C00CD0F4C;
+			remoteInfo = "Haneke-iOS";
+		};
+		2DFE6B8E1EC4DCD700DF861B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6393C5F71C3B229200EB1FD8;
+			remoteInfo = "Haneke-tvOS";
+		};
+		2DFE6B901EC4DCD700DF861B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A095C9611980418C00CD0F4C;
+			remoteInfo = HanekeTests;
+		};
+		2DFE6B921EC4DCD700DF861B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A0026E9A19C9BFBC004DE0C6;
+			remoteInfo = HanekeDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2DFE6B941EC4DCDD00DF861B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2DFE6B951EC4DCE500DF861B /* Haneke.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2D001DE31EB8E229006570DF /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -74,6 +119,7 @@
 		2DFCCF861EB94DE2002DFF2A /* RootSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSettingsViewController.swift; sourceTree = "<group>"; };
 		2DFCCF8B1EB952ED002DFF2A /* ServerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2DFCCF8E1EB96F70002DFF2A /* MemorySliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorySliderViewController.swift; sourceTree = "<group>"; };
+		2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haneke.xcodeproj; path = ../../../Desktop/HanekeSwift/Haneke.xcodeproj; sourceTree = "<group>"; };
 		AB1742661E797408005E20AC /* ComicPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicPageViewController.swift; sourceTree = "<group>"; };
 		AB7BC8901EB83DF000CBB635 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		ABD19EA91E78BE44009725F3 /* HomeComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +259,17 @@
 			name = Cache;
 			sourceTree = "<group>";
 		};
+		2DFE6B861EC4DCD700DF861B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE6B8D1EC4DCD700DF861B /* Haneke.framework */,
+				2DFE6B8F1EC4DCD700DF861B /* Haneke.framework */,
+				2DFE6B911EC4DCD700DF861B /* HanekeTests.xctest */,
+				2DFE6B931EC4DCD700DF861B /* HanekeDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ABD19EA01E78BE43009725F3 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +305,7 @@
 		ABF446451E79854000233721 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */,
 				2D4637FA1EC0F6C200BB652F /* Haneke.framework */,
 				2D001DE31EB8E229006570DF /* Chameleon.framework */,
 				2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */,
@@ -270,6 +328,7 @@
 				ABD19EA61E78BE43009725F3 /* Frameworks */,
 				ABD19EA71E78BE43009725F3 /* Resources */,
 				ABF4464C1E79870200233721 /* ShellScript */,
+				2DFE6B941EC4DCDD00DF861B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -308,12 +367,49 @@
 			mainGroup = ABD19EA01E78BE43009725F3;
 			productRefGroup = ABD19EAA1E78BE44009725F3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2DFE6B861EC4DCD700DF861B /* Products */;
+					ProjectRef = 2DFE6B851EC4DCD700DF861B /* Haneke.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ABD19EA81E78BE43009725F3 /* HomeComics */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2DFE6B8D1EC4DCD700DF861B /* Haneke.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Haneke.framework;
+			remoteRef = 2DFE6B8C1EC4DCD700DF861B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFE6B8F1EC4DCD700DF861B /* Haneke.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Haneke.framework;
+			remoteRef = 2DFE6B8E1EC4DCD700DF861B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFE6B911EC4DCD700DF861B /* HanekeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HanekeTests.xctest;
+			remoteRef = 2DFE6B901EC4DCD700DF861B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFE6B931EC4DCD700DF861B /* HanekeDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = HanekeDemo.app;
+			remoteRef = 2DFE6B921EC4DCD700DF861B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ABD19EA71E78BE43009725F3 /* Resources */ = {
@@ -345,7 +441,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Haneke.framework",
 			);
 			outputPaths = (
 			);

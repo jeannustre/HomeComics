@@ -77,7 +77,7 @@ extension BookDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BookCollectionViewCell
         let book = self.searching ? filteredBooks[indexPath.row] : books[indexPath.row]
-        let cellBackground = UIColor(hexString: defaults.string(forKey: "secondaryColor"))
+        let cellBackground = UIColor(hexString: defaults.string(forKey: "primaryColor"))
         cell.configureWith(book: book, authors: self.authors, background: cellBackground!)
         if let coverUrlString = book.cover {
             let cdnURL = defaults.string(forKey: "cdnBaseURL")

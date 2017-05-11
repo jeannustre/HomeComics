@@ -18,16 +18,13 @@ class BookDetailViewController: UIViewController {
     var book: Book?
     var bookLocation: String?
     var urls: [URL] = []
-    // TODO: define these with the user settings
-    let baseURL = "http://127.0.0.1:1337"
-    let cdnURL = "http://127.0.0.1:8080/"
     let defaults = UserDefaults.standard
 
     func startReading(sender: UIBarButtonItem?) {
         if let contents = book?.contents {
             for page in contents {
                 print("page: \(page)")
-                let pageURL = cdnURL + page
+                let pageURL = defaults.string(forKey: "cdnBaseURL")! + page
                 let finalURL = pageURL.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
                 urls.append(URL(string: finalURL!)!)
             }
