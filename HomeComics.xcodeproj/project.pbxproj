@@ -93,8 +93,6 @@
 /* Begin PBXFileReference section */
 		2D001DE31EB8E229006570DF /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		2D4637FA1EC0F6C200BB652F /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
-		2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		2D610A4B1EAD847400980867 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		2D65CB7A1EBE8D1C00E95AAD /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -313,8 +311,6 @@
 				2D001DE31EB8E229006570DF /* Chameleon.framework */,
 				2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */,
 				2D610A4B1EAD847400980867 /* ObjectMapper.framework */,
-				2D49DAF61EAAEA5B00D212FC /* AlamofireImage.framework */,
-				2D49DAF41EAAC71F00D212FC /* SwiftyJSON.framework */,
 				ABF4464F1E7998B700233721 /* Alamofire.framework */,
 			);
 			name = Frameworks;
