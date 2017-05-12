@@ -22,8 +22,9 @@ class HCPickerTableViewCell: UITableViewCell {
 
         self.layoutIfNeeded()
         let bounds = container.bounds
-        let xOrigin = bounds.width / 4 / 2
-        let frame = CGRect(x: xOrigin, y: bounds.origin.y, width: bounds.width * 0.75, height: bounds.height)
+        let pickerWidth = bounds.width * 0.75
+        let xOrigin = (bounds.width - pickerWidth) / 2
+        let frame = CGRect(x: xOrigin, y: bounds.origin.y, width: pickerWidth, height: bounds.height)
         picker = AKPickerView(frame: frame)
         picker?.interitemSpacing = 20.0
         picker?.textColor = UIColor.flatGray()

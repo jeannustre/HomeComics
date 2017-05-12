@@ -46,7 +46,7 @@ class BookDataSource: NSObject {
     func searchWith(_ string: String, completion: @escaping () ->()) {
         if string.isEmpty {
             searching = false
-            //completion()
+            completion()
         } else {
             searching = true
             let filtered = self.books.filter { ($0.title?.lowercased().contains(string.lowercased()))! }
