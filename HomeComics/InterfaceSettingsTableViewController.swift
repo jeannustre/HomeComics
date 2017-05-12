@@ -7,22 +7,38 @@
 //
 
 import UIKit
+import AKPickerView
 
 class InterfaceSettingsTableViewController: UITableViewController {
 
     @IBOutlet var secondaryColorCell: UITableViewCell!
     @IBOutlet var primaryColorCell: UITableViewCell!
-    var defaults: UserDefaults?
+    @IBOutlet var booksPerRowCell: HCPickerTableViewCell!
+    
+    let pickerOptions = ["1", "2", "3", "4", "5", "6"] // Number of books per row
+    var defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        defaults = UserDefaults.standard
         self.primaryColorCell.imageView?.image = colorImage
         //self.primaryColorCell.imageView?.tintColor = UIColor.flatPink()
         self.secondaryColorCell.imageView?.image = colorImage
+        booksPerRowCell.picker?.delegate = self
+        booksPerRowCell.picker?.dataSource = self
+        let booksPerRowValue = defaults.integer(forKey: "booksPerRow")
+        print("booksPerRowValue : \(booksPerRowValue)")
+        
+        booksPerRowCell.picker?.selectItem(booksPerRowValue - 1)
+//        booksPerRowCell.
+        //print("cell bounds : \(self.booksPerRowCell.bounds.debugDescription)")
+//print("cell label bounds : \(self.booksPerRowCell.textLabel?.bounds.debugDescription)")
+        //self.booksPerRowCell.addSubview(picker)
+        
+       // self.booksPerRowCell.accessoryView = picker
+        
         //self.secondaryColorCell.imageView?.tintColor = UIColor.flatTealColorDark()
-        tableView.layoutMargins = UIEdgeInsets.zero
+        //tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         self.setColors()
     }
@@ -32,8 +48,8 @@ class InterfaceSettingsTableViewController: UITableViewController {
     }
     
     private func setColors() {
-        let primaryColorHex = defaults?.string(forKey: "primaryColor")
-        let secondaryColorHex = defaults?.string(forKey: "secondaryColor")
+        let primaryColorHex = defaults.string(forKey: "primaryColor")
+        let secondaryColorHex = defaults.string(forKey: "secondaryColor")
         
         self.primaryColorCell.imageView?.tintColor = UIColor(hexString: primaryColorHex)
         if secondaryColorHex != "none" {
@@ -67,4 +83,26 @@ class InterfaceSettingsTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension InterfaceSettingsTableViewController: AKPickerViewDataSource {
+    
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
+        return pickerOptions.count
+    }
+    
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return pickerOptions[item]
+    }
+    
+}
+
+extension InterfaceSettingsTableViewController: AKPickerViewDelegate {
+    
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
+        print("Selected item at \(item)")
+        let numberOfRows = Int(pickerOptions[item])
+        defaults.set(numberOfRows, forKey: "booksPerRow")
+    }
+    
 }

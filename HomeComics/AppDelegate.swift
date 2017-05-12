@@ -60,6 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if defaults.object(forKey: "secondaryColor") == nil {
             defaults.set("none", forKey: "secondaryColor")
         }
+        if defaults.integer(forKey: "booksPerRow") == 0 {
+            defaults.set(3, forKey: "booksPerRow")
+        }
     }
 
 

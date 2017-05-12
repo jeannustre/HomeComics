@@ -1,3 +1,4 @@
 github "Alamofire/Alamofire"
 github "tristanhimmelman/AlamofireObjectMapper"
 github "ViccAlexander/Chameleon"
+github "Akkyie/AKPickerView-Swift"

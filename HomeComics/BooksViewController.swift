@@ -153,10 +153,11 @@ extension BooksViewController: UISearchBarDelegate {
 
 //MARK: - Layout Delegate
 fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-fileprivate let itemsPerRow = 3
+//fileprivate let itemsPerRow = 3
 extension BooksViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemsPerRow = defaults.integer(forKey: "booksPerRow")
         let paddingSpace = sectionInsets.left * CGFloat((itemsPerRow + 1))
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / CGFloat(itemsPerRow)
