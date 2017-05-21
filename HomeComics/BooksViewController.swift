@@ -21,6 +21,7 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
     let defaults = UserDefaults.standard
     let bgColor = UIColor(hexString: UserDefaults.standard.string(forKey: "primaryColor"))
     var format: Format<UIImage>?
+    var bookSize: CGSize?
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -156,12 +157,14 @@ fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0
 extension BooksViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // TODO: cache this
-        let itemsPerRow = defaults.integer(forKey: "booksPerRow")
-        let paddingSpace = sectionInsets.left * CGFloat((itemsPerRow + 1))
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / CGFloat(itemsPerRow)
-        return CGSize(width: widthPerItem, height: widthPerItem * 1.5)
+        if self.bookSize == nil {
+            let itemsPerRow = defaults.integer(forKey: "booksPerRow")
+            let paddingSpace = sectionInsets.left * CGFloat((itemsPerRow + 1))
+            let availableWidth = view.frame.width - paddingSpace
+            let widthPerItem = availableWidth / CGFloat(itemsPerRow)
+            self.bookSize = CGSize(width: widthPerItem, height: widthPerItem * 1.5)
+        }
+        return self.bookSize!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
