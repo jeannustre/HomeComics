@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D001DE31EB8E229006570DF /* Chameleon.framework */; };
 		2D3DD6C31ED1304B0057FCFD /* Haneke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D3DD6BC1ED130180057FCFD /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2D3DD6C71ED146F60057FCFD /* Alertift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3DD6C61ED146F60057FCFD /* Alertift.framework */; };
 		2D4637FB1EC0F6C200BB652F /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4637FA1EC0F6C200BB652F /* Haneke.framework */; };
 		2D59818E1EC60CA000518E54 /* HCPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59818D1EC60CA000518E54 /* HCPickerTableViewCell.swift */; };
 		2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */; };
@@ -100,6 +101,7 @@
 /* Begin PBXFileReference section */
 		2D001DE31EB8E229006570DF /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		2D3DD6B41ED130180057FCFD /* Haneke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haneke.xcodeproj; path = ../HanekeSwift/Haneke.xcodeproj; sourceTree = "<group>"; };
+		2D3DD6C61ED146F60057FCFD /* Alertift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alertift.framework; path = Carthage/Build/iOS/Alertift.framework; sourceTree = "<group>"; };
 		2D4637FA1EC0F6C200BB652F /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
 		2D59818D1EC60CA000518E54 /* HCPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCPickerTableViewCell.swift; sourceTree = "<group>"; };
 		2D610A4A1EAD847400980867 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D3DD6C71ED146F60057FCFD /* Alertift.framework in Frameworks */,
 				2D4637FB1EC0F6C200BB652F /* Haneke.framework in Frameworks */,
 				2D001DE41EB8E229006570DF /* Chameleon.framework in Frameworks */,
 				2D610A4C1EAD847400980867 /* AlamofireObjectMapper.framework in Frameworks */,
@@ -313,6 +316,7 @@
 		ABF446451E79854000233721 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D3DD6C61ED146F60057FCFD /* Alertift.framework */,
 				2D3DD6B41ED130180057FCFD /* Haneke.xcodeproj */,
 				2D4637FA1EC0F6C200BB652F /* Haneke.framework */,
 				2D001DE31EB8E229006570DF /* Chameleon.framework */,
@@ -449,6 +453,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AKPickerView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alertift.framework",
 			);
 			outputPaths = (
 			);

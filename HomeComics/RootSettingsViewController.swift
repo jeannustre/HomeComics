@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alertift
 
 class RootSettingsViewController: UITableViewController {
 

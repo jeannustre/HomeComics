@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireObjectMapper
+import Alertift
 
 class BookDetailViewController: UIViewController {
 
@@ -28,6 +29,11 @@ class BookDetailViewController: UIViewController {
                 urls.append(URL(string: finalURL!)!)
             }
             performSegue(withIdentifier: "startReading", sender: nil)
+        } else {
+            // show alert
+            Alertift.alert(title: "Error", message: "Book has no contents field")
+                .action(.default("😔"))
+                .show(on: self)
         }
     }
     
@@ -73,3 +79,4 @@ class BookDetailViewController: UIViewController {
     }
 
 }
+

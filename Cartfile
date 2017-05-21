@@ -2,3 +2,4 @@ github "Alamofire/Alamofire"
 github "tristanhimmelman/AlamofireObjectMapper"
 github "ViccAlexander/Chameleon"
 github "Akkyie/AKPickerView-Swift"
+github "sgr-ksmt/Alertift" ~> 1.3
