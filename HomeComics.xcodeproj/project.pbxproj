@@ -22,7 +22,6 @@
 		2D744E4E1EC39C8C004FA3D0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D744E4D1EC39C8C004FA3D0 /* Interface.storyboard */; };
 		2D82C4081EABB6C7003502CA /* HCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C4071EABB6C7003502CA /* HCScrollView.swift */; };
 		2D9862531EBC111F00C599C7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9862521EBC111F00C599C7 /* Book.swift */; };
-		2DA44B211EBA7F59006B620F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */; };
 		2DBECD8E1EB82D050068ACCC /* Reading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8D1EB82D050068ACCC /* Reading.storyboard */; };
 		2DBECD901EB82FA20068ACCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */; };
 		2DD531371EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */; };
@@ -107,7 +106,6 @@
 		2D744E4D1EC39C8C004FA3D0 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		2D82C4071EABB6C7003502CA /* HCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCScrollView.swift; sourceTree = "<group>"; };
 		2D9862521EBC111F00C599C7 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2DBECD8D1EB82D050068ACCC /* Reading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reading.storyboard; sourceTree = "<group>"; };
 		2DBECD8F1EB82FA20068ACCC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DD531361EBA2E4A007BEAEC /* InterfaceSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				2DFCCF881EB952AD002DFF2A /* Settings */,
-				2DA44B201EBA7F59006B620F /* MainTabBarViewController.swift */,
 				ABF4464D1E7987C700233721 /* MainViewController.swift */,
 				2D744E471EC394DB004FA3D0 /* Reader */,
 				2DE5273B1EBEC82900AF785E /* Collection */,
@@ -470,7 +467,6 @@
 				2D9862531EBC111F00C599C7 /* Book.swift in Sources */,
 				2D680C531EC3EF04002AC6CA /* InfoPopOverViewController.swift in Sources */,
 				2DFCCF851EB94B5F002DFF2A /* CacheSettingsTableViewController.swift in Sources */,
-				2DA44B211EBA7F59006B620F /* MainTabBarViewController.swift in Sources */,
 				2DFE6B971EC4DE0500DF861B /* HCFormats.swift in Sources */,
 				2D65CB7B1EBE8D1C00E95AAD /* Author.swift in Sources */,
 				2DF6A3E31EABAB4000808096 /* SinglePageViewController.swift in Sources */,
