@@ -23,7 +23,6 @@ class BookDetailViewController: UIViewController {
     func startReading(sender: UIBarButtonItem?) {
         if let contents = book?.contents {
             for page in contents {
-                print("page: \(page)")
                 let pageURL = defaults.string(forKey: "cdnBaseURL")! + page
                 let finalURL = pageURL.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
                 urls.append(URL(string: finalURL!)!)

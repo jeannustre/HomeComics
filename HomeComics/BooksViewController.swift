@@ -80,8 +80,6 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
     
     func setupCache() {
         bookDataSource.setupCache()
-        //let diskCache = UInt64(defaults.string(forKey: "diskCache")!)! * 1024 * 1024
-        //self.format = Format<UIImage>(name: "GlobalDiskCache", diskCapacity: diskCache)
     }
     
     func refreshCollection(sender: UIRefreshControl?) {
@@ -93,7 +91,6 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
         // TODO: find a way to wait for the two completion handlers, without nesting them
         /*bookDataSource.fetchAuthors {
             self.collectionView.reloadData()
-            print("Reloading data..")
         }*/
     }
     
@@ -103,7 +100,6 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
             let bookDetailViewController = segue.destination as! BookDetailViewController
             let book = sender as! Book
             if let url = URL(string: (book.cover!)) {
-                print("URL: \(url.description)")
                 bookDetailViewController.book = book
                 bookDetailViewController.view.layoutIfNeeded()
                 bookDetailViewController.background.hnk_setImageFromURL(url)
@@ -153,7 +149,6 @@ extension BooksViewController: UISearchBarDelegate {
 
 //MARK: - Layout Delegate
 fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-//fileprivate let itemsPerRow = 3
 extension BooksViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

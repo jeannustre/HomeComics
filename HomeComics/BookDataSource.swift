@@ -31,7 +31,7 @@ class BookDataSource: NSObject {
             let bookArray = response.result.value
             if let bookArray = bookArray {
                 self.books = bookArray
-                var cdnAddress = self.defaults.string(forKey: "cdnBaseURL")
+                let cdnAddress = self.defaults.string(forKey: "cdnBaseURL")
                 for book in bookArray {
                     let urlString = cdnAddress! + "/" + book.cover!
                     book.cover = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
