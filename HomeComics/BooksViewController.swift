@@ -101,8 +101,8 @@ class BooksViewController: UIViewController, UISearchControllerDelegate {
         if segue.identifier == "showDetail" {
             let bookDetailViewController = segue.destination as! BookDetailViewController
             let book = sender as! Book
-            if let url = URL(string: (book.cover?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed))!) {
-                //print("URL: \(url.description)")
+            if let url = URL(string: (book.cover!)) {
+                print("URL: \(url.description)")
                 bookDetailViewController.book = book
                 bookDetailViewController.view.layoutIfNeeded()
                 bookDetailViewController.background.hnk_setImageFromURL(url)
@@ -118,7 +118,6 @@ extension BooksViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let book = bookDataSource.books[indexPath.row]
-        book.cover = defaults.string(forKey: "cdnBaseURL")! + "/" + book.cover!
         performSegue(withIdentifier: "showDetail", sender: book)
     }
     
@@ -157,6 +156,7 @@ fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0
 extension BooksViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // TODO: cache this
         let itemsPerRow = defaults.integer(forKey: "booksPerRow")
         let paddingSpace = sectionInsets.left * CGFloat((itemsPerRow + 1))
         let availableWidth = view.frame.width - paddingSpace

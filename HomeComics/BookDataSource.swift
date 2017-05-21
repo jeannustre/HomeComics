@@ -21,12 +21,21 @@ class BookDataSource: NSObject {
     let defaults = UserDefaults.standard
     var searching = false
     
+    private(set) lazy var cellBackgroundColor: UIColor = {
+        return UIColor(hexString: UserDefaults.standard.string(forKey: "primaryColor"))
+    }()
+    
     func fetchBooks(completion: @escaping () -> ()) {
         let url = defaults.string(forKey: "serverBaseURL")! + "/book"
         Alamofire.request(url).responseArray { (response: DataResponse<[Book]>) in
             let bookArray = response.result.value
             if let bookArray = bookArray {
                 self.books = bookArray
+                var cdnAddress = self.defaults.string(forKey: "cdnBaseURL")
+                for book in bookArray {
+                    let urlString = cdnAddress! + "/" + book.cover!
+                    book.cover = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+                }
             }
             completion()
         }
@@ -77,14 +86,10 @@ extension BookDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BookCollectionViewCell
         let book = self.searching ? filteredBooks[indexPath.row] : books[indexPath.row]
-        let cellBackground = UIColor(hexString: defaults.string(forKey: "primaryColor"))
-        cell.configureWith(book: book, authors: self.authors, background: cellBackground!)
+        cell.configureWith(book: book, authors: self.authors, background: cellBackgroundColor)
         if let coverUrlString = book.cover {
-            let cdnURL = defaults.string(forKey: "cdnBaseURL")
-            let urlString = cdnURL! + "/" + coverUrlString
-            let escapedUrl = urlString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
-            cell.imageURL = escapedUrl
-            if let url = URL(string: escapedUrl!) {
+            cell.imageURL = coverUrlString
+            if let url = URL(string: cell.imageURL!) {
                 cell.imageView.hnk_setImageFromURL(url)
             } else {
                 print("invalid url?")
